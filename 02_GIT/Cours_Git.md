@@ -198,6 +198,7 @@ git switch -c nouvelle_branche
     **Attention** Si ma branche comporte déjà des données (commits), git me demandera de remplacer -d par -D, il s'agit d'une sécurité.
 
 - Si je n'écris que `git branch`, j'obtiens la liste des mes branches.
+- `git branch -r` permet de voir les branches sur le remote (distant).
 
 - Enfin, la commande `git diff` que nous avons utilisés pour les commits donctionne également pour comparer mes branches:
 ```bash
