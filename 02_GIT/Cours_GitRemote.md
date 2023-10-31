@@ -67,10 +67,11 @@ git fetch nom_distant
 
 Cela récupérera les informations sur les branches et les tafs dur référentiel distant, mais ne fusionnera pas automatique les modifications dans votre branche locale.
 
-6. **Ensuite, pour travailler avec les modifications du référentiel distant, vous pouvezcréer une branche locale quit une branche distante avec `git checkout`**
+6. **Ensuite, pour travailler avec les modifications du référentiel distant, vous pouvez créer une branche locale qui suit une branche distante avec `git checkout`**
 
 ```bash
-git checkout -b nom_de_votre_branche_local nom_perso_du_repo/nom_de_la_branche_distante
+#origin pour reprendre une branche du remote (quant on a un seul remote)// nom_perso_du_repo quant on a plusieurs repo distants  
+git checkout -b nom_de_votre_branche_local [origin]ou[nom_perso_du_repo]/nom_de_la_branche_distante
 ```
 
 Vous avez maintenant connecté un référentiel distant à votre dossier local sans utiliser `git clone`.
