@@ -75,8 +75,16 @@ git checkout -b nom_de_votre_branche_local origin/nom_de_la_branche_distante
 Vous avez maintenant connecté un référentiel distant à votre dossier local sans utiliser `git clone`.
 
 ## Le Git Pull
+
 ```bash
 git pull branche_distante branche_locale
 #Exemple
 git pull origin main
 ```
+
+Lorsque vous exécutez un `git pull`, ces étapes se succèdent:
+1. Git commence par exécuter une opération `git fetch` pour récupérer toutes les modifications depuis la branche distante spécifiée. Cela met à jour les références distantes dans votre dépôt local pour réfléter l'état actuel du dépôt distant, mais à ce moment là, on ne modifie pas encore sa branche locale. 
+
+2. Fusion automatique: après avoir récupéré les informations distantes, Git exécute automatique une opération de fusion (ou de rebase, si vous lui spécifiez) pour intégrer les modifications récupérés dans votre branche locale. Si Git détecte des conflits entre les modifications distantes et locales, il vous demandera de les résoudre manuellement avant de terminer la fusion.
+
+3. Finalisation: Une fois que la fusion (ou la rebase ) est réussie, votre branche locale est mise à jour avec les dernières modifications de la branche distantes. Votre arborescence de travail reflète désormais l'état actuel de la branche distante.
