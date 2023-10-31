@@ -35,7 +35,7 @@ Assurez-vous de remplacer `main` par la branche que vous souhaitez pousser si vo
 8. **Consultez votre référentiel sur GitHub:** Après avoir poussé vos modifications, vous pouvez vous rendre sur votre référentiel GitHub pour voir les changements en ligne.  
 Votre référentiel Git local est maintenant connecté à GitHub, et vous pouvez continuer à travailler sur votre projet tout en collabarant avec d'autres personnes via GitHub.
 
-## Envoyer son projett sur GitHub sans Git Clone
+## Envoyer son projet sur GitHub sans Git Clone
 Pour rattacher un référentiel distant à un dossier local sans utiliser `git clone`, vous pouvez utiliser la commande `git remote` pour ajouter un repo distant et `git fetch` pour récupérer **les références** du dépot distant:
 
 1. **Créer un référentiel distant sur GitHub si ce n'est pas déjà fait** 
@@ -45,7 +45,8 @@ Pour rattacher un référentiel distant à un dossier local sans utiliser `git c
 3. **Ajouter le référentiel distant en utilisant `git remote add`:**
 
 ```bash
-git remote add nom_perso_distant url_du_référentiel
+# On peut renommer le repo 
+git remote add [nom_personalisé_repo_distant] [url_du_référentiel]
 ```
 
 Remplacez `nom perso_distant` par le nom que vous souhaitez (par exemple, origin) et vous récupérez l'url sur GitHub.
@@ -69,7 +70,7 @@ Cela récupérera les informations sur les branches et les tafs dur référentie
 6. **Ensuite, pour travailler avec les modifications du référentiel distant, vous pouvezcréer une branche locale quit une branche distante avec `git checkout`**
 
 ```bash
-git checkout -b nom_de_votre_branche_local origin/nom_de_la_branche_distante
+git checkout -b nom_de_votre_branche_local nom_perso_du_repo/nom_de_la_branche_distante
 ```
 
 Vous avez maintenant connecté un référentiel distant à votre dossier local sans utiliser `git clone`.
