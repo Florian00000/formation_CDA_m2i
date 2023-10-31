@@ -54,4 +54,10 @@ Il existe une autre méthode pour fusionner deux branches: le rebase
 
 - Le rebase peut être utilisé pour garder l'historique des commits plus propres et plus linéaire, mais il peut réécrire l'historique des ommits, ce qui peut causer des conflits si plusieurs contributeurs travaillent sur la même branche.
 
-- C'est une stratégie généralement recommandée pour les branche locales où vous voulez garder votre historique propre et pour intégrer régulièrement les mises à jour à la branche principale (main.)
+- C'est une stratégie généralement recommandée pour les branche locales où vous voulez garder votre historique propre et pour intégrer régulièrement les mises à jour à la branche principale (main).
+
+**Attention** : Si je souhaite rebase une branche "feature" sur ma branche principale, je viendrai me placer sur ma branche feature et j'utiliserai la commande:
+```bash
+git rebase main
+```
+S'il y a des conflits, Git vous demandera de les résoudre à mesure que chaque commit est réappliqué
