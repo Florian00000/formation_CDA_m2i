@@ -43,3 +43,9 @@ Si ces conflits ne sont pas voulus, **je peux annuler mon merge** grâce à l'op
 ```bash
 git merge --abort
 ```
+
+## Le `rebase`
+
+Il existe une autre méthode pour fusionner deux branches: le rebase 
+
+- le rebase réapplique séquentiellement chaque commit de la branche source sur **le dessus** de la branche de destination. Il "rejoue" l'historique des commits, ce qui donne l'apparence d'une ligne de temps linéaire et propre.
