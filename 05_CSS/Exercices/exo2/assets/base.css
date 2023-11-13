@@ -6,6 +6,12 @@ body{
     background-color: rgb(30, 144, 255);
 }
 
+/* test pour aggrandir la 1e lettre et la mettre comme une enluminure */
+p::first-letter{
+    font-size: 5rem;
+    float: inline-start;
+}
+
 img{
     border-radius: 1.5rem;    
     margin: auto;
