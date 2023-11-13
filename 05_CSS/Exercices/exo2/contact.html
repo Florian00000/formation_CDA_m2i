@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="./assets/base.css">
+</head>
+
+<body>
+    <header>
+
+        <hgroup>
+            <h1>John Doe</h1>
+            <h2>
+                Accueil
+            </h2>
+
+        </hgroup>
+
+
+        <nav>
+            <a href="./index.html">Accueil</a>
+            <a href="./horaires.html">Horaires</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Qui êtes vous?</legend>
+
+                    <label for="nom">Nom: </label>
+                    <input type="text" id="nom" placeholder="Martin" />
+                    <br>
+                    <label for="prenom">Prénom: </label>
+                    <input type="text" id="prenom" placeholder="John" />
+                    <br>
+                    <label for="naissance">Date de naissance: </label>
+                    <input type="date" id="naissance" />
+                    <br>
+                    <label for="sexe">Sexe: </label>
+                    <input type="radio" name="sexe" value="homme" id="sexe"> Homme
+                    <input type="radio" name="sexe" value="femme" id="sexe"> Femme
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Sujet de votre question</legend>
+
+                    <label for="urgent">Est-ce urgent?</label>
+                    <input type="checkbox" id="urgent" value="urgent">
+                    <br>
+                    <label for="probleme">Type dde problème?</label>
+                    <select name="probleme" id="probleme">
+                        <option value="ex">ex</option>                        
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Commentaire</legend>
+
+                    <label for="commentaire">Notes:</label>
+                    <br>
+                    <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>

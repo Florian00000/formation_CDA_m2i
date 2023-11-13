@@ -138,5 +138,5 @@ La méthode, elle, définit **le type d'envoi** de ces données. On le trouve so
 
 ### Le groupement de champs
 
-Si on veut regrouper manuellement un ensemble de champs d'un formulaire, on en a la possibilité grâce à la balise `fieldset`. Par défaut, elle encadrera les différents champs regroupés. On peut nommer ces différents groupements en utilisant à l'intérieur de mon `fieldset` la commande `legend`.
+Si on veut regrouper manuellement un ensemble de champs d'un formulaire, on en a la possibilité grâce à la balise `fieldset`. Par défaut, elle encadrera les différents champs regroupés. On peut nommer ces différents groupements en utilisant à l'intérieur de mon `fieldset` la balise `legend`.
 
