@@ -34,28 +34,37 @@
                     <legend>Qui êtes vous?</legend>
 
                     <label for="nom">Nom: </label>
-                    <input type="text" id="nom" placeholder="Martin" />
+                    <input type="text" id="nom" name="nom" placeholder="Martin" />
                     <br>
                     <label for="prenom">Prénom: </label>
-                    <input type="text" id="prenom" placeholder="John" />
+                    <input type="text" id="prenom" name="prenom" placeholder="John" />
                     <br>
                     <label for="naissance">Date de naissance: </label>
-                    <input type="date" id="naissance" />
+                    <input type="date" id="naissance" name="naissance" />
                     <br>
                     <label for="sexe">Sexe: </label>
                     <input type="radio" name="sexe" value="homme" id="sexe"> Homme
                     <input type="radio" name="sexe" value="femme" id="sexe"> Femme
                 </fieldset>
-                
+
                 <fieldset>
                     <legend>Sujet de votre question</legend>
 
                     <label for="urgent">Est-ce urgent?</label>
-                    <input type="checkbox" id="urgent" value="urgent">
+                    <input type="checkbox" id="urgent" value="urgent" name="urgent">
                     <br>
                     <label for="probleme">Type dde problème?</label>
                     <select name="probleme" id="probleme">
-                        <option value="ex">ex</option>                        
+                        <optgroup label="exemple optgroup">
+                            <option value="exemple">exemple</option>
+                            <option value="exemple2">ecemple 2</option>
+                        </optgroup>
+                        <optgroup label="optgroup2">
+                            <option value="exemple3">exemple3</option>
+                            <option value="exemple4">exemple4</option>
+                            <option value="exemple5">exemple5</option>
+                        </optgroup>
+
                     </select>
                 </fieldset>
 
@@ -64,8 +73,11 @@
 
                     <label for="commentaire">Notes:</label>
                     <br>
-                    <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+                    <textarea name="commentaire" id="commentaire"  rows="10"></textarea>
                 </fieldset>
+
+
+                <input type="submit" value="Envoyer ma question">
             </form>
         </section>
     </main>

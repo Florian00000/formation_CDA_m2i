@@ -8,17 +8,20 @@ body{
 
 img{
     border-radius: 1.5rem;    
+    margin: auto;
 }
 
 figure{
-    padding-left: 30vw;
+    /* padding-left: 34vw;      */
+    text-align: center;
 }
 
 header{
-    display: flex;
+    text-align: center;
+    /* display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 }
 
 hgroup{
@@ -33,6 +36,8 @@ a{
 a:hover{
     font-size: 1.1rem;
 }
+
+/* horaires */
 
 table{
     margin-top: 2rem;    
@@ -52,6 +57,51 @@ td{
     padding: 0 1.3rem 0 1.3rem;
 }
 
+/* contact */
+
 input{
     color: grey;
+}
+
+textarea{
+    resize: none;
+}
+
+form{
+    width: 50%;  
+    margin: auto;  
+    text-align: end;
+}
+
+textarea{
+    width: 100%;
+}
+
+fieldset {
+    padding: 1rem;
+    text-align: left;
+}
+
+input[type="submit"] {
+   background-color: blue;
+   color: whitesmoke;
+   border-radius: 1rem;
+   border-color: blue;
+}
+
+input[type="submit"]:hover{
+    border-color: whitesmoke;
+}
+
+
+select{
+   color: black;
+}
+
+optgroup{
+    color: black;
+}
+
+option{
+    color: black;
 }
