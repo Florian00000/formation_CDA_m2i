@@ -1,3 +1,8 @@
+/* variables CSS */
+:root{    
+    --testVar: chartreuse;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -37,7 +42,7 @@ section article:nth-child(1){
 }
 
 section article:nth-child(2){
-    background-color: blue;
+    background-color:var(--testVar);
     width: 50%;
 }
 
