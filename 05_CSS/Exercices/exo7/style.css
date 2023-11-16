@@ -34,6 +34,10 @@ li {
     border-radius: 1rem;
 }
 
+li:hover{
+    background-color: chartreuse;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -56,6 +60,9 @@ section {
     margin: 1rem;    
     width: calc(100% -1rem);
     height: 30vh;
+    
+    /* "overflow: hidden" permet de cacher le texte qui pourrait dépasser de l'élément parent */
+    overflow: hidden;
 
     & span {
         display: flex;
