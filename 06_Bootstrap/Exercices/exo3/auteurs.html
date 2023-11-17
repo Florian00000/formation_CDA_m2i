@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auteurs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.css">     -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"
+        defer></script>        
+</head>
+
+<body>
+
+    <header class="container-fluid p-0">
+        <nav class="navbar bg-dark navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                    class="text-light bi bi-database-down" viewBox="0 0 16 16">
+                    <path
+                        d="M12.5 9a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7Zm.354 5.854 1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V10.5a.5.5 0 0 0-1 0v2.793l-.646-.647a.5.5 0 0 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0Z" />
+                    <path
+                        d="M12.096 6.223A4.92 4.92 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.493 4.493 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.525 4.525 0 0 1-.813-.927C8.5 14.992 8.252 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.552 4.552 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10c.262 0 .52-.008.774-.024a4.525 4.525 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777ZM3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4Z" />
+                </svg>
+                <a class="navbar-brand ms-2" href="./index.html">eLibrary</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./index.html">Accueil
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Educatifs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Romans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Comics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Magazines</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Gestion</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="./auteurs.html">Auteurs</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <input class="form-control bg-light me-sm-2" type="search" placeholder="Titre, Date, Auteur">
+                        <button class="btn btn-dark btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-md">
+
+        <h1>Liste des auteurs</h1>
+
+        <table class="table table-hover table-dark overflow-hidden rounded-3" >
+            <thead class="text-center">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Ouvrages</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-secondary">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+                <tr class="table-dark">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+                <tr class="table-secondary">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+                <tr class="table-dark">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+                <tr class="table-secondary">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+                <tr class="table-dark">
+                    <th class="text-center py-5" scope="row">1</th>
+                    <td><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+                            class="bi bi-person-video" viewBox="0 0 16 16">
+                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
+                        </svg></td>
+                    <td class="text-center py-5">Victor Hugo</td>
+                    <td class="text-center py-5">26 Février 1802</td>
+                    <td >
+                        <ul class="mt-3">
+                            <li>Le Dernier jour d'un Condamné (1829)</li>
+                            <li>Les Contemplations (1866)</li>
+                            <li>Les Misérables (1862)</li>
+                        </ul>
+                    </td>
+                    <td class="text-center py-5">
+                                              
+                        <button type="button" class="btn btn-outline-info">Détails</button>
+                        <button type="button" class="btn btn-outline-secondary ">Editer</button>  
+                        <button type="button" class="btn btn-outline-danger ">Supprimer</button>
+                        </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+
+        <div class="row pe-0">
+            <div class="col-2 text-center ms-auto pe-0"><button type="button" class="btn btn-outline-success">Ajouter un auteur</button></div>
+            
+        </div>
+
+    </main>
+
+    <footer class="container-fluid bg-dark text-center">
+
+        <h4 class="text-light m-0 p-3">Copyright du site</h1>
+
+    </footer>
+
+</body>
+
+</html>
