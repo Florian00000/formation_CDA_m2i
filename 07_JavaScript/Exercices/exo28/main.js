@@ -25,12 +25,8 @@ monBouton.addEventListener("click", () => {
     const idPersonne = row.insertCell();
     idPersonne.textContent = compteurPersonne;
     compteurPersonne ++;
-
-    for (const key in personne) {
-      const cel = row.insertCell();
-      cel.textContent = personne[key];
-    }
-
+    
+    
     //Sans la boucle for
     // const nomPersonne = row.insertCell();
     // nomPersonne.textContent = nom.value;
@@ -40,6 +36,13 @@ monBouton.addEventListener("click", () => {
 
     // const datePersonne = row.insertCell();
     // datePersonne.textContent = dateNaissance.value;
+    
+    //Boucle for in, elle permet de passer tous les attributs de l'objet personne (marche comme for of pour les tableaux)
+    for (const key in personne) {
+      const cel = row.insertCell();
+      cel.textContent = personne[key];
+    }
+
   }
 });
 
