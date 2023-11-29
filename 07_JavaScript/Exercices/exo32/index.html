@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exo 32</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- modal de création de musique -->
+    <div style="display: none" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Créer une musique</h1>
+          <button id="modal-creer-fermer">X</button>
+        </div>
+        <form action="#" id="form-creer">
+          <div>
+            <label for="nom">Nom de la piste</label>
+            <input type="text" id="nom" name="name">
+          </div>
+          <div>
+            <label for="artiste">Artiste</label>
+            <input type="text" id="artiste" name="artise">
+          </div>
+          <div>
+            <label for="annee">Année</label>
+            <input type="text" id="annee" name="annee">
+          </div>
+          <div>
+            <input type="submit" value="Créer" id="submit-form-creer">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- modal d'édition de musique -->
+    <div style="display: none" class="modal" id="modal-edition">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Editer une musique</h1>
+          <button id="modal-editer-fermer">X</button>
+        </div>
+        <form action="#" id="form-editer">
+            <div>
+              <label for="id-editer">id à éditer</label>
+              <input type="text" id="id-editer" name="id-editer">
+            </div>
+
+          <div>
+            <label for="nom-editer">Nom de la piste</label>
+            <input type="text" id="nom-editer" name="nom-editer">
+          </div>
+          <div>
+            <label for="artiste-editer">Artiste</label>
+            <input type="text" id="artiste-editer" name="artise-editer">
+          </div>
+          <div>
+            <label for="annee-editer">Année</label>
+            <input type="text" id="annee-editer" name="annee-editer">
+          </div>
+          <div>
+            <input type="submit" value="Editer" id="submit-form-editer">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Page de base -->
+    <main>
+      <h1>exo 32</h1>
+      <hr />
+      <button id="bouton-creer">Créer une musique</button>
+
+      <table id="tableau">
+        <thead>
+          <tr>
+            <th>Nom</th>            
+            <th>Artiste</th>
+            <th>Année</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

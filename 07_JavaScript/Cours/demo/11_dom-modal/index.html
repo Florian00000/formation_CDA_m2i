@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Démo DOM - Modal / data-*</title>
+    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div style="display: none" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Modal Title</h1>
+          <button id="modal-btn-close">X</button>
+        </div>
+      </div>
+    </div>
+    <main>
+      <h1>Démo DOM - Modal / data-*</h1>
+      <hr />
+      <button id="btn-show-modal">Show Modal</button>
+      <ul id="mon-ul"></ul>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="mon-tbody"></tbody>
+      </table>
+      <hr />
+      <div>
+        <input type="text" id="id-to-del" />
+        <button id="delete-btn">Delete</button>
+      </div>
+    </main>
+  </body>
+</html>

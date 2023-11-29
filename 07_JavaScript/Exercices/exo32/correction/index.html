@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 32</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <div style="display: none" class="modal-background">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Ajouter un Chat</h3>
+          <button id="btn-modal-close">X</button>
+        </div>
+        <div class="modal-body">
+          <form action="#" id="form-cat">
+            <div>
+              <label for="name">Nom:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="breed">Race:</label>
+              <input type="text" id="breed" name="breed" required />
+            </div>
+            <div>
+              <label for="birthDate">Date de naissance:</label>
+              <input type="date" id="birthDate" name="birthDate" required />
+            </div>
+            <div>
+              <button>Ajouter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <main>
+      <h1>Exercice 32</h1>
+      <hr />
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Race</th>
+            <th>Date de naissance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="cat-display"></tbody>
+      </table>
+      <hr />
+      <div>
+        <button id="btn-add-cat">Ajouter un chat</button>
+      </div>
+    </main>
+  </body>
+</html>

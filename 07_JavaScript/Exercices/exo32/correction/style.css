@@ -1,0 +1,55 @@
+body, html {
+  margin: 0;
+}
+
+.modal-background {
+  height: 100dvh;
+  width: 100dvw;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000B0;
+
+  & .modal-content {
+    background-color: hsl(0, 0%, 95%);
+    width: min(800px, 80%);
+    height: min(80%, 600px);
+    box-sizing: border-box;
+    padding: 3%;
+    border-radius: 20px;
+
+    display: grid;
+    grid-template: 1fr 9fr / 1fr;
+
+    & .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & button {
+        border-radius: 9999999px;
+        padding: 1ch 1.5ch;
+        background-color: hsl(0, 0%, 85%);
+        border: none;
+      }
+    }
+
+    & .modal-body {
+      height: 100%;
+
+      & form {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        & div:has(button) {
+          margin-top: auto;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

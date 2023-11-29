@@ -15,7 +15,11 @@ export class Personne {
     }
 
     set nom (value) {
-        this.#nom = value;
+        if (value === "Gustave-Adolphe") {
+            console.log("Ce nom n'est pas accessible");
+        } else {
+            this.#nom = value;            
+        }
     }
 
     get prenom () {
@@ -32,5 +36,17 @@ export class Personne {
 
     set dateNaissance (value) {
         this.#dateNaissance = value;
+    }
+
+    get nomComplet () {
+        return `${this.#prenom} ${this.#nom}`
+    }
+
+    get tablePropietes () {
+        return [
+            this.#nom,
+            this.#prenom,
+            this.#dateNaissance
+        ]
     }
 }
