@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo33</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <form action="#" id="form-minuteur">
+        <div>
+            <h1>Entrez la valeur du minuteur</h1>
+            <label for="temps-heures">heures</label>
+            <input type="number" name="temps-heures" id="temps-heures">
+
+            <label for="temps-minutes">minutes</label>
+            <input type="number" name="temps-minutes" id="temps-minutes">
+
+            <label for="temps">secondes</label>
+            <input type="number" name="temps" id="temps">            
+        </div>
+
+        <div>
+            <input type="submit" value="Démarer">
+            <input type="reset" value="Réinitialiser" id="reset">
+        </div>
+
+    </form>
+
+    <hr/>
+    <p>Temps restant: <b id="minuteur"></b> </p>
+    
+</body>
+</html>
