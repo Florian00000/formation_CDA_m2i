@@ -7,4 +7,4 @@ Réaliser une application via HTML / CSS et Javascript permettant à un utilisat
 * Pour pouvoir supprimer un élément de notre tableau, un bouton sera présent sur chacune des lignes du tableau et permettra ladite suppresion lors de son clic
 
 BONUS : Permettre également, via un modal / formulaire, la possibilité d'éditer les données de notre application. 
-BONUS Bis : Faire en sorte que l'élément choisi utilise une date obtenue à partir de l'objet `Date` dont on peut instancier un élément via `new Date()`
+BONUS Bis : Faire une fonction de tri (selon les attributs disponibles dans la classe que vous avez choisi)

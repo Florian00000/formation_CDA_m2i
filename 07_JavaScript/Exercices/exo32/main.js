@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //On modifie le tableau de la page principale
     const tableHtml = document.querySelector("table tbody");
     const row = tableHtml.insertRow();
+    row.setAttribute("data-exo32-id-musique", musique.id);
 
     for (const key in musique) {
       row.insertCell().textContent = musique[key];
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //On créer un bouton pour l'édition
     const boutonEdition = document.createElement("button");
     boutonEdition.textContent = "Editer";
-    boutonEdition.setAttribute("data-exo32-id-musique", musique.id)
+    boutonEdition.setAttribute("data-exo32-id-musique-bouton", musique.id)
     //On gère le formulaire d'édition
     boutonEdition.addEventListener("click", () => { 
       const modalEdition = document.getElementById("modal-edition");
@@ -78,30 +79,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === event.currentTarget) modalEdition.style.display = "none";
   });  
   
-  //partie non finie
-  //gestion du formulaire d'édition
-  // document.getElementById("form-editer").addEventListener("submit", (event) => {
-  //   event.preventDefault();
+  
+  // gestion du formulaire d'édition
+  document.getElementById("form-editer").addEventListener("submit", (event) => {
+    event.preventDefault();
 
 
 
-  //   const idMusique = document.getElementById("id-editer");
-  //   const nomMusique = document.getElementById("nom-editer");
-  //   const artisteMusique = document.getElementById("artiste-editer");
-  //   const anneeMusique = document.getElementById("annee-editer");
+    const idMusique = document.getElementById("id-editer");
+    const nomMusique = document.getElementById("nom-editer");
+    const artisteMusique = document.getElementById("artiste-editer");
+    const anneeMusique = document.getElementById("annee-editer");
 
-  //   if (idMusique) {
-  //     document.querySelector(`[data-exo32-id-musique="${idMusique}"]`)
-  //     console.log("ca marche");
+    if (idMusique) {            
+      document.querySelector(`[data-exo32-id-musique="${idMusique.value}"] td:nth-child(2)`).textContent = nomMusique.value;      
+      document.querySelector(`[data-exo32-id-musique="${idMusique.value}"] td:nth-child(3)`).textContent = artisteMusique.value;
+      document.querySelector(`[data-exo32-id-musique="${idMusique.value}"] td:nth-child(4)`).textContent = anneeMusique.value;
+      let editMusique = tableauMusiques.find((element)=> element?.id == idMusique.value);
+      editMusique.editerMusique(nomMusique.value, artisteMusique.value, anneeMusique.value);
+    }
 
+    //On ferme le formulaire de création
+    modalEdition.style.display = "none";
 
-
-  //     // const editMusique = tableauMusiques.find()
-  //   }
-
-  // })
+  })
 
 });
-
-
-//Il faut rajouter un attribue à la row

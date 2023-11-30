@@ -16,4 +16,10 @@ export class Musique {
     get id () {
         return this.id;
     }
+
+    editerMusique (nom, artiste, annee) {
+        this.nom = nom;
+        this.artiste = artiste;
+        this.annee = annee;
+    }
 }
