@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 33</title>
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Exercice 33</h1>
+      <hr />
+      <h2>Minuteur</h2>
+      <form action="#" id="minuteur-form">
+        <input type="number" min="0" max="59" id="hours" />
+        <input type="number" min="0" max="59" id="minutes" />
+        <input type="number" min="0" max="59" id="seconds" />
+        <button>Start</button>
+      </form>
+      <p>La valeur du minuteur: <b id="minuteur-display">00:00:00</b></p>
+      <hr />
+      <h2>Chronomètre</h2>
+      <p>La valeur du chronomètre: <b id="chrono-display">00:00:00</b></p>
+      <button id="chrono-start">Start</button>
+      <button id="chrono-pause">Pause</button>
+      <button id="chrono-lap">Lap</button>
+      <ol id="chrono-listing"></ol>
+    </main>
+  </body>
+</html>
