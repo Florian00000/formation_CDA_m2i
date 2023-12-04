@@ -27,6 +27,7 @@ main{
             padding: 2ch;
             border-radius: 9999999px;
             color: whitesmoke;
+            cursor: pointer;
         }
 
         & button:hover{
@@ -45,6 +46,7 @@ main{
             padding: 2ch;
             border-radius: 9999999px;
             color: whitesmoke;
+            cursor: pointer;
         }
 
         & button:hover{
