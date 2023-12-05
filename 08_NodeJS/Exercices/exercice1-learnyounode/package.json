@@ -1,0 +1,12 @@
+{
+  "name": "exercice1-learnyounode",
+  "version": "1.0.0",
+  "description": "learnyournode",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Florian",
+  "license": "ISC"
+}
