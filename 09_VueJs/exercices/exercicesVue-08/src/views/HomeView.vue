@@ -1,6 +1,7 @@
 <script setup>
 
-import {inject} from 'vue'
+import {inject} from 'vue';
+import { RouterLink } from 'vue-router';
 
 const customerlist = inject('customerlist').customerlist;
 
@@ -18,9 +19,9 @@ console.log(customerlist);
         <h3> {{ customer.name }}</h3>
         <p>{{ customer.email }}</p>
         <p>{{ customer.phone }}</p>
-        <button type="button" class="btn btn-primary">
-            <RouterLink :to="`/customer/${customer.id - 1}`"></RouterLink> Cliquez pour plus de détails
-        </button>
+        
+            <RouterLink :to="`/customer/${customer.id}`" class="btn btn-primary">Cliquez pour plus de détails</RouterLink> 
+        
     </div>
 </section>
 </template>

@@ -18,6 +18,10 @@ console.log(customers);
 
 <template>
 
+  <header>
+   <h2>Ceci est un header</h2>
+  </header>
+
   <RouterView/>
   
 </template>
