@@ -1,5 +1,25 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { inject } from 'vue';
+import { RouterLink, RouterView, useRouter } from 'vue-router';
+
+const {user,updateUser} = inject("user");
+const router = useRouter();
+
+function login(){
+  updateUser({name: "User"});
+}
+
+function logout(){
+  updateUser(null);
+  router.push('/');
+}
+
+
+function switchLoggedStatus(){
+  if(user.value) logout();
+  else login();
+}
+
 
 </script>
 
@@ -10,6 +30,10 @@ import { RouterLink, RouterView } from 'vue-router';
       <li><RouterLink to="/">Home</RouterLink></li>
       <li><RouterLink to="/about">About</RouterLink></li>
       <li><RouterLink to="/contact">Contacts</RouterLink></li>
+      <li v-if="user"><RouterLink to="/private">Private</RouterLink></li>
+      <li style="margin-left: auto; color:white;" v-if="user">Hello {{ user.name }}</li>
+      <li><button @click="switchLoggedStatus">{{!user? "Sign In" : "Sign Out"  }}</button></li>
+
     </ul>
   </nav>
 </header>

@@ -6,6 +6,8 @@ import SecondAboutView from '../views/about/SecondAboutView.vue';
 import ContactView from '../views/ContactView.vue';
 import ContactDetails from '../views/ContactDetails.vue';
 import AboutView from '../views/AboutView.vue';
+import PrivateView from '../views/PrivateView.vue';
+import {inject} from 'vue';
 
 
 const router = createRouter({
@@ -22,9 +24,16 @@ const router = createRouter({
       {path: "first", component: FirstAboutView},
       {path: "second", component: SecondAboutView}
     ]
-  }
+  },
+  {path: '/private' , component : PrivateView},
   ]
 }
-
 );
+router.beforeEach((to,from)=>{
+  if(to.path.startsWith("/private")){
+    const {user} = inject("user");
+    if(user.value) return true;
+    else return "/";
+  }else return true;
+});
 export default router;

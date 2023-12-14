@@ -19,12 +19,21 @@ const contacts = ref([
 
 ]);
 
+const user = ref(null);
 
+function updateUser(newUser){
+  user.value = newUser;
+
+}
 
 
 const app = createApp(App);
 app.provide("contacts",{
   contacts
+});
+app.provide("user",{
+  user,
+  updateUser,
 });
 app.use(router);
 app.mount("#app");
