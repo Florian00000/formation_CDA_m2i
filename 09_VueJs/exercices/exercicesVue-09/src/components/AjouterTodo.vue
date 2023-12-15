@@ -23,14 +23,29 @@ function ajouterTodo() {
 <template>
 
     
-    <form v-on:submit.prevent="ajouterTodo">
+    <form v-on:submit.prevent="ajouterTodo" >
       <input type="text" placeholder="J'ai besoin de..." class="form-control" v-model="nomTodo">
-      <button type="submit" class="btn btn-warning">Ajouter</button>
+      <button type="submit" class="btn btn-warning ms-1">Ajouter</button>
     </form>
   
 
 </template>
 
 <style scoped>
+
+input{
+  width: 20%;
+  margin-left: auto;
+}
+
+button{
+  margin-right: auto;
+}
+
+form{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
 
 </style>
