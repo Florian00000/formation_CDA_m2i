@@ -5,6 +5,7 @@ import HomeView from "../views/HomeView.vue";
 import GamesListView from "../views/games/GamesListView.vue";
 import GameDetailsView from "../views/games/GameDetailsView.vue";
 import GameFormView from "../views/games/GameFormView.vue";
+import ZipView from '../views/ZipView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,7 @@ const router = createRouter({
     { path: "/games", component: GamesListView },
     { path: "/games/add", component: GameFormView },
     { path: "/games/details/:gameId", component: GameDetailsView },
+    {path: "/zip", component: ZipView}
   ],
 });
 
