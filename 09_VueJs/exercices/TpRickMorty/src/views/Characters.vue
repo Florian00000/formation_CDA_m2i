@@ -5,11 +5,20 @@ import changePage from '../components/changePage.vue';
 </script>
 
 <template>
-  <main class="container">   
+  <main class="container">
     
-    <changePage/>
+    <div class="boutonsPages">
+      <changePage/>
+
+    </div>
+    
 
     <listCharacter/>
+
+    <div class="boutonsPages">
+      <changePage/>
+
+    </div>
   
   </main>
 </template>
@@ -18,6 +27,10 @@ import changePage from '../components/changePage.vue';
 
 main{
   margin-top: 1rem;  
+}
+
+.boutonsPages{
+  text-align: center;  
 }
 
 </style>
