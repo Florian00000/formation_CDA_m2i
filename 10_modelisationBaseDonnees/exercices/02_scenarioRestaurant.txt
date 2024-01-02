@@ -1,0 +1,6 @@
+TABLE: id_table / nbPlaces / [id_clients]
+CLIENTS: id_clients/ Nom / telephone
+COMMANDES: id_commandes/ [id_clients] / [id_plats]
+PLATS: id_plats / Nom / prix 
+RECETTES: id_recette/ [id_plats] / [id_ingredients]
+INGREDIENTS: id_ingredients/ Nom / dlc 
