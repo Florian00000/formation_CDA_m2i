@@ -42,6 +42,7 @@ WHERE job IN ('Developer');
 - MAX()
 - COUNT()
 - SUM()
+- ROUND()
 - AVG() (calcule la valeur moyenne de la colonne)
 
 exemple 
@@ -61,3 +62,18 @@ FROM users
 WHER job = 'Devloper';
 ```
 Ici le résultat est renommé en developer_min_age.
+
+## GROUP BY
+
+- sert surtout à aplliquer des fonctions d'agrégations sur des groupes prédéfinis.
+
+## HAVING
+
+- filtre dédié au `GROUP BY` 
+- filtre après un `WHERE`
+
+## LIKE
+
+- filtre en utilisant des patterns de texte 
+    - exemple `p%` commence par un p
+    - exemple `_o%` a un o en 2e lettre
