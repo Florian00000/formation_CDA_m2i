@@ -67,6 +67,20 @@ VALUE
 SELECT *
 FROM commandes;
 
+    
+INSERT INTO commandes_jeux (id_commande, id_jeu)
+VALUE 
+	(1, 10),
+    (1, 11),
+    (2, 1),
+    (2, 13),
+    (2, 15),
+    (3, 1);
+
+SELECT * 
+FROM commandes_jeux;
+    
+
 -- On enlève la sécurité enfant
 SET SQL_SAFE_UPDATES = 0;
 
@@ -78,3 +92,4 @@ WHERE id = 3;
 -- Supprimez le jeu avec l'ID 2 (Dixit) de la table "Jeux"
 DELETE FROM jeux
 WHERE id = 2 ;
+

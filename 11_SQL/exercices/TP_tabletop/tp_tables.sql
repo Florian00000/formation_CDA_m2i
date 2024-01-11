@@ -37,7 +37,7 @@ CREATE TABLE jeux(
 CREATE TABLE commandes(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     id_client INT NOT NULL, 
-    date_de_commande DATETIME DEFAULT CURRENT_TIMESTAMP,
+    date_de_commande DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, -- not null au cas où on perd la connexion ou l'accès à l'horloge au moment de l'enregistrement de la commande
     adresse_de_livraison VARCHAR(255) NOT NULL,
     statut BOOLEAN DEFAULT FALSE,
     
