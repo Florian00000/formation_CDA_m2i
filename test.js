@@ -1,0 +1,1 @@
+let ᡉᢆ᠗ᡅ = "marine mongole";
