@@ -21,14 +21,24 @@ Repository de la formation CDA JS/JAVA
     - [Introduction au CSS Grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/CSS_grid.md#introduction-au-css-grid)
     - [Le responsive en CSS](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/CSS_responsive.md)
 
-- [Bootstrap](https://github.com/Florian00000/formation_CDA_m2i/blob/main/06_Bootstrap/Cours/Bootstrap%2C%20framework%20CSS.pdf)    
+- [Bootstrap](https://github.com/Florian00000/formation_CDA_m2i/blob/main/06_Bootstrap/Cours/Bootstrap%2C%20framework%20CSS.pdf) 
+
+- [JavaScript](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Cours)
+    - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/07_JavaScript/Cours/javascript-m2i.pdf)
+    - [Démonstration](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Cours/demo)
+
+- [Node.JS](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/02_node.js)
+    - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/08_NodeJS/support/nodejs_m2i.pdf)
+    - [Node Package Manager (NPM) dans Node.js](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/01_Cours-NPM.md)
+    - [Gestion des modules en Node.js](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/02_Cours-modules.md)
+    - [Démonstration](https://github.com/Florian00000/formation_CDA_m2i/tree/main/08_NodeJS/demos)
       
-- Annexes:
-    - [Markdown](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/01_Markdown/cours_markdown.md)
-    - [CLI (Interface en ligne de Commandes)](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/02_CLI/Cours_CLI.md)
-    - [box_model](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/box_model.png)
-    - [css-flexbox](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-flexbox-poster.png)
-    - [css-grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-grid-poster.png)
+### Annexes:
+- [Markdown](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/01_Markdown/cours_markdown.md)
+- [CLI (Interface en ligne de Commandes)](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/02_CLI/Cours_CLI.md)
+- [box_model](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/box_model.png)
+- [css-flexbox](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-flexbox-poster.png)
+- [css-grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-grid-poster.png)
 
 ## Exercices:
 
@@ -38,3 +48,11 @@ Repository de la formation CDA JS/JAVA
 
 - [Bootstrap](https://github.com/Florian00000/formation_CDA_m2i/tree/main/06_Bootstrap/Exercices)
     - [exercice liste auteurs](https://github.com/Florian00000/formation_CDA_m2i/tree/main/06_Bootstrap/Exercices/exo3)
+
+- [Javascript](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices)
+    - [exercice liste Contacts](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo24)
+    - [exercice minuteur](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo33)
+    - [exercice classes](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo35)
+    - [mini Tp ApiPokemon](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo34TpApiPokemon)
+
+- [Node.Js learnyounode](https://github.com/Florian00000/formation_CDA_m2i/tree/main/08_NodeJS/Exercices/exercice1-learnyounode)    

@@ -41,3 +41,64 @@ module.exports = {
   apiUrl
 };
 ```
+
+## 4. Nouvelle syntaxe
+
+En Node.js, l'utilisation de la syntaxe d'import/export se fait aussi très souvent avec ECMAScript (ES) Modules depuis la version 13.2.0. Voici comment se construit cette nouvelle syntaxe:
+
+**Exportation d'un module:**
+
+```js
+//myModule.js
+export const myVariable = "Hello World !";
+
+export function myFunction() {
+  console.log("This is a function.");
+}
+```
+
+**Importation dans un autre module:**
+
+```js
+//autreModule.js
+import {myVariable, myFunction} from './myModule'
+
+console.log(myVariable);
+myFunction();
+```
+
+**Attention:** Assurez-vous de configurer votre projet pour autoriser l'utilisation des modules ES en ajoutant `"type": "module"` à votre fichier `package.json`.
+
+```json
+// package.json
+{
+  "type": "module",
+  "scripts": {
+    "start": "node mon_fichier.js"
+  }
+}
+```
+
+## 5. CommonJS vs ESModules ?
+
+Les différences entre CommonJS et ES Modules résident principalement dans la syntaxe d'importation/exportation. Mais cela implique plusieurs distinctions:
+
+1. **Charge dynamique vs charge statique:**
+
+- **CommonJS**: Les importations sont résolues de manière dynamique à l'exécution
+
+- **ES Modules**: Les importations sont résolues statiquement au moment de l'analyse du code. Cela permet aux outils de développement de détecter les dépendances à l'avance.
+
+2. **Support natif dans le navigateur**
+
+- **CommonJS**: Conçu pour être utilisé côté serveur. N'est pas nativement pris en charge dans les navigateurs.
+
+- **ES Modules**: Conçu pour être utilisé côté serveur et côté client. Est pris en charge nativement dans les navigateurs modernes.
+
+3. **Importations conditionnelles**
+
+- **CommonJS**: Les importations conditionnelles peuvent être gérées avec des constructions conditionnelles classiques.
+
+- **ES Modules**: Les importations conditionnelles nécessitent des approches différentes, car les importations sont résolues statiquement.
+
+En résumé, bien que les deux systèmes aient pour objectif de permettre la modularité dans JavaScript, les détails de leur mise en oeuvre et de leur utilisation diffèrent. CommonJS est historiquement utilisé côté serveur avec Node.js, tandis que les modules ES visent à standardiser la syntaxe d'import/export et sont prises en charge aussi bien côté serveur que côté client dans les navigateurs modernes.
