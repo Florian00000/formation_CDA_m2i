@@ -33,6 +33,32 @@ module.exports = connection;
 
 ```
 
+#### Utilisation d'un .env
+Si utilisation d'un fichier .env comme ceci
+```.env
+DB_HOST='localhost'
+DB_USER='root'
+DB_PASSWORD=''
+DB_DATABASE='nom_de_la_BDD'
+```
+
+dans le db.js
+```js
+require('dotenv').config();
+
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
+});
+```
+
+Ne pas oublier d'import le package dotenv
+```bash
+npm install dotenv
+```
+
 ### Étape 3 : Mise en place des routes CRUD
 
 Ajoutez les routes pour les opérations CRUD dans `app.js` en utilisant la connexion MySQL définie dans `db.js` :
