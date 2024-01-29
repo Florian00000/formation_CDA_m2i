@@ -11,7 +11,7 @@ class Livre {
     }
 
     static addLivre(livreData, callback) {
-        connection.query('INSERT INTO livres (titre, auteur, annee_publication, disponible) VALUES ?', livreData, callback);
+        connection.query('INSERT INTO livres SET ?',livreData, callback);
     }
 
     static updateLivre(livreId, livreData, callback) {
