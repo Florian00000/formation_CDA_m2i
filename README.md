@@ -73,7 +73,9 @@ Repository de la formation CDA JS/JAVA
     - [Le CRUD en détails](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/05_mongodb-crud.md)
     - [Les Index dans MongDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/06_mongodb-indexes.md)
 
-- [UML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/13_UML/support/support_UML_M2I_V1.0_complet.pdf)    
+- [UML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/13_UML/support/support_UML_M2I_V1.0_complet.pdf) 
+
+---
 
 ### Annexes:
 - [Markdown](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/01_Markdown/cours_markdown.md)
@@ -81,6 +83,8 @@ Repository de la formation CDA JS/JAVA
 - [box_model](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/box_model.png)
 - [css-flexbox](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-flexbox-poster.png)
 - [css-grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-grid-poster.png)
+
+---
 
 ## Exercices:
 
