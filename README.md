@@ -7,6 +7,8 @@ Repository de la formation CDA JS/JAVA
     - [Git en remote](https://github.com/Florian00000/formation_CDA_m2i/blob/main/02_GIT/Cours_GitRemote.md)
     - [Git Fusion](https://github.com/Florian00000/formation_CDA_m2i/blob/main/02_GIT/Cours_GitFusion.md)
 
+---
+
 - [HTML](https://github.com/Florian00000/formation_CDA_m2i/tree/main/04_HTML/Cours)
     - [Les bases du HTML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/04_HTML/Cours/LesBasesDuHTML.md#les-bases-du-html)
     - [La sémantique en HTML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/04_HTML/Cours/LaSemantique.md#la-s%C3%A9mantique-en-html)
@@ -27,6 +29,8 @@ Repository de la formation CDA JS/JAVA
     - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/07_JavaScript/Cours/javascript-m2i.pdf)
     - [Démonstration](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Cours/demo)
 
+---
+
 - [Node.JS](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/02_node.js)
     - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/08_NodeJS/support/nodejs_m2i.pdf)
     - [Node Package Manager (NPM) dans Node.js](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/01_Cours-NPM.md)
@@ -35,10 +39,23 @@ Repository de la formation CDA JS/JAVA
     - [Le module FS](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/04_Cours-fs.md)
     - [Variables globales](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/05_Cours-varGlobales.md)
     - [Démonstration](https://github.com/Florian00000/formation_CDA_m2i/tree/main/08_NodeJS/demos)
+
+- [Express](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/03_ExpressBases)
+    - [Débuter avec Express](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/03_ExpressBases/01_DebuterAvecExpress.md)
+    - [Les APIs](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/03_ExpressBases/02_APIs.md)
+    - [Le routing](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/03_ExpressBases/03_Routing.md)
+    - [Responses(annexe)](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/03_ExpressBases/04_Cours-Responses(annexe).md)
+    - [Middlewares](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/04_Middlewares)
+    - [MVC](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/05_MVC)
+    - [Connexion BDD](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/06_ConnexionBDD)
+
+---
       
 - [Vue.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs)
     - [Support](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/support)
     - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/demos)
+
+---
 
 - [MCD/MLD](https://github.com/Florian00000/formation_CDA_m2i/blob/main/10_modelisationBaseDonnees/support/modelisation-base-de-donn%C3%A9es.pdf)
 
@@ -54,7 +71,9 @@ Repository de la formation CDA JS/JAVA
     - [Les bases de MongoDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/03_mongodb-basics.md)
     - [La modélisation des données](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/04_mongodb-data-modeling.md)
     - [Le CRUD en détails](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/05_mongodb-crud.md)
-    - [Les Index dans MongDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/06_mongodb-indexes.md)    
+    - [Les Index dans MongDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/06_mongodb-indexes.md)
+
+- [UML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/13_UML/support/support_UML_M2I_V1.0_complet.pdf)    
 
 ### Annexes:
 - [Markdown](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/01_Markdown/cours_markdown.md)
@@ -78,10 +97,19 @@ Repository de la formation CDA JS/JAVA
     - [exercice classes](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo35)
     - [mini Tp ApiPokemon](https://github.com/Florian00000/formation_CDA_m2i/tree/main/07_JavaScript/Exercices/exo34TpApiPokemon)
 
+---
+
 - [Node.Js learnyounode](https://github.com/Florian00000/formation_CDA_m2i/tree/main/08_NodeJS/Exercices/exercice1-learnyounode)
+
+- [Express](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices)
+    - [Express avec MySQL](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices/06_remediation_gestion_film_bibliotheque)
+
+---
 
 - [Vue.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/exercices)
     - [TP Rick et Morty](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/exercices/TpRickMorty)
+
+---
 
 - [MCD/MLD](https://github.com/Florian00000/formation_CDA_m2i/tree/main/10_modelisationBaseDonnees/exercices)
 
@@ -95,4 +123,11 @@ Repository de la formation CDA JS/JAVA
 - NoSQL
     - [Redis/Node.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/12_NoSQL/nosqlRedisNodeJs/exercices/exercice_01)
     - [MongoDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/TP2/tp_commandes.md)
+
+- [UML](https://github.com/Florian00000/formation_CDA_m2i/tree/main/13_UML/exercices)
+    - [Use case](https://github.com/Florian00000/formation_CDA_m2i/tree/main/13_UML/exercices/01_useCase)
+    - [Diagramme de Classe](https://github.com/Florian00000/formation_CDA_m2i/tree/main/13_UML/exercices/02_UML)
+    - [Diagramme de Sequence](https://github.com/Florian00000/formation_CDA_m2i/tree/main/13_UML/exercices/03_diagramme_sequence)
+
+
     
