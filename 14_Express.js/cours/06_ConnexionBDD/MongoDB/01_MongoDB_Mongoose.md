@@ -1,5 +1,3 @@
-# MongoDB avec Mongoose
-
 Mongoose est une bibliothèque Node.js qui facilite l'interaction avec une base de données MongoDB dans le cadre du développement d'applications. Son rôle principal est de fournir une couche d'abstraction au-dessus du pilote MongoDB natif, simplifiant ainsi les opérations de base de données, la définition de schémas et la validation des données.
 
 ### Configuration de MongoDB avec Mongoose
@@ -20,7 +18,10 @@ const app = express();
 const port = 3000;
 
 // Connexion à MongoDB
-mongoose.connect('mongodb://localhost:27017/monapp');
+mongoose.connect('mongodb://localhost:27017/monapp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}); // Les options sont utilisées pour éviter les avertissements liés à la dépréciation des fonctionnalités.
 
 const db = mongoose.connection;
 
