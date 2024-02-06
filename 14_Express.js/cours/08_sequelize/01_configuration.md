@@ -36,22 +36,22 @@ Les modèles Sequelize représentent les tables de la base de données sous form
 
 ```javascript
 // user.js
-const { Datatypes } = require("sequelize")
+const { DataTypes } = require("sequelize")
 
 module.exports = (sequelize) => {
   const User = sequelize.define('User', {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     username : {
-      type : Datatypes.STRING,
+      type : DataTypes.STRING,
       allowNull: false,
       unique: true
     },
     password: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     }
   })

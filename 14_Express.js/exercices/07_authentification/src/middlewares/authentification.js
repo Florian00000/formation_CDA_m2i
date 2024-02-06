@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next) {
 
         //autre version
         // const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
-        // userId = decodedToken.user;
+        // const userId = decodedToken.user;
         //req.auth = {
         //     userId: userId 
         // }
