@@ -57,6 +57,9 @@ const userController = {
     profile: async (req, res) => {
         const userId = req.body.payload.user;
 
+        //autre version
+        // const userId = req.auth.userId;
+
         //On renvoie un json avec l'id de l'utilisateur si celui ci à bien un token valide (grâce au middleware d'authentification)
         res.status(200).json(userId);
     }
