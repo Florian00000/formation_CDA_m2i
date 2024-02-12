@@ -48,6 +48,12 @@ Repository de la formation CDA JS/JAVA
     - [Middlewares](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/04_Middlewares)
     - [MVC](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/05_MVC)
     - [Connexion BDD](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/06_ConnexionBDD)
+    - [Bcrypt](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/07_authentification/01_inscription_connexion.md)
+    - [JWT](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/07_authentification/02_jwt.md)
+    - [sequelize (ORM) configuration](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/08_sequelize/01_configuration.md)
+    - [sequelize CRUD](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/08_sequelize/02_crud.md)
+    - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/demo)
+
 
 ---
       
@@ -82,7 +88,7 @@ Repository de la formation CDA JS/JAVA
 - [CLI (Interface en ligne de Commandes)](https://github.com/Florian00000/formation_CDA_m2i/blob/main/01_introduction/02_CLI/Cours_CLI.md)
 - [box_model](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/box_model.png)
 - [css-flexbox](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-flexbox-poster.png)
-- [css-grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-grid-poster.png)
+- [css-grid](https://github.com/Florian00000/formation_CDA_m2i/blob/main/05_CSS/Cours/css-grid-poster.png) 
 
 ---
 
@@ -107,6 +113,8 @@ Repository de la formation CDA JS/JAVA
 
 - [Express](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices)
     - [Express avec MySQL](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices/06_remediation_gestion_film_bibliotheque)
+    - [authentification avec MongoDB](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices/07_authentification)
+    - [exercice sequelize](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/exercices/08_gestion_etudiants_sequelize)
 
 ---
 
