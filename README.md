@@ -31,6 +31,16 @@ Repository de la formation CDA JS/JAVA
 
 ---
 
+- [Figma](https://github.com/Florian00000/formation_CDA_m2i/blob/main/16_Figma_Ux/Support/figma_m2i.pdf)
+
+---
+      
+- [Vue.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs)
+    - [Support](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/support)
+    - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/demos)
+
+---
+
 - [Node.JS](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/02_node.js)
     - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/08_NodeJS/support/nodejs_m2i.pdf)
     - [Node Package Manager (NPM) dans Node.js](https://github.com/Florian00000/formation_CDA_m2i/blob/main/14_Express.js/cours/02_node.js/01_Cours-NPM.md)
@@ -55,11 +65,6 @@ Repository de la formation CDA JS/JAVA
     - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/demo)
 
 
----
-      
-- [Vue.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs)
-    - [Support](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/support)
-    - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/demos)
 
 ---
 
@@ -80,6 +85,12 @@ Repository de la formation CDA JS/JAVA
     - [Les Index dans MongDB](https://github.com/Florian00000/formation_CDA_m2i/blob/main/12_NoSQL/cours/06_mongodb-indexes.md)
 
 - [UML](https://github.com/Florian00000/formation_CDA_m2i/blob/main/13_UML/support/support_UML_M2I_V1.0_complet.pdf) 
+
+---
+- [Agile - Scrum](https://github.com/Florian00000/formation_CDA_m2i/tree/main/15_Agile_Scrum)
+    - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/15_Agile_Scrum/M%C3%A9thodologie%20de%20projet%20Agile%20Scrum%20Marine%20ABADI.pdf)
+    - [Scrum Guide](https://github.com/Florian00000/formation_CDA_m2i/blob/main/15_Agile_Scrum/2020-Scrum-Guide-French.pdf)
+    - [Note de Cadrage](https://github.com/Florian00000/formation_CDA_m2i/blob/main/15_Agile_Scrum/Note%20de%20cadrage.pdf)
 
 ---
 
