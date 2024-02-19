@@ -1,17 +1,18 @@
 import React from "react";
 import TableauExercice2 from "./TableauExercice2";
+import { useState } from "react";
 
 const BoutonExercice2 = () => {
-  let listeTab = [
+  const [listeTab, setListeTab] = useState([
     { nom: "George", metier: "cowboy" },
     { nom: "Jack", metier: "facteur" },
-  ];
+  ]);
 
   const newElement = { nom: "test", metier: "test" };
 
   const ajoutElement = () => {
-    listeTab.push(newElement);
-    console.log(listeTab);
+    setListeTab([...listeTab, newElement]);  
+    
   };
 
   return (
