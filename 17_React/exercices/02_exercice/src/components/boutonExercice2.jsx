@@ -18,16 +18,7 @@ const BoutonExercice2 = () => {
   return (
     <div>
       <TableauExercice2 listeTab={listeTab} />
-      {/* <div>
-        <div>
-          <label htmlFor="name" className="form-label">Nom:</label>
-          <input type="text" id="name" className="form-control"/>
-        </div>
-        <div>
-          <label htmlFor="metier" className="form-label">Métier:</label>
-          <input type="text" id="metier" className="form-control"/>
-        </div>
-      </div> */}
+      
       <button onClick={ajoutElement} className="btn btn-primary">
         Ajout Element
       </button>
