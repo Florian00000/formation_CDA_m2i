@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import FormLogin from './components/FormLogin'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App() {  
 
   const loginData = (userData) => {
     console.log(userData);
