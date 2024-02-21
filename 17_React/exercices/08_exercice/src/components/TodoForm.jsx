@@ -28,15 +28,15 @@ const TodoForm = (props) => {
 
             <div>
                 <label htmlFor="titre" className='form-label'>Titre:</label>
-                <input type="text" id='titre' className='form-control' ref={titreRef} />
+                <input type="text" id='titre' className='form-control' required ref={titreRef} />
             </div>
             <div>
                 <label htmlFor="description" className='form-label mt-2'>Description:</label>
-                <textarea  id="description" cols="30" rows="10" className='form-control' ref={descriptionRef} ></textarea>
+                <textarea  id="description" cols="30" rows="10" style={{ resize: 'none' }} className='form-control' ref={descriptionRef} ></textarea>
             </div>
             <div>
                 <label htmlFor="dateLimite" className='form-label mt-2'>Date limite</label>
-                <input type="date" id="dateLimite" className='form-control' ref={dateLimiteRef} pattern='dd/mm/yyyy' />                
+                <input type="date" id="dateLimite" className='form-control' pattern='dd/mm/yyyy' required ref={dateLimiteRef}  />                
             </div>
             <button type='submit' className='btn btn-outline-light mt-3 ms-auto'>Ajouter</button>
             

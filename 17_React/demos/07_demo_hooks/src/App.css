@@ -40,14 +40,3 @@
 .read-the-docs {
   color: #888;
 }
-
-/* partie ajouté pour les todo */
-
-#todoList{
-  width: 50vw;
-  height: 100%;  
-}
-
-#todoForm{
-  height: 42rem;
-}

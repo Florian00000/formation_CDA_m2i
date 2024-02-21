@@ -19,7 +19,6 @@ const Todo = () => {
         const updatedTodoList = [...todoList];
         updatedTodoList.splice(index, 1)
         setTodoList(updatedTodoList);
-
     }
 
     return (        
