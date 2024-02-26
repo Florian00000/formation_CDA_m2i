@@ -8,6 +8,7 @@ const NavBar = () => {
             <span> <b> Navbar </b>  </span>
             <Link to={'/'} >HomePage </Link>
             <Link to={'/form'} >Form </Link>
+            <Link to={'/projects/AlexandreEstSurTinder?mode=RaccrocheLaVisio&toto=MaisOuSontLesCheveuxdAnthony'} >Test lien params optionnels </Link>
         </nav>
         <div>
             <Outlet/>
