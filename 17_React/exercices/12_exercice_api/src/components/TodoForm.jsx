@@ -24,16 +24,17 @@ const TodoForm = () => {
     }
 
     return (
-        <form onSubmit={addTodo}>
-            <div>
-                <label htmlFor="nom">Nom de la tâche:</label>
-                <input type="text" id='nom' required ref={nomRef} />
+        <form onSubmit={addTodo} className='card rounded-sm me-5 ' style={{width: "50%"}}>
+            <h4 className=''>Ajouter une tâche</h4>
+            <div >
+                <label htmlFor="nom" className='form-label'>Nom de la tâche:</label>
+                <input type="text" id='nom'  className='form-control border-primary' required ref={nomRef}/>
             </div>
             <div>
-                <label htmlFor="description">Description de la tâche:</label>
-                <input type="text" id='description' required ref={descriptionRef}/>
+                <label htmlFor="description" className='form-label'>Description de la tâche:</label>
+                <input type="text" id='description' className='form-control border-primary' required ref={descriptionRef}/>
             </div>
-            <button type='submit'>Ajouter</button>
+            <button type='submit' className='btn btn-outline-primary rounded-1 mt-4'>Ajouter</button>
         </form>
     );
 }

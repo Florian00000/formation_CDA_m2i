@@ -9,8 +9,9 @@ const Modal = (props) => {
         <div className={classes.modal} >
             <div className={classes.modalContent} > 
             {props.children} 
+            <hr />
 
-            <button onClick={changeModal} >Annuler</button>
+            <button onClick={changeModal} className='btn btn-dark rounded-1 mb-2 w-100' >Annuler</button>
             </div>
         </div>,
         document.body

@@ -4,6 +4,7 @@ import "./App.css";
 import { TodoContext } from "./context/TodoContext";
 import TodosList from "./components/TodosList";
 import TodoForm from "./components/TodoForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [todosList, setTodosList] = useState();
@@ -25,11 +26,15 @@ function App() {
 
   return (
     <>
+      <h1>Exercice 12 Api</h1>
+      <div style={{display: "flex"}}>
+
       <TodoContext.Provider value={{todosList, setTodosList, nouveauRendu}}>
         <TodoForm/>
         <hr />
         <TodosList/>
       </TodoContext.Provider>
+      </div>
     </>
   );
 }

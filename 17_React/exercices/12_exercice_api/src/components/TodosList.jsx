@@ -25,9 +25,9 @@ const TodosList = () => {
     return (
         <>
             {todosList && (
-        <table>
+        <table className='table table-dark'>
           <thead>
-            <tr>              
+            <tr >              
               <th>nom</th>
               <th>description</th>
               <th colSpan={2}>Actions</th>
@@ -35,11 +35,11 @@ const TodosList = () => {
           </thead>
           <tbody>
             {todosList.map((todo) => (
-              <tr key={todo.id}>
+              <tr key={todo.id} className='table-active'>
                 <td>{todo.nom} </td>
                 <td>{todo.description} </td>
-                <td> <button onClick={() => changeModal(todo.id)}>Editer</button> </td>
-                <td><button onClick={() => deleteTodo(todo.id)}>Supprimer</button></td>
+                <td> <button className='btn btn-outline-light rounded-0' onClick={() => changeModal(todo.id)}>Editer</button> </td>
+                <td><button className='btn btn-outline-danger rounded-0' onClick={() => deleteTodo(todo.id)}>Supprimer</button></td>
               </tr>
             ))}
           </tbody>

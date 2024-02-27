@@ -29,16 +29,16 @@ const EditTodo = (props) => {
 
     return (
         <>
-            <form onSubmit={updateTodo}>
+            <form onSubmit={updateTodo} style={{borderRadius: "1rem"}}>
             <div>
-                <label htmlFor="nom">Nom de la tâche:</label>
-                <input type="text" id='nom' required ref={nomRef} defaultValue={nomTodo} />
+                <label htmlFor="nom" className='form-label'>Nom de la tâche:</label>
+                <input type="text" id='nom' className='form-control' required ref={nomRef} defaultValue={nomTodo} />
             </div>
             <div>
-                <label htmlFor="description">Description de la tâche:</label>
-                <input type="text" id='description' required ref={descriptionRef} defaultValue={descriptionTodo}/>
+                <label htmlFor="description" className='form-label'>Description de la tâche:</label>
+                <input type="text" id='description' className='form-control' required ref={descriptionRef} defaultValue={descriptionTodo}/>
             </div>
-            <button type='submit'>Editer</button>
+            <button type='submit' className='btn btn-primary rounded-1 mt-3 w-100'>Editer</button>
             </form>
         </>
     );
