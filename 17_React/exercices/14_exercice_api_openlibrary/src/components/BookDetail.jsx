@@ -38,10 +38,11 @@ const BookDetail = () => {
             {
                 detailLivre && (
         <article>
-            { detailLivre.covers[0] && (<img src={`https://covers.openlibrary.org/b/id/${detailLivre.covers[0]}-L.jpg`} alt="" />)}            
+            { detailLivre.covers[0] && (<img src={`https://covers.openlibrary.org/b/id/${detailLivre.covers[0]}-L.jpg`} alt="" />)}             
             <p>Titre: {detailLivre.title}</p>
             { auteur && ( <p>auteur: {auteur.name} </p>)}
-            { detailLivre.publish_date && ( <p>Date de la première publication: {detailLivre.publish_date} </p> ) }
+            {/* { detailLivre.publish_date && ( <p>Date de la première publication: {detailLivre.publish_date} </p> ) } */}
+            <p>Date de la première publication: {detailLivre?.publish_date} </p>
         </article>
 
                 )
