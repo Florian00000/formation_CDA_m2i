@@ -11,9 +11,13 @@ const Navbar = () => {
     return (
         <nav>
             <span> <b> Navbar </b>  </span>
+            <div>
+                <Link to={'/album/add?mode=add'}> {user && <button>Ajouter</button>} </Link>
+
             <Link to={'/auth/login?mode=login'}>{!user && <button>Connexion</button>}</Link>
             
             {user && <button onClick={() => dispacth(removeUser())} >Déconnexion</button>}
+            </div>
         </nav>
     );
 }
