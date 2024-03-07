@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100dvw;
+  margin: 0 auto;  
   text-align: center;
 }
 
@@ -39,4 +38,72 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Navbar */
+#nav-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;  
+  height: 7dvh;
+  padding: 1rem;
+}
+
+#logoHeader{
+  text-decoration: none;
+  color: white;
+}
+
+main{
+  padding: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+/* albumlist */
+
+#select-tri{
+  display: flex;
+  justify-content: space-between;
+}
+
+#album-section{
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+#album-article{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+#card{
+  border: white solid 1px;
+  border-radius: 5px;
+  color: white;
+  margin: 2%;
+  margin-top: 0%;
+  width: 29.33%;
+  max-width: 500px;
+  padding: 1rem;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  & img{
+    border-radius: 5px;
+    max-width: 300px;
+    padding-bottom: 1rem;
+  }
+
+  & #div-button{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

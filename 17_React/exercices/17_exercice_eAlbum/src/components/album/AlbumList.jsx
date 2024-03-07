@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAlbums, removeAlbum } from "./albumSlice";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AlbumList = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const albums = useSelector((state) => state.album.albums);
   const [sortedAlbums, setSortedAlbums] = useState([]);
@@ -45,15 +47,13 @@ const AlbumList = () => {
         break;
       default:
         sorted = albums;
-    }    
+    }
 
     setSortedAlbums(sorted);
   };
 
   return (
     <>
-      <h2>Albums</h2>
-
       {!albums.length && (
         <section>
           <p> Le monde manque cruellement de poësie </p>
@@ -61,52 +61,81 @@ const AlbumList = () => {
       )}
 
       {albums.length && (
-        <section>
-            {/* boutons de tri */}
-          <article>
-            <button onClick={() => sortAlbum("titreAsc")}>
-              Trier par titre d'album
-            </button>
-            <button onClick={() => sortAlbum("titreDesc")}>
-              Trier par titre d'album Desc
-            </button>
-            <button onClick={() => sortAlbum("scoreDesc")}>
-              Trier par note Note
-            </button>
-            <button onClick={() => sortAlbum("scoreAsc")}>
-              Trier par moins bonne note Note
-            </button>
+        <section className="bg-dark" id="album-section">
+          {/* boutons de tri */}
+          <article id="select-tri">
+            <h2 className="text-light">Albums</h2>
+            <select className="form-select w-auto bg-dark text-light">
+              <option>trier par:</option>
+              <option onClick={() => sortAlbum("titreAsc")}>
+                Titre d'album
+              </option>
+              <option onClick={() => sortAlbum("titreDesc")}>
+                Ordre alpha. d'album inversé
+              </option>
+              <option onClick={() => sortAlbum("scoreDesc")}>
+                Meilleure Note
+              </option>
+              <option onClick={() => sortAlbum("scoreAsc")}>
+                Moins bonne note
+              </option>
+            </select>
           </article>
 
+          <hr className="border border-light" />
+
+          <article id="album-article">
             {/* liste d'albums */}
-          {sortedAlbums.map((album, index) => (
-            <article key={index}>
-              <h4>{album.title}</h4>
-              <img
-                src={album.coverUrl}
-                alt={`cover de l'album: ${album.title}`}
-                width="300px"
-              />
-              <div>
-                <p>Artiste: {album.artist}</p>
-                <hr />
-                <p>
-                  Date de sortie:{" "}
-                  {new Date(album.releaseDate).toLocaleDateString()}
-                </p>
-                <hr />
-                <p>Note: {album.score} </p>
+            {sortedAlbums.map((album, index) => (
+              <div key={index} id="card">
+                <h4>{album.title}</h4>
+                <img
+                  src={album.coverUrl}
+                  alt={`cover de l'album: ${album.title}`}
+                />
+                <div className="w-100 px-3 pt-3">
+                  <div className="w-100">
+                    <div className="d-flex justify-content-between">
+                      <span>Artiste: </span>
+                      <span>{album.artist}</span>
+                    </div>
+
+                    <hr />
+                    <div className="d-flex justify-content-between">
+                      <span>Date de sortie:</span>
+                      <span>
+                        {" "}
+                        {new Date(album.releaseDate).toLocaleDateString()}
+                      </span>
+                    </div>
+
+                    <hr className="border-light" />
+                    <div className="d-flex justify-content-between mb-3">
+                      <span>Note: </span>
+                      <span>{album.score}</span>
+                    </div>
+                  </div>
+                  
+                  <div id="div-button">
+                    {user && (
+                      <button className="btn btn-outline-light"
+                        onClick={() =>
+                          navigate(`/album/update/${album.id}?mode=update`)
+                        }
+                      >
+                        Editer
+                      </button>
+                    )}{" "}
+                    {user && (
+                      <button className="btn btn-outline-danger" onClick={() => deleteAlbum(album)}>
+                        Supprimer
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div>
-                <Link to={`/album/update/${album.id}?mode=update`}>
-                  {user && <button>Editer</button>}{" "}
-                </Link>
-                {user && (
-                  <button onClick={() => deleteAlbum(album)}>Supprimer</button>
-                )}
-              </div>
-            </article>
-          ))}
+            ))}
+          </article>
         </section>
       )}
     </>

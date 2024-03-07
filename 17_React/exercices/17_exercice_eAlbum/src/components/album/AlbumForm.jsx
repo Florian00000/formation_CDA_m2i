@@ -68,7 +68,7 @@ const AlbumForm = () => {
       <form onSubmit={albumSubmit}>
         <div>
           <label htmlFor="title">Nom de l'album:</label>
-          <input type="text" id="title" ref={titleRef} defaultValue={editAlbum?.title || ""} />
+          <input type="text" id="title" required ref={titleRef} defaultValue={editAlbum?.title || ""} />
         </div>
         <div>
           <label htmlFor="releaseDate">Date de sortie:</label>
@@ -76,11 +76,11 @@ const AlbumForm = () => {
         </div>
         <div>
           <label htmlFor="artist">Artiste de l'album</label>
-          <input type="text" id="artist" ref={artistRef} defaultValue={editAlbum?.artist || ""} />
+          <input type="text" id="artist" required ref={artistRef} defaultValue={editAlbum?.artist || ""} />
         </div>
         <div>
           <label htmlFor="score">Note de l'album</label>
-          <input type="number" id="score" ref={scoreRef} defaultValue={`${editAlbum?.score || ""}` } />
+          <input type="number" id="score" max={5} min={0} step={0.5} ref={scoreRef} defaultValue={`${editAlbum?.score || ""}`} />
         </div>
         <div>
           <label htmlFor="cover">Cover:</label>

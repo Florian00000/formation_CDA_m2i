@@ -48,11 +48,11 @@ const AuthForm = () => {
       <form onSubmit={authSubmit}>
         <div>
           <label htmlFor="email">Email:</label>
-          <input type="email" ref={emailRef} />
+          <input type="email" required ref={emailRef}  />
         </div>
         <div>
           <label htmlFor="password">Mot de passe:</label>
-          <input type="password" ref={passwordRef} />
+          <input type="password" min={6} required ref={passwordRef} />
         </div>
         <button type="submit"> {mode === "signup"? "S'inscire": "Connexion"} </button>
       </form>
