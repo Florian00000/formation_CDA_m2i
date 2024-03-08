@@ -11,35 +11,44 @@ const CardsList = () => {
   
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.card.cards);
+  const isPending = useSelector((state) => state.card.isPending);
   
+  const idPageRef = useRef(idPage ||1);  
   
   useEffect(() => {
-      if (!idPage) {
-        idPage = 1;
-        navigate("/1")
-      }
+    if (!idPage) {
+      idPage = 1;
+      navigate("/1")
+    }
     
     dispatch(fetchAllCards(+idPage));
   }, [idPage]);
 
-  const idPageRef = useRef();  
+  
 
   const redirect = (e) => {
     e.preventDefault();    
     navigate(`/${idPageRef.current.value}`);
   };
 
+  const redirectClose = (newPage) => {    
+    idPageRef.current.value = newPage;
+    navigate(`/${newPage}`);
+  }
+
 
   return (
     <>
+      { isPending && ( <h3>Chargement en cours...</h3>)}
+
       {!!cards.length && (
         <main>
           <section>
-            <button onClick={() => navigate(`/${--idPage}`)}>{"<<"}</button>
+            <button onClick={() => redirectClose(--idPage)}>{"<<"}</button>
             <form onSubmit={redirect}>
               <input type="text" defaultValue={idPage} ref={idPageRef} />
             </form>
-            <button onClick={() => navigate(`/${++idPage}`)}>{">>"}</button>
+            <button onClick={() =>redirectClose(++idPage)}>{">>"}</button>
           </section>
 
           <section className="d-flex flex-wrap">
@@ -47,14 +56,7 @@ const CardsList = () => {
               <CardDetails card={card} key={index} />
             ))}
           </section>
-
-          <section>
-            <button onClick={() => navigate(`/${--idPage}`)}>{"<<"}</button>
-            <form onSubmit={redirect}>
-            <input type="text" defaultValue={idPage} ref={idPageRef}/>
-            </form>
-            <button onClick={() => navigate(`/${++idPage}`)} >{">>"}</button>
-            </section>
+          
         </main>
       )}
     </>

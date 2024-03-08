@@ -18,12 +18,17 @@ const cardSlice = createSlice({
     name:"card",
     initialState: {
         cards: [],
+        isPending: false,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchAllCards.fulfilled, (state, actions) => {
+            state.isPending = false;
             state.cards = actions.payload;
             console.log(actions.payload);
+        });
+        builder.addCase(fetchAllCards.pending, (state, action) => {
+            state.isPending = true;
         })
     }
 })
