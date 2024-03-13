@@ -5,11 +5,7 @@ import CalcButton from './CalcButton';
 const CalcExercice3 = () => {
 
     const [result, setResult] = useState(0)
-    
-    const calcResult = (cb) => {
-        setResult(cb)
-    }
-
+        
     return (
         <View style={styles.main}>
             <Text style={styles.title}>Calculatrice</Text>
@@ -42,10 +38,10 @@ const CalcExercice3 = () => {
                 <CalcButton buttonValue={"+"} stylesPressable={styles.cubeButton} styleText={styles.textCubeButton} />
                 </View>
                 <View style={styles.calc}>
-                <CalcButton buttonValue={"."} stylesPressable={styles.circleButton} styleText={styles.textCircleButton}/>
+                <CalcButton buttonValue={","} stylesPressable={styles.circleButton} styleText={styles.textCircleButton}/>
                 <CalcButton buttonValue={"0"} stylesPressable={styles.circleButton} styleText={styles.textCircleButton}/>
                 <CalcButton buttonValue={"Del"} stylesPressable={styles.circleButton} styleText={styles.textCircleButton}/>
-                <CalcButton buttonValue={"="} stylesPressable={styles.cubeButton} styleText={styles.textCubeButton} value={calcResult}/>
+                <CalcButton buttonValue={"="} stylesPressable={styles.cubeButton} styleText={styles.textCubeButton} />
                 </View>
                 </View>
                             

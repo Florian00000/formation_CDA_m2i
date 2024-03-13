@@ -38,3 +38,22 @@ ou
 ```bash
 npx react-native run-android
 ```
+
+## packages Navigation
+
+```bash
+npm install @react-navigation/native
+npm install react-native-screens react-native-safe-area-context
+```
+
+### stack 
+
+```bash
+npm install @react-navigation/native-stack
+```
+
+### 
+
+```bash
+
+```
