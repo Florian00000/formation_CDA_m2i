@@ -1,0 +1,20 @@
+[
+    {
+        "nom": "Chirac",
+        "prenom": "Jacques",
+        "tel": "0633063306",
+        "image": "https://images.rtl.fr/~c/2000v2000/rtl/www/1313193-jacques-chirac-le-9-mars-1981.jpg"
+    },
+    {
+        "nom": "Nicator",
+        "prenom":"Seleucos",
+        "tel":"0630528124",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/SeleucosCoin.jpg?uselang=fr"
+    },
+    {
+        "nom": "Caligula",
+        "prenom":"Cheval",
+        "tel":"0613372441",
+        "image": "https://www.cienciahistorica.com/wp-content/uploads/2017/05/Caligula-con-su-caballo.jpg"
+    }
+]
