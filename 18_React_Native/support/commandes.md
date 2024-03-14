@@ -52,8 +52,27 @@ npm install react-native-screens react-native-safe-area-context
 npm install @react-navigation/native-stack
 ```
 
-### 
+### bottom tabs
 
 ```bash
+npm install @react-navigation/bottom-tabs
+```
 
+## Rajouter de icônes
+
+1. bibliothèque react native vector icons 
+
+```bash
+npm install react-native-vector-icons
+```
+
+
+2. chemin du fichier à modifier:  /android/app/build.gradle  
+rajout à faire: `apply from: ""../../node_modules/react-native-vector-incons/fonts.gradle"`
+
+3. Dans le fichier jsx: 
+```jsx
+import Icon from 'react-native-vector-icons/[nomDeLaBibliothèque]  
+
+<Icon name='phone' color="red" size={50}/>
 ```
