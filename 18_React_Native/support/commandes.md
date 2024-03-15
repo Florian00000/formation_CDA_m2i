@@ -14,8 +14,8 @@ exécutable:
 - ne pas oublier android virtal device à chocher
 - créer un émulateur et prendre le pixel 8 Pro. Ne pas oublier UpsideDownCake.
 
-### Rajouter une variable d'environnement
-Nom de la variable: ANDROID_HOME
+### Rajouter une variable d'environnement 
+Nom de la variable (variable utilisateur): ANDROID_HOME
 
 
 `C:\Users\Administrateur\AppData\Local\Android\Sdk`
