@@ -76,3 +76,23 @@ import Icon from 'react-native-vector-icons/[nomDeLaBibliothèque]
 
 <Icon name='phone' color="red" size={50}/>
 ```
+
+## Async Storage 
+
+```bash
+npm install @react-native-async-storage/async-storage
+```
+
+## GPS
+
+1. commande npm
+```bash
+npm install @react-native-community/geolocation
+```
+
+2. aller dans le repertoire `android/app/src/main/AndroidManifest.xml`  
+
+3. Ajout d'une ligne en dessous de la permission internet (déjà accordé): 
+```xml
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
