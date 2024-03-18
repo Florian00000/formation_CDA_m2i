@@ -10,9 +10,11 @@ const RecepiesListScreen = ({navigation, route}) => {
     const [recepiesList, setRecepiesList] = useState(MEALS);
 
     useLayoutEffect(() => {
-        const recipes = recepiesList.filter(recipe => {
-            return !!recipe.categoryIds.find(catId => catId == categorie.id)
-        })
+        // const recipes = recepiesList.filter(recipe => {
+        //     return !!recipe.categoryIds.find(catId => catId == categorie.id)
+        // })
+        const recipes = recepiesList.filter(recipe => recipe.categoryIds.includes(categorie.id)
+        )
         setRecepiesList(recipes)
         // console.log(recipes);
     }, [])

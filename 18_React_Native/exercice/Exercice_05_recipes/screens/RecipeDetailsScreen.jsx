@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
     height: 350,
   },
   informations: {
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 15
   },
   title: {
     fontWeight: 'bold',

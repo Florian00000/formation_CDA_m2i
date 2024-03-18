@@ -39,6 +39,10 @@ Repository de la formation CDA JS/JAVA
     - [Support](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/support)
     - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/demos)
 
+- [React](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React)
+    - [Support](https://github.com/Florian00000/formation_CDA_m2i/blob/main/17_React/support/Support_React_js.pdf)
+    - [Démonstrations](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/demos)
+
 ---
 
 - [Node.JS](https://github.com/Florian00000/formation_CDA_m2i/tree/main/14_Express.js/cours/02_node.js)
@@ -132,6 +136,12 @@ Repository de la formation CDA JS/JAVA
 - [Vue.js](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/exercices)
     - [TP Rick et Morty](https://github.com/Florian00000/formation_CDA_m2i/tree/main/09_VueJs/exercices/TpRickMorty)
 
+- [React](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices)
+    - [Api Pays - Recherche avec filtre](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices/13_exercice_api_pays)
+    - [Api Open Library - Affichage conditionnel](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices/14_exercice_api_openlibrary)
+    - [exercice Redux - gestion de produits](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices/15_exercice_products_redux)
+    - [eRecipes Firebase + Redux / avec login](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices/16_exercie_eRecipes_firebase)
+    - [eAlbum Firebase login + Redux-extraReducers](https://github.com/Florian00000/formation_CDA_m2i/tree/main/17_React/exercices/17_exercice_eAlbum)
 ---
 
 - [MCD/MLD](https://github.com/Florian00000/formation_CDA_m2i/tree/main/10_modelisationBaseDonnees/exercices)
