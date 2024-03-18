@@ -8,7 +8,7 @@ const RecepieCard = ({recipe, navigation}) => {
   };
 
   return (
-    <View style={styles.main}>
+    <View style={styles.main}>      
       <Pressable onPress={() => redirect(recipe)}>
         <View style={styles.card}>
           <Image style={styles.image} source={{uri: recipe.imageUrl}} />
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   main: {
-    width: 'auto',
+    width: '100%',
     backgroundColor: '#f2f2f2',
     alignItems: 'center',
   },
@@ -39,7 +39,9 @@ const styles = StyleSheet.create({
     borderColor: '#cecece',
     marginVertical: 15,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: 'center',   
+    elevation: 6,
+    backgroundColor: "#f2f2f2"
   },
   title: {
     fontWeight: 'bold',

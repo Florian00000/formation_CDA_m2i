@@ -11,6 +11,7 @@ const CategoryCube = ({categorie, navigation}) => {
       margin: 15,
       justifyContent: 'center',
       alignItems: 'center',
+      elevation: 10
     },
     textCube: {
       fontSize: 20,

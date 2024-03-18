@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3, 
     width: 300, 
     textAlign:"center",
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   textFlat: {
     backgroundColor:"#e1b497",
@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     width: 300,
     textAlign: "center",
     padding:2,
-    borderRadius:5
+    borderRadius:5,
+    elevation: 1
   }
 });
 
