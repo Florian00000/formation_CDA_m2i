@@ -15,7 +15,7 @@ const RecepieCard = ({recipe, navigation}) => {
           <Text style={styles.title}>{recipe.title} </Text>
           <Text style={styles.text}>
             {recipe.duration}m {recipe.complexity} {recipe.affordability}
-          </Text>
+          </Text>          
         </View>
       </Pressable>
     </View>
