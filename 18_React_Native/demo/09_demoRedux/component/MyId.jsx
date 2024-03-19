@@ -13,7 +13,7 @@ export default function MyId() {
     <View>
       <Text>MyId</Text>
       {myId.map((ids,i) => <Pressable key={i} onPress={() => dispatch(removeIds({ id : ids }))}><Text style={styles.text}>{ids}</Text></Pressable>)}
-      <Form />
+      {/* <Form /> */}
     </View>
   )
 }
