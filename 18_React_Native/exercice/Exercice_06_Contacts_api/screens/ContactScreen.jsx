@@ -24,7 +24,7 @@ const ContactScreen = ({navigation, route}) => {
       <View>        
       <Text style={styles.textContact}>Nom Complet: {contact.name}</Text>
       <Text style={styles.textContact}>Adresse: {contact.address.street} {contact.address.suite}</Text>
-      <Text style={styles.textContact}> {contact.address.city} {contact.address.zipcode}</Text>
+      <Text style={styles.textContact}>{contact.address.city} {contact.address.zipcode}</Text>
       <Text style={styles.textContact}>Numéro: {contact.phone}</Text>
       </View>
       <Pressable style={styles.callButton}  onPress={handleCallPress}>
