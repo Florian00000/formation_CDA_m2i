@@ -96,3 +96,9 @@ npm install @react-native-community/geolocation
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
+
+## redux
+
+```bash
+npm install @reduxjs/toolkit react-redux
+```

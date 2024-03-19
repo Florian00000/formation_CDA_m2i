@@ -1,8 +1,9 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import {View, StyleSheet, Text, Button} from 'react-native';
-import Geolocation from '@react-native-community/geolocation'
+import Geolocation from '@react-native-community/geolocation';
+import axios from "axios";
 
-import { fetchPosition } from '../config';
+import { BASE_URL, API_KEY } from '../config';
 
 const GeolocationComponent = () => {
 
@@ -10,6 +11,7 @@ const GeolocationComponent = () => {
     const [longitude, setLongitude] = useState(null); 
 
     const [position, setPosition] = useState(null);
+    const [getPosion, setGetPosition] = useState(false);
 
     useEffect(() => {
         Geolocation.requestAuthorization()
@@ -21,9 +23,24 @@ const GeolocationComponent = () => {
         {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
         )
         
-    },[])
+    },[getPosion])
 
-    const testFunction = async() => {
+    const fetchPosition = async (latitude, longitude) => {
+        try {
+            const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&q=${latitude},${longitude}&language=fr-fr&toplevel=true`)
+            console.log(response.data);
+            return response.data
+        } catch (error) {
+            console.error(error)
+        }    
+    }
+
+    const actualizeCoords = () => {
+        setGetPosition(!getPosion)
+    } 
+
+    const actualizePosition = async() => {
+        setGetPosition(!getPosion)
         const data = await fetchPosition(latitude, longitude)
         setPosition(data)
     }
@@ -37,7 +54,9 @@ const GeolocationComponent = () => {
                 <Text>Pays: {position?.Country?.LocalizedName}</Text>
                 <Text>Ville: {position?.LocalizedName}</Text>
             </View>
-            <Button title='Actualiser' onPress={testFunction}/>
+            <Button title='Actualiser Coordonnées' onPress={actualizeCoords}/>
+            <Text>test</Text>
+            <Button title='Actualiser' onPress={actualizePosition}/>
         </View>
     );
 }
