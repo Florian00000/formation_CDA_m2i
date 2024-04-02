@@ -68,7 +68,7 @@ npm install react-native-vector-icons
 
 
 2. chemin du fichier à modifier:  /android/app/build.gradle  
-rajout à faire: `apply from: ""../../node_modules/react-native-vector-incons/fonts.gradle"`
+rajout à faire: `apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"`
 
 3. Dans le fichier jsx: 
 ```jsx
