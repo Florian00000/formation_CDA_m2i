@@ -1,4 +1,4 @@
-package org.example.exercice3;
+package org.example.exercice03;
 
 public class Joueur {
 
