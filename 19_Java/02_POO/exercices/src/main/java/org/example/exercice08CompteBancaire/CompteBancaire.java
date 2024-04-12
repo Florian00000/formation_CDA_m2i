@@ -5,12 +5,20 @@ import java.util.List;
 
 public abstract class CompteBancaire {
     protected double solde;
-    protected String client;
-    //TODO à changer en objet opérations
-    List <String> listeOperations = new ArrayList<String>();
+    protected Client client;
+    protected List <Operation> listeOperations = new ArrayList<Operation>();
 
-    public CompteBancaire(double solde, String client) {
+    public CompteBancaire(double solde, Client client) {
         this.solde = solde;
         this.client = client;
+    }
+
+    @Override
+    public String toString() {
+        return "CompteBancaire{" +
+                "solde=" + solde +
+                ", client=" + client +
+                ", listeOperations=" + listeOperations +
+                '}';
     }
 }
