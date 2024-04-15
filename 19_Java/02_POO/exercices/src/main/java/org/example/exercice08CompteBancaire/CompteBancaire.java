@@ -21,4 +21,16 @@ public abstract class CompteBancaire {
                 ", listeOperations=" + listeOperations +
                 '}';
     }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
+
+    public List<Operation> getListeOperations() {
+        return listeOperations;
+    }
 }
