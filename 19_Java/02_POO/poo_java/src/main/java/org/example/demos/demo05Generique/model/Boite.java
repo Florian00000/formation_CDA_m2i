@@ -1,4 +1,4 @@
-package org.example.demos.demos05Genrique.model;
+package org.example.demos.demo05Generique.model;
 
 public class Boite<T> {
 

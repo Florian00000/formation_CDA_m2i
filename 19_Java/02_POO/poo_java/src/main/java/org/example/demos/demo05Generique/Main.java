@@ -1,7 +1,7 @@
-package org.example.demos.demos05Genrique;
+package org.example.demos.demo05Generique;
 
 import org.example.demos.demo01Base.Chat;
-import org.example.demos.demos05Genrique.model.Boite;
+import org.example.demos.demo05Generique.model.Boite;
 
 public class Main {
 
