@@ -26,7 +26,7 @@ public class Facture {
         System.out.println(article);
         boolean ajout = false;
         for (int i = 0; i < listLignes.length; i++) {
-            if (listLignes[i] != null) {
+            if (listLignes[i] == null) {
                 listLignes[i] = new Ligne(article, nbArticles);
                 ajout = true;
                 break;
@@ -39,9 +39,11 @@ public class Facture {
             System.out.println("Plus de place sur la facture");
         }
 
-        // TODO affichage
+        // TODO affichage test à enlever ensuite
         for (Ligne l: listLignes){
-            System.out.println(l);
+            if (l != null){
+                System.out.println(l.afficherLigne());
+            }
         }
 
     }

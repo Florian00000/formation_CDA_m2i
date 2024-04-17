@@ -12,7 +12,7 @@ public class Ligne {
 
 
 
-    public String toString() {
+    public String afficherLigne() {
         return "Ligne{" +
                 "article=" + article +
                 ", nbArticles=" + nbArticles +
