@@ -4,5 +4,18 @@ public class Ligne {
     private Article article;
     private int nbArticles;
 
-    //TODO finir la classe
+    public Ligne(Article article, int nbArticles) {
+        this.article = article;
+        this.nbArticles = nbArticles;
+    }
+
+
+
+
+    public String toString() {
+        return "Ligne{" +
+                "article=" + article +
+                ", nbArticles=" + nbArticles +
+                '}';
+    }
 }

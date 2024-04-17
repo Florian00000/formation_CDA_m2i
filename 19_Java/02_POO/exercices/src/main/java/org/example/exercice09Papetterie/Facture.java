@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Facture {
     private int numeroFacture;
     private static int idFacture = 0;
-    private  Article[] lignes ;
+    private  Ligne[] listLignes;
 
     private String client;
     private LocalDate date = LocalDate.now();
@@ -17,7 +17,7 @@ public class Facture {
     public Facture(String client, int nbLignesAchats) {
         this.numeroFacture = idFacture++;
         this.client = client;
-        this.lignes = new Article[nbLignesAchats];
+        this.listLignes = new Ligne[nbLignesAchats];
     }
 
     //TODO Faire la fonction ajouter lignes et créer une classe Ligne
@@ -25,9 +25,9 @@ public class Facture {
         Article article = Papeterie.getListeArticles().get(refArticle);
         System.out.println(article);
         boolean ajout = false;
-        for (int i = 0; i < lignes.length; i++) {
-            if (lignes[i] != null) {
-                lignes[i] = article;
+        for (int i = 0; i < listLignes.length; i++) {
+            if (listLignes[i] != null) {
+                listLignes[i] = new Ligne(article, nbArticles);
                 ajout = true;
                 break;
             }
@@ -39,8 +39,9 @@ public class Facture {
             System.out.println("Plus de place sur la facture");
         }
 
-        for (Article a: lignes){
-            System.out.println(a);
+        // TODO affichage
+        for (Ligne l: listLignes){
+            System.out.println(l);
         }
 
     }
