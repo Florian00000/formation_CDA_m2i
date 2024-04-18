@@ -67,6 +67,22 @@ public class Main {
                 .toList();
         question6.forEach(System.out::println);
 
+        System.out.println("Question 7");
+        List<Integer> question7 = transactions.stream()
+                .filter(t -> t.getTrader().getCity().equals("Cambridge"))
+                .map(t -> t.getValue())
+                .toList();
+
+        question7.forEach(System.out::println);
+
+        System.out.println("Question 8");
+        Optional<Transaction> question8 = transactions.stream()
+                .min(Comparator.comparingInt(t -> t.getValue()));
+
+
+        if (question8.isPresent()){
+            System.out.println(question8.get());
+        }
     }
 
 
