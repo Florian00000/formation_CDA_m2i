@@ -1,4 +1,4 @@
-package org.example.exercice11Exception.exo1ConversionIncorrect;
+package org.example.exercice12Exception.exo1ConversionIncorrect;
 
 import java.util.Scanner;
 
