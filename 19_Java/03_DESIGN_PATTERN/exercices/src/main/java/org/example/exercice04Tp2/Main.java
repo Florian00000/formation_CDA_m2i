@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         OrdinateurFactory ordinateurFactory = new OrdinateurFactory();
         ordinateurFactory.avecCarteMere((CarteMere) new CarteMere.CarteMereBuilder().build());
+
         //TODO a tester
         //exemple
         //ComputerFactory computerFactory = new ComputerFactory();
