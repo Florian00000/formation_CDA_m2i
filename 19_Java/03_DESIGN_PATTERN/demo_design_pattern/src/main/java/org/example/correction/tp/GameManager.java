@@ -29,6 +29,6 @@ public class GameManager {
     }
 
     private void unlockEquipment(String equipment, String characterType) {
-        
+
     }
 }

@@ -12,6 +12,9 @@ import org.example.correction.tp2.factory.ComputerFactory;
 import org.example.demo_abstract_factory.Application;
 import org.example.demo_abstract_factory.MacFactory;
 import org.example.demo_abstract_factory.WinFactory;
+import org.example.demo_observable.Tablette;
+import org.example.demo_observable.Telephone;
+import org.example.demo_observable.WeatherStation;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,9 +47,17 @@ public class Main {
 
         //Building castle = new CastleFactory().createBuilding(new Castle.CastleBuilder().style("s1").size(10).name("c1"));
 
-        ComputerFactory computerFactory = new ComputerFactory();
+        /*ComputerFactory computerFactory = new ComputerFactory();
         computerFactory.withRAM(RAM.builder().taille(10000).type("DDR4").build());
         computerFactory.withProcessor(new ProcessorBuilder().type("intel").nbCoeur(4).build());
-        Computer computer = computerFactory.createComputer();
+        Computer computer = computerFactory.createComputer();*/
+        WeatherStation weatherStation = new WeatherStation();
+        weatherStation.notifyObservers();
+        weatherStation.registerObserver(new Telephone());
+        Tablette tablette = new Tablette();
+        weatherStation.registerObserver(tablette);
+        weatherStation.notifyObservers();
+        weatherStation.removeObserver(tablette);
+        weatherStation.notifyObservers();
     }
 }

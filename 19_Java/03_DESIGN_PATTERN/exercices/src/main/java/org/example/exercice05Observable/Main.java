@@ -7,7 +7,7 @@ public class Main {
         System.out.println("après création");
         StockManager stockManager = new StockManager();
         Supplier supplier = new Supplier();
-        product.registerObserver(stockManager);
+        product.registerObserver( stockManager);
         product.registerObserver(supplier);
         product.setStockLevel(20);
     }
