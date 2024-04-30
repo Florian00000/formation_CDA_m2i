@@ -1,6 +1,14 @@
 package org.example;
 
 import org.example.correction.Pizza;
+import org.example.correction.tp.entity.Building;
+import org.example.correction.tp.entity.Castle;
+import org.example.correction.tp.factory.CastleFactory;
+import org.example.correction.tp2.builder.ProcessorBuilder;
+import org.example.correction.tp2.entity.Computer;
+import org.example.correction.tp2.entity.Processor;
+import org.example.correction.tp2.entity.RAM;
+import org.example.correction.tp2.factory.ComputerFactory;
 import org.example.demo_abstract_factory.Application;
 import org.example.demo_abstract_factory.MacFactory;
 import org.example.demo_abstract_factory.WinFactory;
@@ -30,8 +38,15 @@ public class Main {
 
         //Démo abstract Factory
 
-        Application application = new Application(new WinFactory());
+        /*Application application = new Application(new WinFactory());
 
-        Application applicationMac = new Application(new MacFactory());
+        Application applicationMac = new Application(new MacFactory());*/
+
+        //Building castle = new CastleFactory().createBuilding(new Castle.CastleBuilder().style("s1").size(10).name("c1"));
+
+        ComputerFactory computerFactory = new ComputerFactory();
+        computerFactory.withRAM(RAM.builder().taille(10000).type("DDR4").build());
+        computerFactory.withProcessor(new ProcessorBuilder().type("intel").nbCoeur(4).build());
+        Computer computer = computerFactory.createComputer();
     }
 }
