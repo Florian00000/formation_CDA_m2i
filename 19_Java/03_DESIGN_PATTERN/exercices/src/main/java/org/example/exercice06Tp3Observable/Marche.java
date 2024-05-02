@@ -7,6 +7,11 @@ import java.util.Observable;
 public class Marche extends Thread implements Runnable {
     private List<Action> listeActions;
 
+    public List<Action> getListeActions() {
+
+        return listeActions;
+    }
+
     public Marche() {
         listeActions = new ArrayList<Action>();
         for (int i = 0; i < 10; i++) {
@@ -19,11 +24,14 @@ public class Marche extends Thread implements Runnable {
 
     }
 
+
+
     public void lancementMarche() throws RuntimeException{
         while (true){
             try{
                 sleep(10000);
                 ajustementPrix();
+                System.out.println("test changement prix actions");
             }catch (InterruptedException e){
                 throw new RuntimeException(e);
             }

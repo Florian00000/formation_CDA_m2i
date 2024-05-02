@@ -24,6 +24,15 @@ public class Action implements Subject {
     }
 
     @Override
+    public String toString() {
+        return "Action{" +
+                "nom= '" + nom + '\'' +
+                ", prix =" + prix +
+                ", observers =" + observers +
+                '}';
+    }
+
+    @Override
     public void registerObserver(Observer observer) {
 
     }

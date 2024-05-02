@@ -7,6 +7,9 @@ public class Main {
         Marche marche = new Marche();
 
         //TODO suivre des actions et tester lancement marché
-        inv1.suivreAction(marche.);
+
+        marche.getListeActions().stream().forEach(a -> System.out.println(a));
+        //inv1.suivreAction(marche.);
+        marche.lancementMarche();
     }
 }
