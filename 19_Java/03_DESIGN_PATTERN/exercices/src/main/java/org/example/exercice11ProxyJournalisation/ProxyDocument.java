@@ -8,8 +8,8 @@ public class ProxyDocument implements Document{
     private RealDocument document;
     private static List<String> activity = new ArrayList<>();
 
-    public ProxyDocument(RealDocument document) {
-        this.document = document;
+    public ProxyDocument(String title, String content) {
+        this.document = new RealDocument(title, content);
     }
 
     @Override
