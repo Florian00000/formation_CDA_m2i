@@ -1,6 +1,6 @@
 package org.example.exercice14flyweightLocation;
 
-public class SharedVehicleState implements VehicleFyWeight{
+public class SharedVehicleState implements VehicleFlyWeight {
     private String model;
     private String brand;
     private String color;
