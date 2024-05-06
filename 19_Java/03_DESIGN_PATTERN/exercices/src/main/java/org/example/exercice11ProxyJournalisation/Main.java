@@ -10,7 +10,7 @@ public class Main {
         document2.readDocument();
 
         System.out.println("activitées: ");
-        ProxyDocument.getActivy();
+        ProxyDocument.getActivty();
 
     }
 }

@@ -24,7 +24,7 @@ public class ProxyDocument implements Document{
         activity.add("Ecriture: " + this.document.getTitle() + ", contenu: " + content);
     }
 
-    public static void getActivy() {
+    public static void getActivty() {
         activity.forEach(System.out::println);
     }
 }
