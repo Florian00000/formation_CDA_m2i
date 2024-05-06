@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ProxyDocument implements Document{
     private RealDocument document;
-    private static int numberActivy = 0;
+    private static List<String> activity = new ArrayList<>();
 
     public ProxyDocument(RealDocument document) {
         this.document = document;
@@ -15,16 +15,16 @@ public class ProxyDocument implements Document{
     @Override
     public void readDocument() {
         this.document.readDocument();
-        numberActivy++;
+        activity.add("Lecture: " + this.document.getTitle());
     }
 
     @Override
     public void writeDocument(String content) {
         this.document.writeDocument(content);
-        numberActivy++;
+        activity.add("Ecriture: " + this.document.getTitle() + ", contenu: " + content);
     }
 
-    public static int getNumberActivy() {
-        return numberActivy;
+    public static void getActivy() {
+        activity.forEach(System.out::println);
     }
 }
