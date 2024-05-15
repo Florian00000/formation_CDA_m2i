@@ -1,4 +1,4 @@
-package org.example.demos.demo2.Entity;
+package org.example.Demo2.Entity;
 
 import lombok.Builder;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class Plante {
-    private int id;
+    private int id_plante;
     private String name;
     private int age;
     private String color;
@@ -14,7 +14,7 @@ public class Plante {
     @Override
     public String toString() {
         return "Plante{" +
-                "id=" + id +
+                "id_plante=" + id_plante +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", color='" + color + '\'' +
