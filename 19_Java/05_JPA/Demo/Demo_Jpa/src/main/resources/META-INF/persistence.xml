@@ -13,6 +13,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Ici spécifier les classes d'entités qui seront gérées par cette unité de persistance-->
         <class>org.example.Entity.Plante</class>
+        <class>org.example.Entity.Commande</class>
 <!--        <class>org.example.Entity.Pot</class>-->
 
 

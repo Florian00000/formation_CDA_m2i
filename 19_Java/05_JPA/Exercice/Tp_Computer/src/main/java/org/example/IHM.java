@@ -1,11 +1,9 @@
 package org.example;
 
-import org.example.Entity.Computer;
-import org.example.Entity.ExploitationSystem;
-import org.example.Entity.Identifiant;
-import org.example.Entity.Processor;
+import org.example.Entity.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,6 +22,7 @@ public class IHM {
             System.out.println("3/ afficher par id");
             System.out.println("4/ supprimer");
             System.out.println("5/ editer");
+            System.out.println("6/ ajouter devices");
             int entry = sc.nextInt();
             sc.nextLine();
             switch (entry){
@@ -41,6 +40,9 @@ public class IHM {
                     break;
                 case 5:
                     editComputer();
+                    break;
+                case 6:
+                    addDevices();
                     break;
                 default:
                     return;
@@ -107,5 +109,15 @@ public class IHM {
         }
         transaction.commit();
     }
+
+    private void addDevices(){
+        Device device = Device.builder().computers(new ArrayList<>()).build();
+        Computer computer = em.find(Computer.class,1);
+        device.addComputer(computer);
+        //computer.addDevice(device);
+        em.getTransaction().begin();
+        em.persist(device);
+        em.getTransaction().commit();
+    };
 
 }

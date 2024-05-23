@@ -1,6 +1,11 @@
 package org.example;
 
 import org.example.Entity.*;
+import org.example.Entity.Heritage.Join.Etudiant3;
+import org.example.Entity.Heritage.Join.Professeur3;
+import org.example.Entity.Heritage.Single_Table.Etudiant2;
+import org.example.Entity.Heritage.Single_Table.Professeur2;
+import org.example.Entity.Heritage.Table_per_class.Professeur;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -75,6 +80,24 @@ public class Main {
 //            System.out.println("from list : "+planteInList);
 //        }
 
+
+//        Commande commande = Commande.builder().code(124587821).nameCenter("center East").date("Topday").build();
+
+//        CommandePk commandePk = new CommandePk(124846512,"Center North");
+//
+//        Commande commande = Commande.builder().pk(commandePk).date("today").build();
+//        em.getTransaction().begin();
+//        em.persist(commande);
+//        em.getTransaction().commit();
+
+
+        Professeur3 professeur = Professeur3.builder().nom("Proff").prenom("de math").matiere("math").build();
+        Etudiant3 etudiant2 = Etudiant3.builder().nom("toto").prenom("tata").classe("classe1").build();
+
+        em.getTransaction().begin();
+        em.persist(professeur);
+        em.persist(etudiant2);
+        em.getTransaction().commit();
 
 
 

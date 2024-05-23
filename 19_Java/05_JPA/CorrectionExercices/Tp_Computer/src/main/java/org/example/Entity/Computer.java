@@ -16,7 +16,6 @@ import java.util.List;
 public class Computer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
     private String name;
     private float price;
@@ -26,19 +25,25 @@ public class Computer {
     @JoinColumn(name = "id_identifiant")
     private Identifiant identifiant;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_processor")
+    @ManyToOne
+    @JoinColumn(name = "processor_id")
     private Processor processor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_exploitationSystem")
-    private ExploitationSystem exploitationSystem;
+    @ManyToOne
+    @JoinColumn(name = "os_id")
+    private OS os;
 
     @ManyToMany(mappedBy = "computers")
-    private List<Device> devices;
+    private List<Peripherique> peripheriques;
 
-//    public void addDevice(Device device) {
-//        devices.add(device);
-//    }
-
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", identifiant=" + identifiant +
+                ", processor=" + processor +
+                '}';
+    }
 }

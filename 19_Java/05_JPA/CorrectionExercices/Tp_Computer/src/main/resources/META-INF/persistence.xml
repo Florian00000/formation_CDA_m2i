@@ -12,9 +12,9 @@
         Si cet élément est omis, le fournisseur par défaut configuré dans l'environnement sera utilisé.-->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Ici spécifier les classes d'entités qui seront gérées par cette unité de persistance-->
-<!--        <class>org.example.Entity.Computer</class>-->
-<!--        <class>org.example.Entity.Processor</class>-->
-<!--        <class>org.example.Entity.Device</class>-->
+        <class>org.example.Entity.Computer</class>
+        <class>org.example.Entity.OS</class>
+        <class>org.example.Entity.Processor</class>
 
 
 
@@ -29,7 +29,7 @@
             <property name="javax.persistence.jdbc.password" value="root" />
 <!--            <property name="javax.persistence.schema-generation.database.action" value="create"/>-->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
+<!--            <property name="hibernate.show_sql" value="true"/>-->
         </properties>
     </persistence-unit>
 </persistence>
