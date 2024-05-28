@@ -9,6 +9,7 @@ import org.hibernate.type.IntegerType;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class ProduitService extends BaseService implements Repository<Produit> {
 
@@ -82,6 +83,34 @@ public class ProduitService extends BaseService implements Repository<Produit> {
         List<Produit> produits = query.list();
         session.close();
         return produits;
+    }
+
+    public List<Produit> findAllBetweenTwoDates() {
+        session = sessionFactory.openSession();
+
+        System.out.println("Entrez la date du début");
+        Date start = dateScanner();
+        System.out.println("Entrez la date de fin");
+        Date end = dateScanner();
+
+        Query<Produit> query = session.createQuery("from Produit where dateAchat between ?1 and ?2");
+        query.setParameter(1, start, DateType.INSTANCE);
+        query.setParameter(2, end, DateType.INSTANCE);
+        List<Produit> produits = query.list();
+        session.close();
+        return produits;
+    }
+
+    public Date dateScanner(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrer le jour JJ");
+        String jour = scanner.nextLine();
+        System.out.println("Entrer le mois MM");
+        String mois = scanner.nextLine();
+        System.out.println("Entrer l'année AAAA");
+        String annee = scanner.nextLine();
+        Date date = new Date(annee+"/"+mois+"/"+jour);
+        return date;
     }
 
 
