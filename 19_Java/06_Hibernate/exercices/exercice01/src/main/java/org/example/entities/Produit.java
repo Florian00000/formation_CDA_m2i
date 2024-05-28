@@ -1,14 +1,11 @@
-package org.example.entites;
+package org.example.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -24,6 +21,7 @@ public class Produit {
 
     private String marque;
     private String reference;
+    @Temporal(TemporalType.DATE)
     private Date dateAchat;
     private double prix;
     private int stock;
