@@ -6,6 +6,7 @@ import org.hibernate.query.Query;
 import org.hibernate.type.DateType;
 import org.hibernate.type.DoubleType;
 import org.hibernate.type.IntegerType;
+import org.hibernate.type.StringType;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -118,6 +119,44 @@ public class ProduitService extends BaseService implements Repository<Produit> {
         System.out.println("Veuillez saisir une date AAAA/MM/JJ");
         String dateString = scanner.nextLine();
         return new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
+    }
+
+    public Double getPriceOfStockByBrand(String marque) {
+        session = sessionFactory.openSession();
+        Double produitQuery = session.createQuery("select sum(prix * stock) from Produit where marque = :brand", Double.class)
+                .setParameter("brand", marque)
+                .getSingleResult();
+        session.close();
+        return produitQuery;
+    }
+
+    public Double getAveragePrice(){
+        session = sessionFactory.openSession();
+        Double produitQuery = session.createQuery("select avg(prix) from Produit", Double.class)
+                .getSingleResult();
+        session.close();
+        return produitQuery;
+    }
+
+    public List<Produit> filterByBrand(String marque) {
+        session = sessionFactory.openSession();
+        Query<Produit> produitQuery = session.createQuery("from Produit where marque = :marque", Produit.class);
+        produitQuery.setParameter("marque", marque);
+        List<Produit> produits = produitQuery.list();
+        session.close();
+        return produits;
+    }
+
+    public String deleteByBrand(String marque){
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("delete from Produit where marque = :marque");
+        query.setParameter("marque", marque, StringType.INSTANCE);
+        int nbLignes =  query.executeUpdate();
+        String result = "Nombre de lignes supprimées: " + nbLignes;
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 
 
