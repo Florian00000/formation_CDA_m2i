@@ -18,6 +18,10 @@ public class Entreprise {
     @OneToMany(mappedBy = "entreprise")
     private List<Personne> personnes = new ArrayList<>();
 
+    // orphanRemoval = true => s'assure que les adresse sans entreprise associé soit supprimer
+    @OneToOne(mappedBy = "entreprise", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private Adresse adresse;
+
     public int getId() {
         return id;
     }
@@ -40,5 +44,13 @@ public class Entreprise {
 
     public void setPersonnes(List<Personne> personnes) {
         this.personnes = personnes;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
     }
 }
