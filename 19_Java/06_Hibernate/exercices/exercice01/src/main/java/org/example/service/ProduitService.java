@@ -7,6 +7,8 @@ import org.hibernate.type.DateType;
 import org.hibernate.type.DoubleType;
 import org.hibernate.type.IntegerType;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -68,24 +70,27 @@ public class ProduitService extends BaseService implements Repository<Produit> {
 
     public List<Produit> findAllMoreExpensiveThan(double number) {
         session = sessionFactory.openSession();
-        Query<Produit> query = session.createQuery("from Produit where prix > :prix");
+        Query<Produit> query = session.createQuery("from Produit where prix > :prix", Produit.class);
         query.setParameter("prix", number, DoubleType.INSTANCE);
         List<Produit> produits = query.list();
         session.close();
         return produits;
     }
 
-    public List<Produit> findAllBetweenTwoDates(Date start, Date end) {
-        session = sessionFactory.openSession();
-        Query<Produit> query = session.createQuery("from Produit where dateAchat between ?1 and ?2");
-        query.setParameter(1, start, DateType.INSTANCE);
-        query.setParameter(2, end, DateType.INSTANCE);
-        List<Produit> produits = query.list();
-        session.close();
-        return produits;
+    public List<Produit> findAllBetweenTwoDates(Date start, Date end) throws Exception {
+        if (start.before(end)){
+            session = sessionFactory.openSession();
+            Query<Produit> query = session.createQuery("from Produit where dateAchat between ?1 and ?2", Produit.class);
+            query.setParameter(1, start, DateType.INSTANCE);
+            query.setParameter(2, end, DateType.INSTANCE);
+            List<Produit> produits = query.list();
+            session.close();
+            return produits;
+        }
+            throw new Exception("La date du début est postérieur à la date de fin");
     }
 
-    public List<Produit> findAllBetweenTwoDates() {
+    public List<Produit> findAllBetweenTwoDates() throws Exception {
         session = sessionFactory.openSession();
 
         System.out.println("Entrez la date du début");
@@ -93,24 +98,26 @@ public class ProduitService extends BaseService implements Repository<Produit> {
         System.out.println("Entrez la date de fin");
         Date end = dateScanner();
 
-        Query<Produit> query = session.createQuery("from Produit where dateAchat between ?1 and ?2");
-        query.setParameter(1, start, DateType.INSTANCE);
-        query.setParameter(2, end, DateType.INSTANCE);
-        List<Produit> produits = query.list();
-        session.close();
-        return produits;
+        return findAllBetweenTwoDates(start, end);
     }
 
-    public Date dateScanner(){
+    public List<Produit> findAllByStockBelow(int maxStock) throws Exception {
+        if (maxStock > 0){
+            session = sessionFactory.openSession();
+            Query<Produit> produitQuery = session.createQuery("from Produit where stock < :stock", Produit.class);
+            produitQuery.setParameter("stock", maxStock, IntegerType.INSTANCE);
+            List<Produit> produits = produitQuery.list();
+            session.close();
+            return produits;
+        }
+        throw new Exception("Valeur entrée inférieur à 0");
+    }
+
+    public Date dateScanner() throws ParseException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrer le jour JJ");
-        String jour = scanner.nextLine();
-        System.out.println("Entrer le mois MM");
-        String mois = scanner.nextLine();
-        System.out.println("Entrer l'année AAAA");
-        String annee = scanner.nextLine();
-        Date date = new Date(annee+"/"+mois+"/"+jour);
-        return date;
+        System.out.println("Veuillez saisir une date AAAA/MM/JJ");
+        String dateString = scanner.nextLine();
+        return new SimpleDateFormat("yyyy/MM/dd").parse(dateString);
     }
 
 

@@ -27,10 +27,15 @@ public class Exercice02 {
 
         //3
         System.out.println("Afficher la liste des produits achetés entre deux dates.");
-        List<Produit> produits3 = ps.findAllBetweenTwoDates(new Date("2019/01/01"), new Date("2023/01/01"));
-        for (Produit p : produits3) {
-            System.out.println(p);
-        }
+        try {
+            List<Produit> produits3 = ps.findAllBetweenTwoDates(new Date("2019/01/01"), new Date("2023/01/01"));
+            for (Produit p : produits3) {
+                System.out.println(p);
+            }
+
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        };
 
         ps.close();
     }
