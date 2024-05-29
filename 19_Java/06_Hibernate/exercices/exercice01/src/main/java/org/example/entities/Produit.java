@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
@@ -25,4 +26,24 @@ public class Produit {
     private Date dateAchat;
     private double prix;
     private int stock;
+
+    @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
+    private List<Image> images;
+
+    @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
+    private List<Commentaire> commentaires;
+
+    @Override
+    public String toString() {
+        return "Produit{" +
+                "id=" + id +
+                ", marque = '" + marque + '\'' +
+                ", reference = '" + reference + '\'' +
+                ", dateAchat = " + dateAchat +
+                ", prix = " + prix +
+                ", stock = " + stock +
+//                ", images = " + images +
+//                ", commentaires = " + commentaires +
+                '}';
+    }
 }

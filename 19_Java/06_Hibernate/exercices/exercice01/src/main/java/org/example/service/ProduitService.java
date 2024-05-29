@@ -56,6 +56,8 @@ public class ProduitService extends BaseService implements Repository<Produit> {
        // Produit produit = null;
         session = sessionFactory.openSession();
         Produit produit = session.get(Produit.class,id);
+        produit.getCommentaires();
+        produit.getImages();
         session.close();
         return produit;
     }
@@ -157,6 +159,17 @@ public class ProduitService extends BaseService implements Repository<Produit> {
         session.getTransaction().commit();
         session.close();
         return result;
+    }
+
+    public List<Produit> filterByAverageScore(double number){
+        session = sessionFactory.openSession();
+        Query<Produit> produitQuery = session.createQuery("select p from Produit as p " +
+                "join Commentaire as c on c.produit = p " +
+                "group by p having avg(c.note) >= :number");
+        produitQuery.setParameter("number", number, DoubleType.INSTANCE);
+        List<Produit> produits = produitQuery.list();
+        session.close();
+        return produits;
     }
 
 
