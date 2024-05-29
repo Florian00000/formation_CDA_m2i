@@ -27,10 +27,10 @@ public class Produit {
     private double prix;
     private int stock;
 
-    @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "produit")
     private List<Image> images;
 
-    @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "produit")
     private List<Commentaire> commentaires;
 
     @Override
@@ -42,8 +42,6 @@ public class Produit {
                 ", dateAchat = " + dateAchat +
                 ", prix = " + prix +
                 ", stock = " + stock +
-//                ", images = " + images +
-//                ", commentaires = " + commentaires +
                 '}';
     }
 }

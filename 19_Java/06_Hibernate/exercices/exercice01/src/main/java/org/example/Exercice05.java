@@ -13,16 +13,16 @@ import java.util.List;
 public class Exercice05 {
     public static void main(String[] args) {
         ProduitService ps = new ProduitService();
-        Produit produit1 = ps.findById(1);
+ //       Produit produit1 = ps.findById(1);
 //        Produit produit2 = ps.findById(2);
 //        Produit produit3 = ps.findById(3);
 
-        System.out.println(produit1);
+ //       System.out.println(produit1);
 
-//        List<Produit> produits = ps.filterByAverageScore(4);
-//        for (Produit p : produits) {
-//            System.out.println(p);
-//        }
+        List<Produit> produits = ps.filterByAverageScore(4);
+        for (Produit p : produits) {
+            System.out.println(p);
+        }
         ps.close();
 
 
