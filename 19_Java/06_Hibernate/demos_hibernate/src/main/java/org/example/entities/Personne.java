@@ -17,6 +17,10 @@ public class Personne {
     private String prenom;
     private int age;
 
+    @ManyToOne
+    @JoinColumn(name = "entreprise_id")
+    private Entreprise entreprise;
+
     public Long getId() {
         return id;
     }
@@ -49,4 +53,11 @@ public class Personne {
         this.age = age;
     }
 
+    public Entreprise getEntreprise() {
+        return entreprise;
+    }
+
+    public void setEntreprise(Entreprise entreprise) {
+        this.entreprise = entreprise;
+    }
 }
