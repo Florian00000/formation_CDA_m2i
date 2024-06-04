@@ -30,4 +30,19 @@ public class ShopTest {
         //Assert
         Assert.assertEquals(product, productUpdated);
     }
+
+    @Test public void WhenQualityEqual0_ThenUpdateBeFalse() {
+        //act
+        Product product = new Product();
+        product.setSellIn(5);
+        product.setQuality(1);
+
+        shop.update(product);
+
+        Product productUpdated =  new Product();
+        productUpdated.setSellIn(4);
+        productUpdated.setQuality(0);
+
+        Assert.assertNotEquals(product, productUpdated);
+    }
 }
