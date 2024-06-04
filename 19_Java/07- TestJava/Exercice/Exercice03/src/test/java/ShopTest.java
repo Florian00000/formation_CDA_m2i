@@ -59,4 +59,18 @@ public class ShopTest {
 
         Assert.assertFalse(excepted);
     }
+
+    @Test public void WhenNameIsBrieVieilli_ThenUpdateBeTrue() {
+        //act
+        Product product = new Product();
+        product.setName("brie vieilli");
+        product.setSellIn(5);
+        product.setQuality(5);
+
+        shop.update(product);
+        boolean excepted = product.getQuality() == 6;
+
+        //Assert
+        Assert.assertTrue(excepted);
+    }
 }
