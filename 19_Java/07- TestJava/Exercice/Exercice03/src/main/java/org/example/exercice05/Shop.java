@@ -7,7 +7,15 @@ import java.util.List;
 public class Shop {
     private List<Product> products;
 
-    public void update(Product product) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("exception");
+    public void update(Product product)  {
+        product.setSellIn(product.getSellIn() - 1 );
+        if (product.getSellIn() > 0){
+            product.setQuality(product.getQuality() - 1);
+        } else {
+            product.setQuality(product.getQuality() - 2);
+        }
+
+
+
     }
 }

@@ -14,7 +14,7 @@ public class ShopTest {
         shop = new Shop();
     }
 
-    @Test public void WhenSellInEqual0_ThenUpdateBeTrue() throws ExecutionControl.NotImplementedException {
+    @Test public void WhenSellInEqual0_ThenUpdateBeTrue() {
 
         //act
         Product product = new Product();
@@ -26,7 +26,6 @@ public class ShopTest {
         Product productUpdated =  new Product();
         productUpdated.setSellIn(1 - 1);
         productUpdated.setQuality(4 - 2);
-
 
         //Assert
         Assert.assertEquals(product, productUpdated);
