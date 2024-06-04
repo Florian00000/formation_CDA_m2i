@@ -15,7 +15,9 @@ public class Shop {
             product.setQuality(product.getQuality() - 2);
         }
 
-
+        if (product.getQuality() == 0){
+            product.setQuality( 1);
+        }
 
     }
 }
