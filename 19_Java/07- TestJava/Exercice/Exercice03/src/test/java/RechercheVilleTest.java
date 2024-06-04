@@ -30,4 +30,16 @@ public class RechercheVilleTest {
         //Assert
         Assert.assertEquals(excepted, res);
     }
+
+    @Test public void WhenArgsIsInsensitiveToCase_ThenRechercherBeTrue () {
+        //Arrange
+        rechercheVille = new RechercheVille();
+
+        //Act
+        List<String> res =  rechercheVille.rechercher("va");
+        List<String> excepted = List.of("Valence", "Vancouver");
+
+        //Assert
+        Assert.assertEquals(excepted, res);
+    }
 }
