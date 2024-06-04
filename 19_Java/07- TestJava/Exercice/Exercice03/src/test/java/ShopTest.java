@@ -43,6 +43,20 @@ public class ShopTest {
         productUpdated.setSellIn(4);
         productUpdated.setQuality(0);
 
+        //assert
         Assert.assertNotEquals(product, productUpdated);
+    }
+
+    @Test public void WhenQualityMoreThan50_ThenUpdateBeFalse() {
+        //act
+        Product product = new Product();
+        product.setQuality(55);
+        product.setSellIn(5);
+
+        shop.update(product);
+
+        boolean excepted = product.getQuality() > 50;
+
+        Assert.assertFalse(excepted);
     }
 }
