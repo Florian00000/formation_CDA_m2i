@@ -17,7 +17,9 @@ public class RechercheVille {
             "Istanbul");
 
     public List<String> rechercher(String mot) {
-        if (mot.length() < 2){
+        if (mot.equals("*")){
+            return villes;
+        }  else if (mot.length() < 2){
             throw new NotFoundException();
         }else{
             List<String> villesRecherche = new ArrayList<>();
@@ -29,6 +31,7 @@ public class RechercheVille {
             return villesRecherche;
         }
 
+        }
+
     }
 
-}
