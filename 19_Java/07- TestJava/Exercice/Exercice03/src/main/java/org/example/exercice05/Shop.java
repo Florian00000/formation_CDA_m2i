@@ -8,12 +8,19 @@ public class Shop {
     private List<Product> products;
 
     public void update(Product product)  {
+
         product.setSellIn(product.getSellIn() - 1 );
-        if (product.getSellIn() > 0){
+
+        if ( !product.getName().equals("brie vieilli")) {
+            if (product.getSellIn() > 0){
             product.setQuality(product.getQuality() - 1);
-        } else {
-            product.setQuality(product.getQuality() - 2);
+            } else {
+                product.setQuality(product.getQuality() - 2);
+            }
+        }else {
+            product.setQuality(product.getQuality() + 1);
         }
+
 
         if (product.getQuality() == 0){
             product.setQuality( 1);

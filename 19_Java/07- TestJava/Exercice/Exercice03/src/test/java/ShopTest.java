@@ -18,12 +18,14 @@ public class ShopTest {
 
         //act
         Product product = new Product();
+        product.setName("test");
         product.setSellIn(1);
         product.setQuality(4);
 
         shop.update(product);
 
         Product productUpdated =  new Product();
+        productUpdated.setName("test");
         productUpdated.setSellIn(1 - 1);
         productUpdated.setQuality(4 - 2);
 
@@ -34,12 +36,14 @@ public class ShopTest {
     @Test public void WhenQualityEqual0_ThenUpdateBeFalse() {
         //act
         Product product = new Product();
+        product.setName("test");
         product.setSellIn(5);
         product.setQuality(1);
 
         shop.update(product);
 
         Product productUpdated =  new Product();
+        productUpdated.setName("test");
         productUpdated.setSellIn(4);
         productUpdated.setQuality(0);
 
@@ -50,6 +54,7 @@ public class ShopTest {
     @Test public void WhenQualityMoreThan50_ThenUpdateBeFalse() {
         //act
         Product product = new Product();
+        product.setName("test");
         product.setQuality(55);
         product.setSellIn(5);
 
