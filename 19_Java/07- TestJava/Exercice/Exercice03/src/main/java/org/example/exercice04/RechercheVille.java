@@ -22,7 +22,7 @@ public class RechercheVille {
         }else{
             List<String> villesRecherche = new ArrayList<>();
             for (String v : villes){
-                if (v.startsWith(mot)){
+                if (v.toLowerCase().startsWith(mot.toLowerCase())){
                     villesRecherche.add(v);
                 }
             }
