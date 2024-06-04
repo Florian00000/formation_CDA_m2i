@@ -4,6 +4,7 @@ import org.example.exercice04.RechercheVille;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RechercheVilleTest {
@@ -24,9 +25,9 @@ public class RechercheVilleTest {
 
         //Act
         List<String> res =  rechercheVille.rechercher("Va");
-//        List<String> excepted =
-//
-//        //Assert
-//        Assert.
+        List<String> excepted = List.of("Valence", "Vancouver");
+
+        //Assert
+        Assert.assertEquals(excepted, res);
     }
 }
