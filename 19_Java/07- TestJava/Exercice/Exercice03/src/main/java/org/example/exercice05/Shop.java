@@ -17,6 +17,8 @@ public class Shop {
 
         if (product.getQuality() == 0){
             product.setQuality( 1);
+        } else if (product.getQuality() > 50) {
+            product.setQuality(50);
         }
 
     }
