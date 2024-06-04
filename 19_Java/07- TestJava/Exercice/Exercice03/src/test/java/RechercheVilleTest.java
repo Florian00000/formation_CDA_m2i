@@ -54,4 +54,17 @@ public class RechercheVilleTest {
         //Assert
         Assert.assertEquals(excepted, res);
     }
+
+    @Test public void WhenArgsIsAll_ThenRechercherBeTrue () {
+        //Arrange
+        rechercheVille = new RechercheVille();
+
+        //Act
+        List<String> res =  rechercheVille.rechercher("*");
+        List<String> excepted = List.of("Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver",
+                "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome","Istanbul");
+
+        //Assert
+        Assert.assertEquals(excepted, res);
+    }
 }
