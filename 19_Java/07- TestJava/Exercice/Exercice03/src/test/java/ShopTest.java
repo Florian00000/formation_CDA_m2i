@@ -19,6 +19,7 @@ public class ShopTest {
         //act
         Product product = new Product();
         product.setName("test");
+        product.setType("test");
         product.setSellIn(1);
         product.setQuality(4);
 
@@ -26,6 +27,7 @@ public class ShopTest {
 
         Product productUpdated =  new Product();
         productUpdated.setName("test");
+        productUpdated.setType("test");
         productUpdated.setSellIn(1 - 1);
         productUpdated.setQuality(4 - 2);
 
@@ -37,6 +39,7 @@ public class ShopTest {
         //act
         Product product = new Product();
         product.setName("test");
+        product.setType("laitier");
         product.setSellIn(5);
         product.setQuality(1);
 
@@ -44,6 +47,7 @@ public class ShopTest {
 
         Product productUpdated =  new Product();
         productUpdated.setName("test");
+        productUpdated.setType("test");
         productUpdated.setSellIn(4);
         productUpdated.setQuality(0);
 
@@ -55,6 +59,7 @@ public class ShopTest {
         //act
         Product product = new Product();
         product.setName("test");
+        product.setType("test");
         product.setQuality(55);
         product.setSellIn(5);
 
@@ -69,6 +74,7 @@ public class ShopTest {
         //act
         Product product = new Product();
         product.setName("brie vieilli");
+        product.setType("test");
         product.setSellIn(5);
         product.setQuality(5);
 
@@ -76,6 +82,17 @@ public class ShopTest {
         boolean excepted = product.getQuality() == 6;
 
         //Assert
+        Assert.assertTrue(excepted);
+    }
+
+    @Test public void WhenTypeIsLaitier_ThenUpdateBeTrue() {
+        //act
+        Product product = new Product("laitier", "test", 5, 5);
+
+        shop.update(product);
+        boolean excepted = product.getQuality() == 3;
+
+        //assert
         Assert.assertTrue(excepted);
     }
 }

@@ -8,6 +8,16 @@ public class Product {
     private int sellIn;
     private int quality;
 
+    public Product() {
+    }
+
+    public Product(String type, String name, int sellIn, int quality) {
+        this.type = type;
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
+    }
+
     public String getType() {
         return type;
     }
