@@ -42,4 +42,16 @@ public class RechercheVilleTest {
         //Assert
         Assert.assertEquals(excepted, res);
     }
+
+    @Test public void WhenArgsIsContainsInVilles_ThenRechercherBeTrue () {
+        //Arrange
+        rechercheVille = new RechercheVille();
+
+        //Act
+        List<String> res =  rechercheVille.rechercher("ape");
+        List<String> excepted = List.of("Budapest");
+
+        //Assert
+        Assert.assertEquals(excepted, res);
+    }
 }
