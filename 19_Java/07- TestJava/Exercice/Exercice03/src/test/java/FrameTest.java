@@ -166,4 +166,24 @@ public class FrameTest {
        Assert.assertEquals(12, frame.getScore());
    }
 
+   @Test public void Roll_LastFrame_FourthRoll_ReturnFalse(){
+        //arrange
+       frame.setLastFrame(true);
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(1);
+       frame.makeRoll();
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(1);
+       frame.makeRoll();
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(1);
+       frame.makeRoll();
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(1);
+       frame.makeRoll();
+
+       //arrange
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(1);
+       boolean result = frame.makeRoll();
+
+       //Assert
+       Assert.assertFalse(result);
+   }
+
 }
