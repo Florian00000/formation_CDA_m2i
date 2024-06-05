@@ -16,8 +16,12 @@ public class Frame {
     }
 
     public boolean makeRoll() {
-        score += generateur.randomPin(10);
-        return true;
+        if (score >= 10){
+            return false;
+        }else {
+            score += generateur.randomPin(10);
+            return true;
+        }
     }
 
     public int getScore() {
