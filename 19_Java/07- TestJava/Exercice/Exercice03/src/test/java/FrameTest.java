@@ -50,6 +50,7 @@ public class FrameTest {
         //arrange
         frame.setScore(10);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+        frame.getRolls().add(new Roll(10));
 
         //act
         frame.makeRoll();
@@ -59,5 +60,18 @@ public class FrameTest {
         Assert.assertFalse(result);
     }
 
+    @Test public void Roll_SimpleFrame_MoreRolls_ReturnFalse(){
+        //arrange
+        frame.setScore(5);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+        frame.getRolls().add(new Roll(5));
+
+        //act
+        frame.makeRoll();
+        boolean result = frame.makeRoll();
+
+        //Assert
+        Assert.assertFalse(result);
+    }
 
 }
