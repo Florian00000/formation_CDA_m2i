@@ -2,7 +2,6 @@ import jdk.jshell.spi.ExecutionControl;
 import org.example.exercice06Mock.Frame;
 import org.example.exercice06Mock.IGenerateur;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;

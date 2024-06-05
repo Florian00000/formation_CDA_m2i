@@ -15,8 +15,9 @@ public class Frame {
         this.generateur = generateur;
     }
 
-    public boolean makeRoll() throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("blabla");
+    public boolean makeRoll() {
+        score += generateur.randomPin(10);
+        return true;
     }
 
     public int getScore() {
