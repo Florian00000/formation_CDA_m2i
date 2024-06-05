@@ -13,7 +13,7 @@ public class FrameTest {
 
     private IGenerateur iGenerateur = Mockito.mock(IGenerateur.class);
 
-    @Test public void Roll_SimpleFrame_FirstRoll_CheckScore() throws ExecutionControl.NotImplementedException {
+    @Test public void Roll_SimpleFrame_FirstRoll_CheckScore() {
         //arrange
         frame = new Frame(iGenerateur, false);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
@@ -23,5 +23,18 @@ public class FrameTest {
 
         //Assert
         Assert.assertEquals(2 , frame.getScore());
+    }
+
+    @Test public void Roll_SimpleFrame_SecondRoll_CheckScore(){
+        //arrange
+        frame = new Frame(iGenerateur, true);
+        frame.setScore(2);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+
+        //act
+        frame.makeRoll();
+
+        //Assert
+        Assert.assertEquals(4 , frame.getScore());
     }
 }
