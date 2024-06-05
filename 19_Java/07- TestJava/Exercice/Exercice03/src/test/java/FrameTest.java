@@ -1,6 +1,7 @@
 import jdk.jshell.spi.ExecutionControl;
 import org.example.exercice06Mock.Frame;
 import org.example.exercice06Mock.IGenerateur;
+import org.example.exercice06Mock.Roll;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 
 @ExtendWith(MockitoExtension.class)
 public class FrameTest {
@@ -33,9 +35,9 @@ public class FrameTest {
 
     @Test public void Roll_SimpleFrame_SecondRoll_CheckScore(){
         //arrange
-        frame.setLastFrame(true);
         frame.setScore(2);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+        frame.getRolls().add(new Roll(2));
 
         //act
         frame.makeRoll();
@@ -46,7 +48,6 @@ public class FrameTest {
 
     @Test public void Roll_SimpleFrame_SecondRoll_FirstRollStrick_ReturnFalse(){
         //arrange
-        frame.setLastFrame(true);
         frame.setScore(10);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
 
@@ -57,4 +58,6 @@ public class FrameTest {
         //Assert
         Assert.assertFalse(result);
     }
+
+
 }

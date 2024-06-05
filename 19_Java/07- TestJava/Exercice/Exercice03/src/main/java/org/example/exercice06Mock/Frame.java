@@ -2,6 +2,7 @@ package org.example.exercice06Mock;
 
 import jdk.jshell.spi.ExecutionControl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Frame {
@@ -13,15 +14,18 @@ public class Frame {
     public Frame(IGenerateur generateur, boolean lastFrame) {
         this.lastFrame = lastFrame;
         this.generateur = generateur;
+        this.rolls = new ArrayList<>();
     }
 
     public boolean makeRoll() {
-        if (score >= 10){
-            return false;
-        }else {
-            score += generateur.randomPin(10);
-            return true;
-        }
+            if (score >= 10){
+                return false;
+            }else {
+                int addScore = generateur.randomPin(10);
+                this.rolls.add(new Roll(addScore));
+                score += addScore;
+                return true;
+            }
     }
 
     public int getScore() {
