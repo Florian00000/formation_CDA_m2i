@@ -139,16 +139,31 @@ public class FrameTest {
         frame.setLastFrame(true);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
         frame.makeRoll();
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
 
         //arrange
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
-        frame.makeRoll();
         boolean result = frame.makeRoll();
 
         //Assert
         Assert.assertTrue(result);
     }
 
-   // @Test public void Roll_LastFrame_ThirdRoll_Spare_CheckScore()
+   @Test public void Roll_LastFrame_ThirdRoll_Spare_CheckScore(){
+       //arrange
+       frame.setLastFrame(true);
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+       frame.makeRoll();
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+       frame.makeRoll();
+
+       //arrange
+       Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+       frame.makeRoll();
+
+       //Assert
+       Assert.assertEquals(12, frame.getScore());
+   }
 
 }
