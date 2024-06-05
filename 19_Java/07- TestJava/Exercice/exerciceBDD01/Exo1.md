@@ -21,6 +21,7 @@
         >>> - L'utilisateur peut accéder à un formulaire d'inscription.
         >>> - L'utilisateur doit fournir un email, un nom d'utilisateur, et un mot de passe.
         >>> - L'utilisateur reçoit une confirmation après l'inscription.
+        >>> - Une erreure est renvoyé lors que la creation d'un compte avec un identifiant deja existant
 
 >- User Story 2 : En tant qu'utilisateur, je veux me connecter à mon compte pour accéder et passer des commandes.
 >> -    Critères d'acceptation :
@@ -43,13 +44,16 @@
 >> -    Critères d'acceptation :
         >>> - L'utilisateur peut cliquer sur un bouton "Ajouter a la commande" depuis la page produit.
         >>> - L'utilisateur voit une confirmation que le produit a été ajouté a la commande.
+        >>> - si le produit se trouve deja dans la commande la sa quantité est augmentée de 1
 
 >- User Story 6 : En tant qu'utilisateur, je veux supprimer des produits de la commande.
 >> -    Critères d'acceptation :
         >>>- L'utilisateur peut cliquer sur un bouton "Supprimer" à côté de chaque produit dans la commande.
-        >>>- Le produit est retiré de la commande et le prix total est mis à jour en conséquence.
+        >>>- Ca quantitée est diminué de 1 ou le produit est retiré de la commande.
+        >>>- une erreure est renvoyé si le produit ne se trouve pas dans la commande
 
 >- User Story 7 : En tant qu'utilisateur, je veux passer une commande.
 >>-   Critères d'acceptation :
         >>>- L'utilisateur peut accéder à un formulaire de commande.
         >>>- L'utilisateur reçoit une confirmation de commande après l'avoir passée.
+        >>> - une erreure est renvoyé si la commande n'existe pas
