@@ -18,7 +18,7 @@ public class Frame {
     }
 
     public boolean makeRoll() {
-            if (rolls.size() >= 2 && !lastFrame) {
+            if ((rolls.size() >= 2 && !lastFrame) || (rolls.size() >= 4 && lastFrame)) {
                 return false;
             }
 
