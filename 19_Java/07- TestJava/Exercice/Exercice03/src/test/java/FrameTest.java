@@ -74,4 +74,18 @@ public class FrameTest {
         Assert.assertFalse(result);
     }
 
+    @Test public void Roll_LastFrame_SecondRoll_FirstRollStrick_ReturnTrue(){
+        //arrange
+        frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.getRolls().add(new Roll(10));
+
+        //act
+        frame.makeRoll();
+        boolean result = frame.makeRoll();
+
+        //assert
+        Assert.assertTrue(result);
+    }
+
 }

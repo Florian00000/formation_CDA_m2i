@@ -22,7 +22,7 @@ public class Frame {
                 return false;
             }
 
-            if (score >= 10){
+            if (score >= 10 && !lastFrame){
                 return false;
             }else {
                 int addScore = generateur.randomPin(10);
