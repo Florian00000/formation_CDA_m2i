@@ -2,7 +2,9 @@ import jdk.jshell.spi.ExecutionControl;
 import org.example.exercice06Mock.Frame;
 import org.example.exercice06Mock.IGenerateur;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -13,9 +15,13 @@ public class FrameTest {
 
     private IGenerateur iGenerateur = Mockito.mock(IGenerateur.class);
 
+    @Before
+    public void setUp() {
+        frame = new Frame(iGenerateur, false);
+    }
+
     @Test public void Roll_SimpleFrame_FirstRoll_CheckScore() {
         //arrange
-        frame = new Frame(iGenerateur, false);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
 
         //act
@@ -27,7 +33,7 @@ public class FrameTest {
 
     @Test public void Roll_SimpleFrame_SecondRoll_CheckScore(){
         //arrange
-        frame = new Frame(iGenerateur, true);
+        frame.setLastFrame(true);
         frame.setScore(2);
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
 
@@ -36,5 +42,19 @@ public class FrameTest {
 
         //Assert
         Assert.assertEquals(4 , frame.getScore());
+    }
+
+    @Test public void Roll_SimpleFrame_SecondRoll_FirstRollStrick_ReturnFalse(){
+        //arrange
+        frame.setLastFrame(true);
+        frame.setScore(10);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+
+        //act
+        frame.makeRoll();
+        boolean result = frame.makeRoll();
+
+        //Assert
+        Assert.assertFalse(result);
     }
 }
