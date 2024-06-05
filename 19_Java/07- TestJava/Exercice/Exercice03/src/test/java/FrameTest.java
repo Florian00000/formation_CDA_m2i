@@ -102,4 +102,19 @@ public class FrameTest {
         Assert.assertEquals(15 , frame.getScore());
     }
 
+    @Test public void Roll_LastFrame_ThirdRoll_FirstRollStrick_ReturnTrue(){
+        frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+        frame.getRolls().add(new Roll(10));
+        frame.getRolls().add(new Roll(5));
+        frame.setScore(15);
+
+        //act
+        frame.makeRoll();
+        boolean result = frame.makeRoll();
+
+        //assert
+        Assert.assertTrue(result);
+    }
+
 }
