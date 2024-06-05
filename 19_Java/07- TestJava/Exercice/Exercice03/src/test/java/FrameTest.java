@@ -91,9 +91,9 @@ public class FrameTest {
     @Test public void Roll_LastFrame_SecondRoll_FirstRollStrick_CheckScore(){
         //arrange
         frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(10);
+        frame.makeRoll();
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
-        frame.getRolls().add(new Roll(10));
-        frame.setScore(10);
 
         //act
         frame.makeRoll();
@@ -103,11 +103,13 @@ public class FrameTest {
     }
 
     @Test public void Roll_LastFrame_ThirdRoll_FirstRollStrick_ReturnTrue(){
+        //arrange
         frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(10);
+        frame.makeRoll();
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
-        frame.getRolls().add(new Roll(10));
-        frame.getRolls().add(new Roll(5));
-        frame.setScore(15);
 
         //act
         frame.makeRoll();
@@ -115,6 +117,22 @@ public class FrameTest {
 
         //assert
         Assert.assertTrue(result);
+    }
+
+    @Test public void Roll_LastFrame_ThirdRoll_FirstRollStrick_CheckScore(){
+        //arrange
+        frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(10);
+        frame.makeRoll();
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
+
+        //act
+        frame.makeRoll();
+
+        //assert
+        Assert.assertEquals(17 , frame.getScore());
     }
 
 }
