@@ -18,6 +18,10 @@ public class Frame {
     }
 
     public boolean makeRoll() {
+            if (rolls.size() >= 2 && !lastFrame) {
+                return false;
+            }
+
             if (score >= 10){
                 return false;
             }else {
