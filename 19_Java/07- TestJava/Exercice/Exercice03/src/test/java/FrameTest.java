@@ -62,12 +62,13 @@ public class FrameTest {
 
     @Test public void Roll_SimpleFrame_MoreRolls_ReturnFalse(){
         //arrange
-        frame.setScore(5);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
-        frame.getRolls().add(new Roll(5));
+        frame.makeRoll();
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
 
         //act
-        frame.makeRoll();
         boolean result = frame.makeRoll();
 
         //Assert
@@ -81,7 +82,6 @@ public class FrameTest {
         frame.getRolls().add(new Roll(10));
 
         //act
-        frame.makeRoll();
         boolean result = frame.makeRoll();
 
         //assert
@@ -112,7 +112,6 @@ public class FrameTest {
         Mockito.when(iGenerateur.randomPin(10)).thenReturn(2);
 
         //act
-        frame.makeRoll();
         boolean result = frame.makeRoll();
 
         //assert
@@ -134,5 +133,22 @@ public class FrameTest {
         //assert
         Assert.assertEquals(17 , frame.getScore());
     }
+
+    @Test public void Roll_LastFrame_ThirdRoll_Spare_ReturnTrue(){
+        //arrange
+        frame.setLastFrame(true);
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
+
+        //arrange
+        Mockito.when(iGenerateur.randomPin(10)).thenReturn(5);
+        frame.makeRoll();
+        boolean result = frame.makeRoll();
+
+        //Assert
+        Assert.assertTrue(result);
+    }
+
+   // @Test public void Roll_LastFrame_ThirdRoll_Spare_CheckScore()
 
 }
