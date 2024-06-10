@@ -11,7 +11,7 @@
     <title>Title</title>
     <%@include file="/WEB-INF/linkBootstrap.html" %>
 </head>
-<body class="bg-dark bg-gradient">
+<body class="bg-secondary ">
 <p class="text-light" >page 2 avec bootstrap</p>
 
 </body>
