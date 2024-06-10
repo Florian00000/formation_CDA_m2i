@@ -1,4 +1,4 @@
-package org.example.exercice01;
+package org.example.exercice1;
 
 import java.io.*;
 import jakarta.servlet.http.*;
