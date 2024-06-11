@@ -39,6 +39,9 @@ public class ChatServlet extends HttpServlet {
         String dateNaissance = req.getParameter("dateNaissance");
 
         chats.add(new Chat(nom, race, repasFavoris, LocalDate.parse(dateNaissance)));
-        resp.sendRedirect( getServletContext().getContextPath()+"/exercice4");
+        doGet(req, resp);
+
+        //autre solution à la place de l'appel du doGet
+        //resp.sendRedirect( getServletContext().getContextPath()+"/exercice4");
     }
 }
