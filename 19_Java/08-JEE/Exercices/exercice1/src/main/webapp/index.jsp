@@ -15,5 +15,7 @@
 <h2 style="color: chartreuse">exercice2</h2>
 <a href="exercice2/servletA"> page 1</a>
 <a href="exercice2/servletB"> page 2</a>
+<h2 style="color: chartreuse">exercice3</h2>
+<a href="exercice3/listePersonnes"> page listPersonnes</a>
 </body>
 </html>
