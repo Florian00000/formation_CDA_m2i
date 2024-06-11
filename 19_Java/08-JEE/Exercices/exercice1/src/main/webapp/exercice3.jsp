@@ -13,34 +13,37 @@
     <%@include file="/WEB-INF/linkBootstrap.html" %>
 </head>
 <body>
-<h1>Exercice 3</h1>
-<h2>Affichage de ma liste de personnes</h2>
+<div class="container">
+    <h1>Exercice 3</h1>
+    <h2>Affichage de ma liste de personnes</h2>
 
 
 
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
-        <th scope="col">age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for (Personne p : personnes) { %>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (Personne p : personnes) { %>
         <tr class="table-secondary">
             <th scope="row">#</th>
             <td> <%= p.getNom() %> </td>
             <td><%= p.getPrenom() %></td>
             <td><%= p.getAge() %></td>
         </tr>
-    <% }%>
+        <% }%>
 
 
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+
 
 
 
