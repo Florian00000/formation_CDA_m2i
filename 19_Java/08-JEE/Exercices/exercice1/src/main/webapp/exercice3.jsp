@@ -15,7 +15,7 @@
 <body>
 <div class="container">
     <h1>Exercice 3</h1>
-    <h2>Affichage de ma liste de personnes</h2>
+    <h2 >Affichage de ma liste de personnes</h2>
 
 
 
