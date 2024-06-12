@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Des chiens, des chiens et des chiens.</h1>
+        <h1>Des chiens, des chiens et des chiengs.</h1>
 
         <% if (!chiens.isEmpty()) {%>
             <table class="table table-hover">
