@@ -43,26 +43,26 @@
 
     <h2>Ajouter des Chats</h2>
 
-    <form method="post" action="exercice4">
+    <form method="post" action="${pageContext.request.contextPath}/exercice4">
 
         <div>
             <label for="nom" class="form-label mt-4">Nom</label>
-            <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom du chat">
+            <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom du chat" required>
         </div>
 
         <div>
             <label for="race" class="form-label mt-4">Race</label>
-            <input type="text" class="form-control" name="race" id="race" placeholder="Race du chat">
+            <input type="text" class="form-control" name="race" id="race" placeholder="Race du chat" >
         </div>
 
         <div>
             <label for="repasFavoris" class="form-label mt-4">Repas Favoris</label>
-            <input type="text" class="form-control" name="repasFavoris" id="repasFavoris" placeholder="Repas favoris du chat">
+            <input type="text" class="form-control" name="repasFavoris" id="repasFavoris" placeholder="Repas favoris du chat" required>
         </div>
 
         <div>
             <label for="dateNaissance" class="form-label mt-4">Nom</label>
-            <input type="date" class="form-control" name="dateNaissance" id="dateNaissance" p>
+            <input type="date" class="form-control" name="dateNaissance" id="dateNaissance" >
         </div>
         <div>
             <button class="btn btn-outline-secondary">Ajouter</button>
