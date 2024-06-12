@@ -46,4 +46,13 @@ public class ChienRepository {
         session.close();
         return chiens;
     }
+
+    public boolean suppressionChien(int id) {
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.remove(session.get(Chien.class, id));
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
 }

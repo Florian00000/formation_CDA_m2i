@@ -24,15 +24,22 @@ public class ChienFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pathInfo = (req.getPathInfo() != null) ? req.getPathInfo() : "/-1";
         Integer idChien = Integer.parseInt(pathInfo.substring(1));
-        Chien chien = chienRepository.chienParId(idChien);
 
-        req.setAttribute("idChien", idChien);
-        if (chien == null) {
-            req.setAttribute("chien", new Chien());
-        }else {
-            req.setAttribute("chien", chien);
+        if (req.getParameter("mode") != null && req.getParameter("mode").equals("del")){
+            chienRepository.suppressionChien(idChien);
+            resp.sendRedirect(getServletContext().getContextPath()+"/chiens");
+        }else{
+            Chien chien = chienRepository.chienParId(idChien);
+
+            req.setAttribute("idChien", idChien);
+            if (chien == null) {
+                req.setAttribute("chien", new Chien());
+            }else {
+                req.setAttribute("chien", chien);
+            }
+            req.getRequestDispatcher("/chienForm.jsp").forward(req, resp);
         }
 
-        req.getRequestDispatcher("/chienForm.jsp").forward(req, resp);
+
     }
 }

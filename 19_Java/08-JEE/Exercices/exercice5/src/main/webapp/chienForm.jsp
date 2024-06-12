@@ -54,15 +54,9 @@
 
         <% } else{ %>
             <div>
-                <a href="${pageContext.request.contextPath}/chiens" class="btn btn-outline-info">Retour</a>
+                <a href="${pageContext.request.contextPath}/chiens" class="btn btn-outline-info mt-3">Retour</a>
             </div>
         <% } %>
-
-
-
-
-
-
     </form>
 </div>
 

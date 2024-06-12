@@ -1,5 +1,6 @@
 <%@ page import="org.example.exercice5.entities.Chien" %>
-<%@ page import="java.time.format.DateTimeFormatter" %><%--
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDate" %><%--
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 12/06/2024
@@ -15,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Des chiens, des chiens et des chiengs.</h1>
+        <h1>Des kiens, des chiens et des chiengs.</h1>
 
         <% if (!chiens.isEmpty()) {%>
             <table class="table table-hover">
@@ -25,6 +26,7 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Race</th>
                     <th scope="col">Date de naissance</th>
+                    <th scope="col">âge</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -35,7 +37,10 @@
                     <td><%= c.getNom() %> </td>
                     <td><%= c.getRace() %></td>
                     <td><%= c.getDateNaissance().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) %></td>
-                    <td><a href="chienForm/<%=c.getId()%>"><button class="btn btn-outline-info">Détails </button></a> </td>
+                    <td><%=  LocalDate.now().getYear() - c.getDateNaissance().getYear() %></td>
+                    <td><a href="chienForm/<%=c.getId()%>"><button class="btn btn-outline-info">Détails </button></a>
+                        <a href="chienForm/<%=c.getId()%>?mode=del"><button class="btn btn-outline-warning">Suppression</button></a>
+                    </td>
                 </tr>
                 <% }%>
 
