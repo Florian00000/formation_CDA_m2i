@@ -16,6 +16,11 @@ public class UserRepository extends Repository<User>{
         return (User) _session.get(User.class, id);
     }
 
+    @Override
+    List<User> findAll() {
+        return _session.createQuery("from User", User.class).list();
+    }
+
     public User findByEmailAndPassword(String email, String password) {
         return  _session.createQuery("from User where mail = :email and password = :password", User.class)
                 .setParameter("email", email)
@@ -23,8 +28,4 @@ public class UserRepository extends Repository<User>{
                 .getSingleResult();
     }
 
-    @Override
-    List<User> findAll() {
-        return _session.createQuery("from User", User.class).list();
-    }
 }

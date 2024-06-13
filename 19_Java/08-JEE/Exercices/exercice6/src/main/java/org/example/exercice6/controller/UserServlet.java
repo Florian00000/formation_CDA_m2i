@@ -40,7 +40,7 @@ public class UserServlet extends HttpServlet {
                 System.out.println(registered);
                 if (registered) {
                     session.setAttribute("isLogged", true);
-                    req.getRequestDispatcher("/produitsList.jsp").forward(req, resp);
+                    resp.sendRedirect(getServletContext().getContextPath()+"/product");
                 } else {
                     resp.sendRedirect(getServletContext().getContextPath()+"/user/login");
                 }
@@ -49,6 +49,7 @@ public class UserServlet extends HttpServlet {
                 String name = req.getParameter("name");
                 userService.createUser(mail, name, password);
                 session.setAttribute("isLogged", true);
+                resp.sendRedirect(getServletContext().getContextPath()+"/product");
                 break;
         }
     }
