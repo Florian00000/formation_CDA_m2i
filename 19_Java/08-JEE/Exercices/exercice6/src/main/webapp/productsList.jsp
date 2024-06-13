@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>List des produits</title>
+    <%@include file="/WEB-INF/linkBootstrap.html" %>
 </head>
 <body>
 <p>produits</p>

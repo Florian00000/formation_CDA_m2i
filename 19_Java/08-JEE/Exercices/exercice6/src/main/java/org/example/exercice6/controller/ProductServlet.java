@@ -19,6 +19,7 @@ public class ProductServlet extends HttpServlet {
         HttpSession session = req.getSession();
         if ( (session.getAttribute("isLogged") != null) && ((boolean) session.getAttribute("isLogged"))) {
             req.getRequestDispatcher("/productsList.jsp").forward(req, resp);
+            //TODO productServlet
         } else {
             resp.sendRedirect(getServletContext().getContextPath()+"/user/login");
         }
