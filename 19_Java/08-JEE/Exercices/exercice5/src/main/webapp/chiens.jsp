@@ -1,6 +1,7 @@
 <%@ page import="org.example.exercice5.entities.Chien" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.time.LocalDate" %><%--
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.temporal.ChronoUnit" %><%--
   Created by IntelliJ IDEA.
   User: Administrateur
   Date: 12/06/2024
@@ -37,7 +38,7 @@
                     <td><%= c.getNom() %> </td>
                     <td><%= c.getRace() %></td>
                     <td><%= c.getDateNaissance().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) %></td>
-                    <td><%=  LocalDate.now().getYear() - c.getDateNaissance().getYear() %></td>
+                    <td><%=  ChronoUnit.YEARS.between(c.getDateNaissance(), LocalDate.now()) %></td>
                     <td><a href="chienForm/<%=c.getId()%>"><button class="btn btn-outline-info">Détails </button></a>
                         <a href="chienForm/<%=c.getId()%>?mode=del"><button class="btn btn-outline-warning">Suppression</button></a>
                     </td>
