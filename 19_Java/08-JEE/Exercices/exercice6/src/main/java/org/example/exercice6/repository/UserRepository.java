@@ -16,8 +16,11 @@ public class UserRepository extends Repository<User>{
         return (User) _session.get(User.class, id);
     }
 
-    User findByEmailAndPassword(String email, String password) {
-        return (User) _session.createQuery("from User where mail = :email and password = :password", User.class);
+    public User findByEmailAndPassword(String email, String password) {
+        return  _session.createQuery("from User where mail = :email and password = :password", User.class)
+                .setParameter("email", email)
+                .setParameter("password", password)
+                .getSingleResult();
     }
 
     @Override

@@ -39,5 +39,17 @@ public class UserService {
         return result;
     }
 
-    
+    public boolean loginUser(String mail, String password){
+        boolean result = false;
+        session = _sessionFactory.openSession();
+        userRepository = new UserRepository(session);
+        try {
+            result =  userRepository.findByEmailAndPassword(mail, password) != null;
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());;
+        }finally {
+            session.close();
+        }
+        return result;
+    }
 }
