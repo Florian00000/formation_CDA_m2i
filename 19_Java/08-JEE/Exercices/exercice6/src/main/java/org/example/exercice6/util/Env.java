@@ -11,6 +11,7 @@ public class Env {
             dotenv = Dotenv.configure()
                     .directory("src/main/resources")
                     .filename(".env")
+                    .ignoreIfMissing()
                     .load();
             System.out.println("Dotenv loaded");
         }catch (Exception e){

@@ -11,8 +11,12 @@ public class HibernateSession {
     private static StandardServiceRegistry serviceRegistry;
     private static SessionFactory sessionFactory;
 
-    // TODO Ne trouve pas le .env
-//    static {
+
+
+
+    public static SessionFactory getSessionFactory(){
+
+        // TODO Ne trouve pas le .env
 //        try {
 //            Configuration configuration = new Configuration();
 //            configuration.configure("hibernate.cfg.xml");
@@ -32,10 +36,6 @@ public class HibernateSession {
 //                StandardServiceRegistryBuilder.destroy(serviceRegistry);
 //            }
 //        }
-//
-//    }
-
-    public static SessionFactory getSessionFactory(){
 
         //Partie sans le .env
         serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
