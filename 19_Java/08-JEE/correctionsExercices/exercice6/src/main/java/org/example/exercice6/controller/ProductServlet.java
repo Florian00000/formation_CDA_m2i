@@ -64,7 +64,7 @@ public class ProductServlet extends HttpServlet {
                     break;
             }
         }else {
-            resp.sendRedirect(getServletContext().getContextPath()+"/index.jsp");
+            resp.sendRedirect(getServletContext().getContextPath()+"/user/pagesignin");
         }
     }
 
@@ -79,6 +79,11 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("id") != null){
+            req.setAttribute("product",productService.findById(Integer.parseInt(req.getParameter("id"))));
+        }else {
+            req.setAttribute("product",new Product());
+        }
         req.getRequestDispatcher("/WEB-INF/views/form-products.jsp").forward(req,resp);
     }
 

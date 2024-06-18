@@ -27,19 +27,19 @@
             <th>Actions</th>
         </tr>
         <% for (Product p : products) {%>
-            <tr>
-                <th><%= p.getId() %></th>
-                <th><%= p.getBrand() %></th>
-                <th><%= p.getReference() %></th>
-                <th><%= p.getPrice() %></th>
-                <th><%= p.getStock() %></th>
-                <th><%= p.getDateOfPurchase() %></th>
-                <th>
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
-                    <a href="">Detail</a>
-                </th>
-            </tr>
+        <tr>
+            <th><%= p.getId() %></th>
+            <th><%= p.getBrand() %></th>
+            <th><%= p.getReference() %></th>
+            <th><%= p.getPrice() %></th>
+            <th><%= p.getStock() %></th>
+            <th><%= p.getDateOfPurchase() %></th>
+            <th>
+                <a href="new?id=<%= p.getId() %>" class="btn btn-info">Edit</a>
+                <a href="delete?id=<%= p.getId() %>" class="btn btn-danger">Delete</a>
+                <a href="details?id=<%= p.getId() %>" class="btn btn-primary">Detail</a>
+            </th>
+        </tr>
         <% }%>
     </table>
 
