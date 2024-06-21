@@ -26,15 +26,14 @@ public class PatientServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         if ( (session.getAttribute("isLogged") != null) && ((boolean) session.getAttribute("isLogged"))) {
-            String action = req.getPathInfo();
+            String action = req.getPathInfo() == null ? "/" : req.getPathInfo();
             switch (action) {
                 case "/add":
                     req.getRequestDispatcher("/patients/patientForm.jsp").forward(req, resp);
                     break;
                 case "/detail":
-                    // TODO ca marche pas Réparer !!!!
+                    req.setAttribute("patient", patientService.getPatientById(Integer.parseInt(req.getParameter("id"))));
                     req.getRequestDispatcher("/patients/patientDetails.jsp").forward(req, resp);
-                    req.setAttribute("id", Integer.parseInt(req.getParameter("id")));
                     break;
                 default:
                     req.setAttribute("patients", patientService.getAllPatients());

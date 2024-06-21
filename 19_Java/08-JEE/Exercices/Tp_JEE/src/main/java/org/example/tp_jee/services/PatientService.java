@@ -48,4 +48,12 @@ public class PatientService {
         session.close();
         return patients;
     }
+
+    public Patient getPatientById(int id) {
+        session = sessionFactory.openSession();
+        patientRepository = new PatientRepository(session);
+        Patient patient = patientRepository.findById(id);
+        session.close();
+        return patient;
+    }
 }
