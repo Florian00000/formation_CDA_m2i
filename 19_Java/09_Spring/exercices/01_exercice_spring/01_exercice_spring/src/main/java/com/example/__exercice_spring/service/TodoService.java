@@ -9,8 +9,8 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    public Todo getOneTodo(){
-         return Todo.builder().name("exemple1").description("exemple").isDone(true).build();
+    public Todo getOneTodo(String nameTodo){
+         return Todo.builder().name(nameTodo).description("exemple").isDone(true).build();
     }
 
     public List<Todo> getAllTodos(){

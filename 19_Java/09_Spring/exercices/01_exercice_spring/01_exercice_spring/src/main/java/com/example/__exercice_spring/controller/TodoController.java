@@ -5,6 +5,7 @@ import com.example.__exercice_spring.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,9 +21,9 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @RequestMapping("/todos/getOne")
-    public String getOneTodo(Model model){
-        model.addAttribute("todo", todoService.getOneTodo());
+    @RequestMapping("/todos/getOne/{nameTodo}")
+    public String getOneTodo(Model model, @PathVariable String nameTodo){
+        model.addAttribute("todo", todoService.getOneTodo(nameTodo));
 
         return "todos/todo";
     }
