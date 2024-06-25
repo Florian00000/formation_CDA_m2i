@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List des étudiants</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+
+<span th:replace="~{fragments/header :: header}"></span>
+<main class="container">
+    <table class="table table-primary mt-5" th:if="${!students.isEmpty()}">
+        <thead>
+        <tr  class="table-primary">
+            <th scope="col">Nom</th>
+            <th scope="col">Prénoms</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="table-light" th:each=" s : ${students}">
+            <td th:text="${s.getFirstname()}"></td>
+            <td th:text="${s.getLastname()}"></td>
+            <td> <a th:href="@{/detail/{id}(id=${s.getId()})}" class="btn btn-outline-primary">Détails</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p th:if="${students.isEmpty()}"> pas d'étudiants trouvés</p>
+    <a th:href="@{/add}" class="btn btn-primary">Ajouter un étudiant</a>
+</main>
+
+
+
+</body>
+</html>
