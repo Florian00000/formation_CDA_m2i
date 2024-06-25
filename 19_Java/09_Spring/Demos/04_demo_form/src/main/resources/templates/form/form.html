@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+</head>
+<body>
+    <h1>Mon formulaire</h1>
+    <a th:href="@{/}">Home</a>
+
+    <form th:action="@{/add}" th:object="${contact}" method="post">
+        <div>
+            <label for="name">Nom du contact :</label>
+            <input type="text" id="name" th:field="*{name}">
+        </div>
+        <div>
+            <label for="age">Age du contact :</label>
+            <input type="text" id="age" th:field="*{age}">
+        </div>
+        <div>
+            <label for="phone">Numéro du contact :</label>
+            <input type="text" id="phone" th:field="*{phone}">
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
