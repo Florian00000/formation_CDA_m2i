@@ -37,7 +37,7 @@ public class StudentController {
     public String addStudent(@ModelAttribute("student") Student student) {
         System.out.println(student.toString());
         studentService.addStudent(student);
-        return "redirect:/";
+        return "redirect:/detail/" + student.getId();
     }
 
     @GetMapping("/detail/{id}")
