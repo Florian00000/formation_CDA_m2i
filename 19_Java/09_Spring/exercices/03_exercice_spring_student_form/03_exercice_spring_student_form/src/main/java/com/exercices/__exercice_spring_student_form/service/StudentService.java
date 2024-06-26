@@ -28,4 +28,12 @@ public class StudentService {
     public Student getStudent(UUID id) {
         return students.get(id);
     }
+
+    public void deleteStudent(UUID id) {
+        students.remove(id);
+    }
+
+    public void updateStudent(Student student) {
+        students.replace(student.getId(), student);
+    }
 }
