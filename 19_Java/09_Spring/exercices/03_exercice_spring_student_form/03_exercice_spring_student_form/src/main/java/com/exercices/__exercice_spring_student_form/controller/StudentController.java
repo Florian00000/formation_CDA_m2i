@@ -2,9 +2,11 @@ package com.exercices.__exercice_spring_student_form.controller;
 
 import com.exercices.__exercice_spring_student_form.model.Student;
 import com.exercices.__exercice_spring_student_form.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,14 +36,19 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String addStudent(@ModelAttribute("student") Student student) {
-        System.out.println(student.toString());
-        if (student.getId() == null) {
-            studentService.addStudent(student);
-        }else{
-            studentService.updateStudent(student);
+    public String addStudent(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "studentForm";
+        }else {
+            System.out.println(student.toString());
+            if (student.getId() == null) {
+                studentService.addStudent(student);
+            }else{
+                studentService.updateStudent(student);
+            }
+            return "redirect:/detail/" + student.getId();
         }
-        return "redirect:/detail/" + student.getId();
+
     }
 
     @GetMapping("/detail/{id}")

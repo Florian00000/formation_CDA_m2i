@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Not found!!!!!!!!</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+    <span th:replace="~{fragments/header :: header}"></span>
+
+<main class="container">
+    <div class="alert alert-dismissible alert-danger mt-5">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <span th:text="${error}"></span></p>
+        <strong>Rolala! </strong> <span>tu cliques n'importe où!</span><a th:href="@{/}" class="alert-link">   retourne à l'accueil</a>
+    </div>
+</main>
+
+</body>
+</html>
