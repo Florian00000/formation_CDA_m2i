@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Liste des catégories</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
 </head>
 <body>
+
+<span th:replace="~{fragments/header :: header}"></span>
+
+<main class="container">
+    <table class="table table-dark mt-5" th:if="${!categories.isEmpty()}">
+        <thead>
+        <tr  class="table-dark">
+            <th>Nom</th>
+            <th colspan="2">description</th>
+            <th></th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="table-light" th:each=" c : ${categories}">
+            <td th:text="${c.getName()}"></td>
+            <td colspan="2" th:text="${c.getDescription()}"></td>
+            <td></td>
+            <td class="w-25"><a th:href="@{/categories/update/{id}(id=${c.getId()})}" class="btn btn-outline-dark">Modifier</a>
+                <a th:href="@{/categories/delete/{id}(id=${c.getId()})}" class="btn btn-outline-danger">Supprimer</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p th:if="${categories.isEmpty()}"> pas de catégories trouvés</p>
+    <a th:href="@{/categories/add}" class="btn btn-dark">Ajouter une catégorie</a>
+</main>
 
 </body>
 </html>

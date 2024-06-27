@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails Recette</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{fragments/header :: header}"></span>
+
+<main class="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h4 class="card-title" th:text="${recipe.getName()}"></h4>
+            <h6 class="card-subtitle mb-2 text-muted" th:text="${recipe.getCategory().getName()}"></h6>
+            <p class="card-text" >Ingrédients: </p>
+            <ul class="list-group" th:each=" i : ${recipe.getIngredients()}">
+                <li th:text="${i}" class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center" >
+                </li>
+
+            </ul>
+            <p class="card-text mt-3" th:text="'Instructions: ' +  ${recipe.getInstructions()}"></p>
+            <div class="d-flex">
+                <a th:href="@{/update/{id}(id=${recipe.getId()})}" class="btn btn-info">Modifier la reçette</a>
+                <a th:href="@{/delete/{id}(id=${recipe.getId()})}" class="btn btn-danger ms-2">Supprimer la reçette</a>
+                <a th:href="@{/}" class="card-link ms-auto ">Retour à l'accueil</a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

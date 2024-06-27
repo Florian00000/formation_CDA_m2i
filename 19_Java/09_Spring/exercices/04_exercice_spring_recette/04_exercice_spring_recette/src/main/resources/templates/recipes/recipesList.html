@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Accueil</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
 </head>
 <body>
+
+<span th:replace="~{fragments/header :: header}"></span>
+
+    <main class="container">
+        <table class="table table-dark mt-5" th:if="${!recipes.isEmpty()}">
+            <thead>
+            <tr  class="table-dark">
+                <th>Nom</th>
+                <th>catégorie</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="table-light" th:each=" r : ${recipes}">
+                <td th:text="${r.getName()}"></td>
+                <td th:text="${r.getCategory().getName()}"></td>
+                <td class="w-25">
+                    <a th:href="@{/detail/{id}(id=${r.getId()})}" class="btn btn-outline-dark">Détails</a>
+                    <a th:href="@{/delete/{id}(id=${r.getId()})}" class="btn btn-outline-danger">Supprimer</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <p th:if="${recipes.isEmpty()}"> pas de recettes trouvés</p>
+        <a th:href="@{/add}" class="btn btn-dark">Ajouter une Recette</a>
+    </main>
 
 </body>
 </html>

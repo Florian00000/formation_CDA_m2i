@@ -18,8 +18,8 @@ public class Recipe {
 
     private UUID id;
 
-    @NotNull(message = "Entrez un nom pour la catégorie")
-    @NotBlank(message = "Entrez un nom pour la catégorie")
+    @NotNull(message = "Entrez un nom pour la recette")
+    @NotBlank
     private String name;
 
     private List<String> ingredients;
@@ -27,4 +27,7 @@ public class Recipe {
     private String instructions;
 
     private Category category;
+
+    @NotNull(message = "Ajoutez une catégorie")
+    private String categoryId;
 }
