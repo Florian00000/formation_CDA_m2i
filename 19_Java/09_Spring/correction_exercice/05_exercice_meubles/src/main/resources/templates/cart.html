@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panier</title>
+    <span th:replace="~{furnitures-list :: bootstrapImports}"></span>
+</head>
+<body>
+    <span th:replace="~{furnitures-list :: navbar}"></span>
+    <div class="container mt-4">
+        <h1 class="mb-4">Mon panier</h1>
+        <a class="btn btn-danger" th:href="@{/cart/clear}">Vider le panier</a>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Furniture ID</th>
+                    <th>Quantité</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cartItem : ${cartItems}">
+                    <td th:text="${cartItem.getFurnitureId()}"></td>
+                    <td th:text="${cartItem.getQuantity()}"></td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" th:href="@{/cart/remove/{id}(id=${cartItem.getId()})}">Supprimer du panier</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
