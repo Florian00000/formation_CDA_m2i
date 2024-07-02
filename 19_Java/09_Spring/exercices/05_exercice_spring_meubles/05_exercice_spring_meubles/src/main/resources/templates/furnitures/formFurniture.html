@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire meuble</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{fragments/header :: header}"></span>
+<main class="container">
+    <form th:action="@{/add}" th:object="${furniture}" method="post">
+
+        <input type="text" class="d-none" th:field="*{id}">
+
+        <div>
+            <label for="name" class="form-label mt-4">Nom du meuble </label>
+            <input type="text" class="form-control" id="name" placeholder="nom du meuble" th:field="*{name}">
+            <!--        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>-->
+        </div>
+
+        <div>
+            <label for="description" class="form-label mt-4">Description: </label>
+            <textarea class="form-control" id="description" placeholder="Entrez la description du meuble"
+                      th:field="*{description}"> </textarea>
+        </div>
+        <div>
+            <label for="price" class="form-label mt-4">Prix: </label>
+            <input type="number" class="form-control" id="price" placeholder="prix du meuble" th:field="*{price}">
+        </div>
+
+        <div>
+            <label for="stock" class="form-label mt-4">Stock: </label>
+            <input type="number" class="form-control" id="stock" placeholder="stock" th:field="*{stock}">
+        </div>
+
+        <button class="btn btn-success mt-4" th:if="${furniture.getPrice() == 0 && furniture.getStock() == 0}" >Ajouter</button>
+        <button class="btn btn-success mt-4" th:if="${furniture.getPrice() != 0 && furniture.getStock() != 0}" >Modifier</button>
+
+    </form>
+</main>
+
+
+
+</body>
+</html>

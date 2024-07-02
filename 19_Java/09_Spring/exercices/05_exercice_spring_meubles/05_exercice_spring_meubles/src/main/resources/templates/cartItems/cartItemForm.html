@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter un meuble au panier</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{fragments/header :: header}"></span>
+
+<main class="container">
+    <form th:action="@{/panier/add}" th:object="${cartItem}" method="post">
+
+        <input type="text" class="d-none" th:field="*{id}">
+        <input type="text" class="d-none" th:field="*{furniture}">
+
+        <div>
+            <label for="quantity" class="form-label mt-4">Quantitée: </label>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantité" th:field="*{quantity}">
+        </div>
+
+
+
+        <button class="btn btn-success mt-4">Ajouter au panier</button>
+
+
+    </form>
+</main>
+
+</body>
+</html>

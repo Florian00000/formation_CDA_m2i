@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panier</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+
+<span th:replace="~{fragments/header :: header}"></span>
+
+<main class="container">
+    <table class="table table-primary mt-5" th:if="${!cartItems.isEmpty()}">
+        <thead>
+        <tr  class="table-dark">
+            <th>Référence</th>
+            <th>Quantitées</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr class="table-light" th:each=" c : ${cartItems}">
+
+            <td th:text="${c.getFurniture().getName()}"></td>
+            <td th:text="${c.getQuantity()}"></td>
+
+
+            <td class="w-25">
+<!--                <a th:href="@{/delete/{id}(id=${f.getId()})}" class="btn btn-outline-danger">Supprimer</a>-->
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p th:if="${cartItems.isEmpty()}"> Votre panier est vide</p>
+
+</main>
+
+</body>
+</html>

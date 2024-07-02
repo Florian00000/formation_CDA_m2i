@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+
+<span th:replace="~{fragments/header :: header}"></span>
+
+    <main class="container">
+        <table class="table table-primary mt-5" th:if="${!furnitures.isEmpty()}">
+            <thead>
+            <tr  class="table-dark">
+                <th>Nom</th>
+                <th>Description</th>
+                <th>prix</th>
+                <th>stock</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr class="table-light" th:each=" f : ${furnitures}">
+                <td th:text="${f.getName()}"></td>
+                <td th:text="${f.getDescription()}"></td>
+                <td th:text="${f.getPrice()}"></td>
+                <td th:text="${f.getStock()}"></td>
+                <td class="w-25">
+                    <a th:href="@{/panier/add/{id_furniture}(id_furniture=${f.getId()})}" class="btn btn-outline-success">Ajouter au panier</a>
+                    <a th:href="@{/update/{id}(id=${f.getId()})}" class="btn btn-outline-primary">Modifier</a>
+<!--                    gérer la suppression en cascade avant de réactiver-->
+<!--                    <a th:href="@{/delete/{id}(id=${f.getId()})}" class="btn btn-outline-danger">Supprimer</a>-->
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <p th:if="${furnitures.isEmpty()}"> pas de meubles trouvés</p>
+        <a th:href="@{/add}" class="btn btn-primary">Ajouter un meuble</a>
+    </main>
+
+</body>
+</html>
