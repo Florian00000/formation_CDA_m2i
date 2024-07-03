@@ -24,6 +24,7 @@
                 </ul>
             </div>
             <div class="d-flex" th:if="${session.login}">
+                <span th:text="${session.user.getName()}" class="btn btn-primary me-3"></span>
                 <a class="btn btn-dark" th:href="@{/logout}">Déconnexion</a>
             </div>
         </div>

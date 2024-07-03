@@ -14,7 +14,7 @@
   <p th:text="${message.getContent()}"></p>
 
 
-  <section th:if="${!responses.isEmpty()}">
+  <section th:if="${!responses.isEmpty()}" class="p-5">
     <h2>Réponses</h2>
 
     <article th:each="r : ${responses}">
