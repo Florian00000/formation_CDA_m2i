@@ -18,11 +18,20 @@ public class MessageService {
     }
 
     public List<Message> getAllMessages() {
-        return messageRepository.findAll();
+        List<Message> messages = messageRepository.findAll();
+        return messages.stream().filter(message -> message.getOriginalMessage() == null).toList();
+    }
+
+    public List<Message> getAllResponses(Message originalMessage) {
+        return messageRepository.findAllByOriginalMessage(originalMessage);
     }
 
     public boolean saveMessage(Message message) {
          messageRepository.save(message);
         return true;
+    }
+
+    public  Message getMessageById(int id) {
+        return messageRepository.findById(id).orElse(null);
     }
 }

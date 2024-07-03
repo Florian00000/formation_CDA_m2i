@@ -49,4 +49,10 @@ public class UserController {
             return "user/register";
         }
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        userService.logout();
+        return "redirect:/";
+    }
 }

@@ -47,4 +47,9 @@ public class UserService {
         userRepository.save(user);
         return true;
     }
+
+    public void logout(){
+        _session.removeAttribute("login");
+        _session.removeAttribute("user");
+    }
 }

@@ -16,6 +16,7 @@
             <th>Utilisateur</th>
             <th>Message</th>
             <th>Date</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody th:if="${!messages.isEmpty()}">
@@ -24,18 +25,16 @@
             <td th:text="${m.getAuthor().getName()}"></td>
             <td th:text="${m.getContent()}"></td>
             <td th:text="${formatter.format(m.getDateTime())}"></td>
-
-            <!--                <td class="w-25">                    -->
-            <!--                    <a th:href="@{/update/{id}(id=${f.getId()})}" class="btn btn-outline-primary">Modifier</a>-->
-            <!--                 -->
-            <!--                </td>-->
+            <td class="w-25">
+                <a th:href="@{/forum/{idMessage}(idMessage=${m.getId()})}" class="btn btn-outline-primary">Afficher</a>
+            </td>
         </tr>
 
         </tbody>
 
         <tbody th:if="${messages.isEmpty()}">
         <tr>
-            <td colspan="3">Pas de messages postés pour le moment</td>
+            <td colspan="4">Pas de messages postés pour le moment</td>
         </tr>
 
 
