@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{fragments/header :: header}"></span>
+<main class="container">
+    <form th:action="@{/}" method="post">
+        <h1>Connexion</h1>
+
+
+        <div>
+            <label for="username" class="form-label mt-4">Nom: </label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="nom" >
+        </div>
+
+        <div>
+            <label for="password" class="form-label mt-4">mot de passe: </label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="mot de passe" >
+
+        </div>
+
+
+
+        <button class="btn btn-success mt-4">Connexion</button>
+
+    </form>
+</main>
+
+
+</body>
+</html>

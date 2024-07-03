@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum</title>
+    <span th:replace="~{fragments/bootstrapImports :: bootstrapImports}"></span>
+</head>
+<body>
+<span th:replace="~{fragments/header :: header}"></span>
+<main class="container">
+    <h1>Forum</h1>
+
+    <table class="table table-primary mt-5">
+        <thead>
+        <tr class="table-primary">
+            <th>Utilisateur</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody th:if="${!messages.isEmpty()}">
+
+        <tr class="table-light" th:each=" m : ${messages}">
+            <td th:text="${m.getAuthor().getName()}"></td>
+            <td th:text="${m.getContent()}"></td>
+            <td th:text="${formatter.format(m.getDateTime())}"></td>
+
+            <!--                <td class="w-25">                    -->
+            <!--                    <a th:href="@{/update/{id}(id=${f.getId()})}" class="btn btn-outline-primary">Modifier</a>-->
+            <!--                 -->
+            <!--                </td>-->
+        </tr>
+
+        </tbody>
+
+        <tbody th:if="${messages.isEmpty()}">
+        <tr>
+            <td colspan="3">Pas de messages postés pour le moment</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+
+            <a th:href="@{/forum/new}" class="btn btn-primary">Ajouter un message</a>
+
+</main>
+
+</body>
+</html>
