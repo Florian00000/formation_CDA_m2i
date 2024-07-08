@@ -24,6 +24,7 @@ public class UserService {
                 .lastName(userDtoPost.getLastName())
                 .password(userDtoPost.getPassword())
                 .build();
+
         return userRepository.save(usercreated);
     }
 

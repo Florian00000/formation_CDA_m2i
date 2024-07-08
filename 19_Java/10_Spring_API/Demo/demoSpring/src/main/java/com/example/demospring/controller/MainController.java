@@ -8,6 +8,7 @@ import com.example.demospring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class MainController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserDtoGet> registerData(@RequestBody UserDtoPost userDtoPost) {
+    public ResponseEntity<UserDtoGet> registerData(@Validated @RequestBody UserDtoPost userDtoPost) {
         User user = userService.create(userDtoPost);
         UserDtoGet userDtoGet = new UserDtoGet(user.getId(),user.getFirstName(), user.getLastName());
         return new ResponseEntity<>(userDtoGet,HttpStatus.CREATED);
