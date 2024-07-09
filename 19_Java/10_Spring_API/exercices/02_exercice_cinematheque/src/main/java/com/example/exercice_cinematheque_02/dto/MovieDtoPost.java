@@ -1,5 +1,6 @@
 package com.example.exercice_cinematheque_02.dto;
 
+import com.example.exercice_cinematheque_02.entity.Director;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -24,4 +25,6 @@ public class MovieDtoPost {
     
     @Size(min = 2, max = 10)
     private String genre;
+
+    private Director director;
 }

@@ -2,6 +2,7 @@ package com.example.exercice_cinematheque_02.service;
 
 import com.example.exercice_cinematheque_02.dto.DirectorDtoGet;
 import com.example.exercice_cinematheque_02.dto.DirectorDtoPost;
+import com.example.exercice_cinematheque_02.dto.MovieDtoGet;
 import com.example.exercice_cinematheque_02.entity.Director;
 import com.example.exercice_cinematheque_02.exception.NotFoundException;
 import com.example.exercice_cinematheque_02.repository.DirectorRepository;
@@ -22,12 +23,18 @@ public class DirectorService {
     private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private DirectorDtoGet directorToDirectorDtoGet (Director director){
+        MovieService movieService = new MovieService();
+        List<MovieDtoGet> movieDtoGetList = movieService.movieToMovieDtoGetList(director.getMovies());
+
         return DirectorDtoGet.builder()
                 .id(director.getId())
                 .firstName(director.getFirstName())
                 .lastName(director.getLastName())
                 .birthDate(director.getBirthDate())
                 .nationality(director.getNationality())
+                .movies(movieDtoGetList.stream().peek(movie -> {
+                    movie.setDirector(null);
+                }).collect(Collectors.toList()))
                 .build();
     }
 
