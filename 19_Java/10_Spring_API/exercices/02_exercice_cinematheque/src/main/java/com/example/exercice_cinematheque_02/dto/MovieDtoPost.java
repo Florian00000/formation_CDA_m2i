@@ -30,5 +30,6 @@ public class MovieDtoPost {
     @Size(min = 2, max = 10)
     private String genre;
 
+    @Min(1)
     private Director director;
 }
