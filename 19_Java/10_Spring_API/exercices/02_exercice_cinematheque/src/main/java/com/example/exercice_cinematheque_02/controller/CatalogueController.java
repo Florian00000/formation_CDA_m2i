@@ -9,6 +9,7 @@ import com.example.exercice_cinematheque_02.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class CatalogueController {
     private MovieService movieService;
 
     @PostMapping("realisateur")
-    public ResponseEntity<DirectorDtoGet> addDirector(@RequestBody DirectorDtoPost directorDtoPost) {
+    public ResponseEntity<DirectorDtoGet> addDirector(@Validated @RequestBody DirectorDtoPost directorDtoPost) {
         return ResponseEntity.status(HttpStatus.CREATED).body(directorService.createDirector(directorDtoPost));
     }
 
@@ -39,7 +40,7 @@ public class CatalogueController {
     }
 
     @PutMapping("realisateur/{id}")
-    public ResponseEntity<DirectorDtoGet> updateDirector(@PathVariable int id, @RequestBody DirectorDtoPost directorDtoPost) {
+    public ResponseEntity<DirectorDtoGet> updateDirector(@PathVariable int id, @Validated @RequestBody DirectorDtoPost directorDtoPost) {
         return ResponseEntity.ok(directorService.updateDirector(id, directorDtoPost));
     }
 
@@ -64,12 +65,12 @@ public class CatalogueController {
     }
 
     @PostMapping("films")
-    public ResponseEntity<MovieDtoGet> addMovie(@RequestBody MovieDtoPost movieDtoPost) {
+    public ResponseEntity<MovieDtoGet> addMovie(@Validated @RequestBody MovieDtoPost movieDtoPost) {
         return ResponseEntity.status(HttpStatus.CREATED).body(movieService.createMovie(movieDtoPost));
     }
 
     @PutMapping("film/{id}")
-    public ResponseEntity<MovieDtoGet> updateMovie(@PathVariable int id, @RequestBody MovieDtoPost movieDtoPost) {
+    public ResponseEntity<MovieDtoGet> updateMovie(@PathVariable int id, @Validated @RequestBody MovieDtoPost movieDtoPost) {
         return ResponseEntity.ok(movieService.updateMovie(id, movieDtoPost));
     }
 

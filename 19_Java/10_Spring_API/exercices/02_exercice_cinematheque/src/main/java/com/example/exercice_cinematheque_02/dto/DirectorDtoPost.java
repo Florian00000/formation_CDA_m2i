@@ -1,5 +1,6 @@
 package com.example.exercice_cinematheque_02.dto;
 
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,9 +12,11 @@ import lombok.NoArgsConstructor;
 public class DirectorDtoPost {
 
     @Size(min = 2, max = 20)
+    @NotNull
     private String firstName;
 
     @Size(min = 2, max = 20)
+    @NotNull
     private String lastName;
 
     private String birthDate;
