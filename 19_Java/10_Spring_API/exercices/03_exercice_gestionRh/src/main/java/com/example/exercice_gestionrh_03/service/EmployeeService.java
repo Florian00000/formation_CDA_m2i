@@ -1,9 +1,12 @@
 package com.example.exercice_gestionrh_03.service;
 
+import com.example.exercice_gestionrh_03.dto.absence.AbsenceDtoPost;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoGet;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoPost;
+import com.example.exercice_gestionrh_03.entity.Absence;
 import com.example.exercice_gestionrh_03.entity.Employee;
 import com.example.exercice_gestionrh_03.exception.NotFoundException;
+import com.example.exercice_gestionrh_03.repository.AbsenceRepository;
 import com.example.exercice_gestionrh_03.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,8 @@ public class EmployeeService implements BaseService<EmployeeDtoPost, EmployeeDto
 
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private AbsenceRepository absenceRepository;
 
     @Override
     public EmployeeDtoGet create(EmployeeDtoPost employeeDtoPost) {
@@ -54,5 +59,15 @@ public class EmployeeService implements BaseService<EmployeeDtoPost, EmployeeDto
 
     private Employee findEmployeeByIdInData(int id) {
         return employeeRepository.findById(id).orElseThrow(NotFoundException::new);
+    }
+
+    //Absences
+    // TODO Vérifier Si la méthode fonctionne et faire controller pour absence et vacance
+    public EmployeeDtoGet addAbsence(int  id, AbsenceDtoPost absenceDtoPost) {
+        Employee employee = findEmployeeByIdInData(id);
+        Absence absence = absenceDtoPost.toAbsence();
+        absence.setEmployeeId(employee);
+        absenceRepository.save(absence);
+        return new EmployeeDtoGet(employee);
     }
 }

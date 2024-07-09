@@ -25,6 +25,11 @@ public class GeneralExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ecrivez la date au format dd/MM/yyyy");
     }
 
+    @ExceptionHandler(AbsenceException.class)
+    public ResponseEntity<String> dateTimeParseExceptionHandler (AbsenceException ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Entrez soit une date d'absence, soit une date de départ en Vacance et de retour");
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<Map<String,String>>> handleBindErrors(MethodArgumentNotValidException ex) {
         List<Map<String, String>> errorList = ex.getFieldErrors().stream().map(fieldError -> {

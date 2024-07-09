@@ -1,7 +1,6 @@
 package com.example.exercice_gestionrh_03.dto.candidate;
 
 import com.example.exercice_gestionrh_03.entity.Candidate;
-import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.time.LocalDate;

@@ -1,9 +1,11 @@
 package com.example.exercice_gestionrh_03.dto.employee;
 
+import com.example.exercice_gestionrh_03.entity.Absence;
 import com.example.exercice_gestionrh_03.entity.Employee;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 public class EmployeeDtoGet {
@@ -23,6 +25,7 @@ public class EmployeeDtoGet {
     private boolean admin;
     private double salary;
     private String observation;
+    private List<Absence> absences;
 
     public EmployeeDtoGet(Employee employee) {
         this.id = employee.getId();
@@ -39,5 +42,6 @@ public class EmployeeDtoGet {
         this.admin = employee.isAdmin();
         this.salary = employee.getSalary();
         this.observation = employee.getObservation();
+        this.absences = employee.getAbsences();
     }
 }
