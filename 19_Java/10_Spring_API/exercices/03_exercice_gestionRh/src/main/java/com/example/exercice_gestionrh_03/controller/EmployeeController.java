@@ -1,5 +1,7 @@
 package com.example.exercice_gestionrh_03.controller;
 
+import com.example.exercice_gestionrh_03.dto.absence.AbsenceDtoGet;
+import com.example.exercice_gestionrh_03.dto.absence.AbsenceDtoPost;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoGet;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoPost;
 import com.example.exercice_gestionrh_03.service.EmployeeService;
@@ -12,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/employee")
+@CrossOrigin
 public class EmployeeController {
 
     @Autowired
@@ -43,5 +46,19 @@ public class EmployeeController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/{id}/add/absence")
+    public ResponseEntity<EmployeeDtoGet> addAbsence(@PathVariable int id, @RequestBody AbsenceDtoPost absenceDtoPost) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.addAbsence(id, absenceDtoPost));
+    }
+
+    @GetMapping("/absence")
+    public ResponseEntity<List<AbsenceDtoGet>> getAllAbsences() {
+        return ResponseEntity.ok(employeeService.getAllAbsence());
+    }
+
+    @GetMapping("/{id}/absence")
+    public ResponseEntity<List<AbsenceDtoGet>> getAbsenceById(@PathVariable int id) {
+        return ResponseEntity.ok(employeeService.getAllAbsenceByEmployeeId(id));
+    }
 
 }

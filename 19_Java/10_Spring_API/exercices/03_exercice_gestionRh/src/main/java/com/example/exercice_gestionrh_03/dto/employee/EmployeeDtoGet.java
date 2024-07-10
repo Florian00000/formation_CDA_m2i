@@ -2,12 +2,14 @@ package com.example.exercice_gestionrh_03.dto.employee;
 
 import com.example.exercice_gestionrh_03.entity.Absence;
 import com.example.exercice_gestionrh_03.entity.Employee;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeDtoGet {
     
     private int id;

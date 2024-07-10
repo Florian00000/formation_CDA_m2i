@@ -1,5 +1,6 @@
 package com.example.exercice_gestionrh_03.service;
 
+import com.example.exercice_gestionrh_03.dto.absence.AbsenceDtoGet;
 import com.example.exercice_gestionrh_03.dto.absence.AbsenceDtoPost;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoGet;
 import com.example.exercice_gestionrh_03.dto.employee.EmployeeDtoPost;
@@ -62,12 +63,23 @@ public class EmployeeService implements BaseService<EmployeeDtoPost, EmployeeDto
     }
 
     //Absences
-    // TODO Vérifier Si la méthode fonctionne et faire controller pour absence et vacance
     public EmployeeDtoGet addAbsence(int  id, AbsenceDtoPost absenceDtoPost) {
         Employee employee = findEmployeeByIdInData(id);
         Absence absence = absenceDtoPost.toAbsence();
-        absence.setEmployeeId(employee);
+        absence.setEmployee(employee);
         absenceRepository.save(absence);
         return new EmployeeDtoGet(employee);
     }
+
+    public List<AbsenceDtoGet> getAllAbsence() {
+        List<Absence> absenceList = (List<Absence>) absenceRepository.findAll();
+        return absenceList.stream().map(AbsenceDtoGet::new).collect(Collectors.toList());
+    }
+
+    public List<AbsenceDtoGet> getAllAbsenceByEmployeeId(int employeeId) {
+        Employee employee = findEmployeeByIdInData(employeeId);
+        List<Absence> absenceList = absenceRepository.findAllByEmployee(employee);
+        return absenceList.stream().map(AbsenceDtoGet::new).collect(Collectors.toList());
+    }
+
 }

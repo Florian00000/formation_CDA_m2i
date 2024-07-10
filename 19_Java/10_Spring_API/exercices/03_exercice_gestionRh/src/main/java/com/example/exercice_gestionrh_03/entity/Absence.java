@@ -1,6 +1,7 @@
 package com.example.exercice_gestionrh_03.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Absence {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +28,5 @@ public class Absence {
     @ManyToOne
     @JoinColumn(name = "employee_id")
     @JsonIgnore
-    private Employee employeeId;
+    private Employee employee;
 }

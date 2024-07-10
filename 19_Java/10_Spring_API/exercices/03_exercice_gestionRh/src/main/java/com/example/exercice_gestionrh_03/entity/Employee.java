@@ -1,5 +1,6 @@
 package com.example.exercice_gestionrh_03.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class Employee extends Person {
     private boolean admin;
     private double salary;
 
-    @OneToMany(mappedBy = "employeeId")
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
     private List<Absence> absences;
 }
