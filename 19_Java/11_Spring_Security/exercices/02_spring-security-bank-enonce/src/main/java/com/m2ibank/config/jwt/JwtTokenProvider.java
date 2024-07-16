@@ -39,7 +39,7 @@ public class JwtTokenProvider {
         String token = Jwts.builder()
                 .setSubject(username)
                 .claim("roles", roles)
-                .claim("id", id)
+                .claim("customer_id", id)
                 .setIssuedAt(new Date())
                 .setExpiration(expirationDate)
                 .signWith(getSigninKey(), SignatureAlgorithm.HS512)
@@ -77,7 +77,7 @@ public class JwtTokenProvider {
                 .parseClaimsJws(token)
                 .getBody();
 
-        return claims.get("id", Integer.class);
+        return claims.get("customer_id", Integer.class);
     }
 
 }
