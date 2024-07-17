@@ -56,4 +56,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         return null;
     }
 
+    //Fonction pour qu'il ne vérifie pas le token sur "/api/auth" (vérification inutile mais non blocante)
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return path.startsWith("/api/auth");
+
+    }
+
 }
