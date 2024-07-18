@@ -34,7 +34,7 @@ public class ProductController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping
+    @PutMapping("/admin/update")
     public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
         return ResponseEntity.ok(productService.updateProduct(product));
     }
