@@ -3,6 +3,7 @@ package com.example.exercice_todolist_03.controller;
 import com.example.exercice_todolist_03.dto.BaseResponsedto;
 import com.example.exercice_todolist_03.dto.user.UserDtoPost;
 import com.example.exercice_todolist_03.dto.user.UserLoginDto;
+import com.example.exercice_todolist_03.entity.User;
 import com.example.exercice_todolist_03.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,7 +47,7 @@ public class AuthController {
 
             if (userService.verifyUser(userLoginDto.getEmail(), userLoginDto.getPassword())){
                 Map<String, Object> data = new HashMap<>();
-                int id = userService.getIdByEmail(userLoginDto.getEmail()); ;
+                int id = userService.getIdByEmail(userLoginDto.getEmail());
                 data.put("token", userService.generateToken(userLoginDto.getEmail(), userLoginDto.getPassword(), id));
                 return new BaseResponsedto("Success",data);
             }

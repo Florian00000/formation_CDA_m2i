@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector } from "react-redux"
-import {Link, useNavigate} from "react-router-dom"
+import {json, Link, useNavigate} from "react-router-dom"
 
 
 const Navbar = () => {
-    const user = useSelector((state) => state.auth.user);
+    const [user, setUser] = useState(null);
+    const login = useSelector(state => state.auth.login)
     const dispacth = useDispatch();
 
     const navigate = useNavigate();   
 
+    useEffect(() => {
+      console.log(user);
+      if(!user && localStorage.getItem("user")){
+          setUser(JSON.parse(localStorage.getItem('user')))
+        }
+      }, [user, login])
+      
     return (
         // <nav className='bg-dark' id='nav-header'>
         //     <Link to={"/"} id='logoHeader'><span><b> Navbar</b></span></Link> 
@@ -29,13 +37,17 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarColor01">
-            {/* <ul className="navbar-nav me-auto">
+            <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="#">Home
+                {/* <a className="nav-link active" href="#">Home
                   <span className="visually-hidden">(current)</span>
-                </a>
+                </a> */}
               </li>
-              </ul> */}
+              </ul>
+              {user && (
+                <p className='text-light'>{user.sub}</p>
+              )}
+              
           </div>
         </div>
       </nav>

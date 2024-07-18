@@ -26,8 +26,8 @@ const authSlice = createSlice({
     name: "auth",
     initialState: {      
         
-        token: localStorage.getItem('token') || null,        
-        user: null,
+        token: localStorage.getItem('token') || null,       
+        login: false,
         registerSuccess: false
     },
     reducers: {
@@ -47,8 +47,9 @@ const authSlice = createSlice({
             localStorage.setItem('token', actions.payload);
             state.token = actions.payload;
             console.log(actions.payload);
-            state.user = jwtDecode(localStorage.getItem('token')) 
-            console.log(state.user);
+            localStorage.setItem('user', JSON.stringify(jwtDecode(localStorage.getItem('token'))));
+            state.login = true; 
+            
         });
         builder.addCase(postRegisterUser.fulfilled, (state, actions) => {
             console.log(actions.payload);
