@@ -39,7 +39,10 @@ const authSlice = createSlice({
             state.token = null;
             localStorage.removeItem("token");
             localStorage.removeItem('user');
-        },        
+        },
+        logged: (state, action) => {
+            state.login = true;
+        }        
     },
     extraReducers: (builder) => {
         builder.addCase(postLogin.fulfilled, (state, actions) => {
@@ -65,5 +68,5 @@ const authSlice = createSlice({
     }
 });
 
- export const { permutRegisteSucces, logout} = authSlice.actions;
+ export const { permutRegisteSucces, logout, logged} = authSlice.actions;
 export default authSlice.reducer

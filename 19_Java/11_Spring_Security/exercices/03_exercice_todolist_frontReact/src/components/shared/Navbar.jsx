@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
-import { logout } from '../auth/authSlice';
+import { logged, logout } from '../auth/authSlice';
 
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const login = useSelector(state => state.auth.login)
   const dispacth = useDispatch();
 
@@ -13,8 +13,10 @@ const Navbar = () => {
 
   useEffect(() => {
     console.log(user);
+    console.log("login: "+login);
     if (!user && localStorage.getItem("user")) {
       setUser(JSON.parse(localStorage.getItem('user')))
+      dispacth(logged())
     }
     if (!login) {
       setUser(null)
@@ -56,8 +58,8 @@ const Navbar = () => {
           </ul>
           {user && (
             <>
-              <p className='text-light'>{user.sub}</p>
-              <button onClick={() => logoutButton()} className='btn btn-outline-secondary'>Déconnexion</button>
+              <p className='text-light mt-3 me-3'>{user.sub}</p>
+              <button onClick={() => logoutButton()} className='btn btn-outline-light'>Déconnexion</button>
 
             </>
           )}
