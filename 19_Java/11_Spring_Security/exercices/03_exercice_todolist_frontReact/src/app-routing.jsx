@@ -16,13 +16,10 @@ const router = createBrowserRouter([
                 element: <ProtectedRoute> <TodoList/></ProtectedRoute> 
             },            
             {
-                path: "/auth/login",
-                element: <AuthForm/>
-            },
-            {
-                path: "/auth/signup",
+                path: "/auth",
                 element: <AuthForm/>
             }
+            
         ]
     }
 ])

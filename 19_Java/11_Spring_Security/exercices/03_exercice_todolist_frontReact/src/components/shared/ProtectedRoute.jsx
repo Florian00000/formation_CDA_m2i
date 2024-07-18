@@ -14,7 +14,7 @@ const ProtectedRoute = (props) => {
         );
         
     } else {
-        return <Navigate to={"/auth/login"}/>
+        return <Navigate to={"/auth?mode=login"}/>
     }
 }
 

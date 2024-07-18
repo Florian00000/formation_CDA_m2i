@@ -8,17 +8,32 @@ export const postLogin = createAsyncThunk("auth/login", async (credentials) => {
     const token = await response.data.data.token
 
     return token
-}) 
+})
+
+export const postRegisterUser = createAsyncThunk("auth/registerUser", async(credentials) => {
+    const response = await api.post(`/auth/register/user`, credentials);
+    const status = await response.status;
+    return status
+})
+
+export const postRegisterAdmin = createAsyncThunk("auth/registerAdmin", async(credentials) => {
+    const response = await api.post(`/auth/register/admin`, credentials);
+    const status = await response.status;
+    return status
+})
 
 const authSlice = createSlice({
     name: "auth",
     initialState: {      
         
-        token: localStorage.getItem('token') || null,
-        authMode: "Se connecter",
-        user: null
+        token: localStorage.getItem('token') || null,        
+        user: null,
+        registerSuccess: false
     },
     reducers: {
+        permutRegisteSucces: (state, action) => {
+            state.registerSuccess = !state.registerSuccess
+        }
         // setUser: (state, action) => {
         //     state.user = action.payload;
         // },
@@ -34,9 +49,21 @@ const authSlice = createSlice({
             console.log(actions.payload);
             state.user = jwtDecode(localStorage.getItem('token')) 
             console.log(state.user);
-        })
+        });
+        builder.addCase(postRegisterUser.fulfilled, (state, actions) => {
+            console.log(actions.payload);
+            if(actions.payload === 200){
+                state.registerSuccess = true
+            }            
+        });
+        builder.addCase(postRegisterAdmin.fulfilled, (state, actions) => {
+            console.log(actions.payload);
+            if(actions.payload === 200){
+                state.registerSuccess = true
+            }            
+        });
     }
 });
 
-// export const { setUser, removeUser} = authSlice.actions;
+ export const { permutRegisteSucces} = authSlice.actions;
 export default authSlice.reducer
