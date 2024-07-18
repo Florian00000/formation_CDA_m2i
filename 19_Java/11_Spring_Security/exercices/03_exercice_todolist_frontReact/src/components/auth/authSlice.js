@@ -33,14 +33,13 @@ const authSlice = createSlice({
     reducers: {
         permutRegisteSucces: (state, action) => {
             state.registerSuccess = !state.registerSuccess
-        }
-        // setUser: (state, action) => {
-        //     state.user = action.payload;
-        // },
-        // removeUser: (state, action) => {
-        //     state.user = null;
-        //     localStorage.removeItem("token");
-        // },        
+        },
+        logout: (state, action) => {
+            state.login = false;
+            state.token = null;
+            localStorage.removeItem("token");
+            localStorage.removeItem('user');
+        },        
     },
     extraReducers: (builder) => {
         builder.addCase(postLogin.fulfilled, (state, actions) => {
@@ -66,5 +65,5 @@ const authSlice = createSlice({
     }
 });
 
- export const { permutRegisteSucces} = authSlice.actions;
+ export const { permutRegisteSucces, logout} = authSlice.actions;
 export default authSlice.reducer

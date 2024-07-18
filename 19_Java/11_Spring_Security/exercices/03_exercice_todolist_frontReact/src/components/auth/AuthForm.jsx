@@ -54,7 +54,9 @@ const AuthForm = () => {
 
 
   useEffect(() => {
+    console.log(" token: " + token);
     if (token) {
+      
       navigate("/")
     }
   }, [token])
