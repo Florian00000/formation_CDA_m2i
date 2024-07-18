@@ -35,13 +35,20 @@ public class TodoService implements BaseService<TodoDtoGet, TodoDtoPost> {
     }
 
     @Override
-    public TodoDtoGet update(int id, TodoDtoPost object) {
-        return null;
+    public TodoDtoGet update(int id, TodoDtoPost todoDtoPost) {
+        Todo todo = todoRepository.findById(id).orElseThrow(NotFoundException::new);
+        todo.setTitle(todoDtoPost.getTitle());
+        todo.setDescription(todoDtoPost.getDescription());
+        todo.setCompleted(todo.isCompleted());
+        todoRepository.save(todo);
+        return new TodoDtoGet(todo);
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        Todo todo = todoRepository.findById(id).orElseThrow(NotFoundException::new);
+        todoRepository.delete(todo);
+        return true;
     }
 
     @Override
@@ -60,6 +67,4 @@ public class TodoService implements BaseService<TodoDtoGet, TodoDtoPost> {
         List<Todo> todos = todoRepository.findAllByOwner(user);
         return todos.stream().map(TodoDtoGet::new).collect(Collectors.toList());
     }
-
-    //TODO faire update et delete pour l admin
 }

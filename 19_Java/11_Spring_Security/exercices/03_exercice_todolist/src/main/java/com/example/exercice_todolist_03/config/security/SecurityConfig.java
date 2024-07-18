@@ -48,7 +48,7 @@ public class SecurityConfig {
         http
                 .csrf(crsf -> crsf.disable())
                 //On lui passse la configuration pour les cors crée juste en dessous
-//                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
@@ -62,20 +62,20 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public CorsConfigurationSource corsConfigurationSource() {
-//
-//        CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
-//        configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
-//        configuration.setAllowedHeaders(List.of("*"));
-//
-//        // cookies
-//        configuration.setAllowCredentials(true);
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", configuration);
-//        return source;
-//    }
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
+        configuration.setAllowedHeaders(List.of("*"));
+
+        // cookies
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
 
 

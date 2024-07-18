@@ -42,4 +42,15 @@ public class AdminController {
     public ResponseEntity<List<TodoDtoGet>> getTodosByOwner(@PathVariable int id) {
         return ResponseEntity.ok(todoService.findAllByOwnerId(id));
     }
+
+    @PutMapping("/todo/{id}")
+    public ResponseEntity<TodoDtoGet> updateTodo(@PathVariable int id, @RequestBody TodoDtoPost todoDtoPost) {
+        return ResponseEntity.ok(todoService.update(id,todoDtoPost));
+    }
+
+    @DeleteMapping("/todo/{id}")
+    public ResponseEntity<String> deleteTodo(@PathVariable int id) {
+        todoService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
