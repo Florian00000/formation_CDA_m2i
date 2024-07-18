@@ -67,7 +67,7 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
-        configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:3000"));
+        configuration.setAllowedOriginPatterns(Collections.singletonList("http://localhost:5173"));
         configuration.setAllowedHeaders(List.of("*"));
 
         // cookies
