@@ -4,6 +4,7 @@
 ``` bash
 docker pull apline
 docker run -it alpine
+docker run --name testname -it alpine
 
 ```
 
@@ -24,4 +25,12 @@ cd TodoList_SpringApi_FrontReact/
 apk add nano
 nano README.md
 docker cp nifty_taussig:/root/TodoList_SpringApi_FrontReact/README.md .\Desktop\
+```
+
+- Suppresion container
+- Suppresion image
+
+``` bash
+docker rm nifty_taussig
+docker rmi alpine
 ```
