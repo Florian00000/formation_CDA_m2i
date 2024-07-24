@@ -1,0 +1,7 @@
+FROM nginx
+
+LABEL version="0.1"
+
+COPY exo1 /usr/share/nginx/html
+
+CMD ["nginx","-g","daemon off;"]
