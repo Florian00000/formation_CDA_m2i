@@ -11,3 +11,6 @@ RUN git clone https://github.com/withaarzoo/3D-Rotate-Tube.git && mv 3D-Rotate-T
 EXPOSE 80
 
 CMD ["nginx","-g","daemon off;"]
+
+# docker build --no-cache -t exercice7 .
+# docker run -p 8081:80 -d exercice7

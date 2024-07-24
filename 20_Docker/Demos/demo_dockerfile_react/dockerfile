@@ -1,0 +1,42 @@
+# Exemple avec juste node (pas de multistaging)
+#FROM node
+
+#WORKDIR /usr/src/app
+
+#COPY package.json .
+#COPY package-lock.json .
+
+#RUN npm install
+
+#COPY . . 
+
+#EXPOSE 3000
+
+#CMD ["npm","start"]
+
+# Exemple avec multistaging : node + nginx
+# Etape 1 contruire l'application avec node
+FROM node AS build
+
+WORKDIR /usr/src/app
+
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm install
+
+COPY . . 
+
+RUN npm run build
+
+# Etape 2 : deployer l'application build sur un serveur nginx
+FROM nginx
+
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copier le build de mon application react a partir de l'etape precedente dans le repertoire nginx 
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx","-g","daemon off;"]
