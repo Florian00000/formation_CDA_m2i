@@ -1,0 +1,17 @@
+FROM node
+
+WORKDIR /usr/src/app
+
+COPY exercice-node-todos_dockerfile/package.json .
+COPY exercice-node-todos_dockerfile/package-lock.json .
+
+RUN npm install
+
+COPY  exercice-node-todos_dockerfile/. .
+
+EXPOSE 3001
+
+CMD ["node", "app.js"]
+
+# docker build -t exercice8 .
+# docker run --name exo8 -p 3001:3001 exercice8
