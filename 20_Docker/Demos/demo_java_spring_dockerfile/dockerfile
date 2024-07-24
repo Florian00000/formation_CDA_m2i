@@ -1,0 +1,27 @@
+# Build de l'application avec maven
+FROM maven AS builder
+
+WORKDIR /app
+
+# copie du pom.xml et download des dependances
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+
+# copie les fichiers sources et execution du build
+COPY src ./src
+RUN mvn package -DskipTests
+
+
+FROM openjdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/blog-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 8081
+
+ENTRYPOINT ["java","-jar","blog-0.0.1-SNAPSHOT.jar"]
+
+# docker build -t blog .
+# docker run -p 3333:8081 -d blog
