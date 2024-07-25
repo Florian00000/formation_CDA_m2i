@@ -1,0 +1,39 @@
+services:
+  mysql:
+    image: mysql
+    container_name: local_mysql
+    restart: always
+    ports:
+      - "3305:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      #MYSQL_DATABSE: default
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    volumes:
+      - local_mysqldata:/var/lib/mysql
+    networks:
+      - mysql-phpmyadmin
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    container_name: phpmyadmin_container  
+    restart: always
+    ports:
+      - "8033:80"   
+    links: 
+      - mysql 
+    environment:      
+      PMA_HOST: local_mysql      
+      #PMA_ARBITRARY: 1   
+    networks:
+      - mysql-phpmyadmin
+
+volumes:
+  local_mysqldata:
+  phpmyadmin_data:
+
+networks:
+  mysql-phpmyadmin:
