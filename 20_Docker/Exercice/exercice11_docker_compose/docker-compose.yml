@@ -1,0 +1,66 @@
+services:
+  mysql:
+    image: mysql
+    container_name: local_mysql
+    restart: always
+    ports:
+      - "3305:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABSE: employee?createDatabaseIfNotExist=true
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    volumes:
+      - local_mysqldata:/var/lib/mysql
+    networks:
+      - exercice11
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    container_name: phpmyadmin_container  
+    restart: always
+    ports:
+      - "8033:80"   
+    links: 
+      - mysql 
+    environment:      
+      PMA_HOST: local_mysql      
+      #PMA_ARBITRARY: 1   
+    networks:
+      - exercice11
+
+  back_employee:
+    depends_on:
+      - mysql  
+    container_name: back_employee
+    build:
+      context: ./back_employee
+      dockerfile: dockerfile
+    environment:
+      - spring.datasource.url=jdbc:mysql://local_mysql/employee
+      - spring.datasource.username=root
+      - spring.datasource.password=root
+      - spring.jpa.hibernate.ddl-auto=update
+    ports:
+      - "8080:8080"
+    networks:
+      - exercice11
+
+  front_employee:
+    depends_on:
+      - back_employee
+    build: 
+      context: ./front_employee
+      dockerfile: dockerfile
+    ports:
+      - "8081:80"
+    networks:
+      - exercice11
+
+volumes:
+  local_mysqldata:
+
+networks:
+  exercice11:
