@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  test-build:
+    build:
+      context: ./exercice6_solutions
+      dockerfile: Dockerfile
+    ports:
+      - "5055:80"
+    
