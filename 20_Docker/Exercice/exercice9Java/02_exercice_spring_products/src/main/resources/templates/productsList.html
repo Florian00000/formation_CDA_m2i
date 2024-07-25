@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des produits</title>
+</head>
+<body>
+<div>
+    <table th:if="${!products.isEmpty()}">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Catégorie</th>
+            <th>Pognon, le blé, la maille, la thune quoi...</th>
+            <th>Clique plus bas</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${products}">
+                <td th:text="${p.getId()}"> </td>
+                <td th:text="${p.getName()}"> </td>
+                <td th:text="${p.getCategory()}"> </td>
+                <td th:text="${p.getPrice() + ' €'}"> </td>
+                <td> <a th:href="@{/products/{id}(id=${p.getId()})}">Lien du détail</a> </td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+</div>
+
+</body>
+</html>

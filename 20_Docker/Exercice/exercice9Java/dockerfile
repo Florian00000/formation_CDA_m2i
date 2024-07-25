@@ -1,0 +1,22 @@
+FROM maven AS builder
+
+WORKDIR /app
+
+COPY 02_exercice_spring_products/pom.xml .
+RUN mvn dependency:go-offline
+
+COPY 02_exercice_spring_products/src ./src
+RUN mvn package -DskipTests
+
+FROM openjdk
+
+WORKDIR /app
+
+COPY --from=builder /app/target/02_exercice_spring_products-0.0.1-SNAPSHOT.jar .
+
+EXPOSE 8080
+
+ENTRYPOINT [ "java", "-jar", "02_exercice_spring_products-0.0.1-SNAPSHOT.jar" ]
+
+# docker build -t spring-products .
+# docker run --name spring-products -p 8080:8080 spring-products
