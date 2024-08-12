@@ -20,6 +20,7 @@ public class DemoController {
         demoService.method();
         demoService.method2();
         demoService.methodWithResult();
+        demoService.methodWithTryCatch();
         return "Fin méthode";
     }
 }

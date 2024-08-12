@@ -19,4 +19,13 @@ public class DemoService {
     public String methodWithResult() {
         return "result";
     }
+
+    public void methodWithTryCatch() {
+//        try {
+//            System.out.println("Logique métier");
+//        }catch (Exception ex) {
+//            System.out.println("Logique exception");
+//        }
+        System.out.println("Logique métier");
+    }
 }
