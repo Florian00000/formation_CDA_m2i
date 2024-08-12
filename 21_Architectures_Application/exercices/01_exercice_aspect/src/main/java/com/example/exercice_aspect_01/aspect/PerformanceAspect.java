@@ -12,11 +12,11 @@ public class PerformanceAspect {
     @Around("execution(* com.example.exercice_aspect_01.service.*.*(..))")
     public Object around(ProceedingJoinPoint proceedingJoinPoint)  {
         try {
-            long startTime = System.currentTimeMillis();
+            long startTime = System.nanoTime();
             Object response = proceedingJoinPoint.proceed();
-            long endTime = System.currentTimeMillis();
+            long endTime = System.nanoTime();
             long elapsedTime = endTime - startTime;
-            System.out.println("Durée de l'exécution de la méthode " + elapsedTime);
+            System.out.println("Durée de l'exécution de la méthode " + elapsedTime + " ns");
             return response;
         } catch (Throwable e) {
             throw new RuntimeException(e);
