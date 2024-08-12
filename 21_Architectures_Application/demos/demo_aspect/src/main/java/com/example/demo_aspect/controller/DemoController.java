@@ -1,5 +1,6 @@
 package com.example.demo_aspect.controller;
 
+import com.example.demo_aspect.annotation.DemoAspectAnnotation;
 import com.example.demo_aspect.service.DemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class DemoController {
         this.demoService = demoService;
     }
 
+    @DemoAspectAnnotation
     @GetMapping("/")
     public String get() {
         demoService.method();

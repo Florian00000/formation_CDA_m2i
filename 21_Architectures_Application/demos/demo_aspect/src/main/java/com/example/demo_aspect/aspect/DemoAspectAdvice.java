@@ -30,19 +30,29 @@ public class DemoAspectAdvice {
 //        System.out.println("Run After Throwing each method's services");
 //    }
 
-    @Around("execution(* com.example.demo_aspect.service.*.*(..))")
-    public void around(ProceedingJoinPoint proceedingJoinPoint) {
+    @Pointcut("@annotation(com.example.demo_aspect.annotation.DemoAspectAnnotation)")
+    public void customPointCut() {
+
+    }
+
+    //@Around("execution(* com.example.demo_aspect.service.*.*(..))")
+    @Around("customPointCut()")
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) {
         try {
             System.out.println("Around cut");
             //Récuéper les arguments
             Object[] args = proceedingJoinPoint.getArgs();
             System.out.println(args);
             //Démarrer la méthode avec proceed
-            proceedingJoinPoint.proceed();
+            Object result = proceedingJoinPoint.proceed();
+            return result;
         }catch (Exception ex) {
             System.out.println("Catch exception with around cut");
         } catch (Throwable e) {
             throw new RuntimeException(e);
+        }finally {
+            return null;
         }
+
     }
 }

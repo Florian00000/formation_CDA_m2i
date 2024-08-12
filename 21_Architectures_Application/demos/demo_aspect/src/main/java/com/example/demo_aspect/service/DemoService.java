@@ -1,6 +1,7 @@
 package com.example.demo_aspect.service;
 
 
+import com.example.demo_aspect.annotation.DemoAspectAnnotation;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class DemoService {
         return "result";
     }
 
+    //@DemoAspectAnnotation
     public void methodWithTryCatch() {
 //        try {
 //            System.out.println("Logique métier");
