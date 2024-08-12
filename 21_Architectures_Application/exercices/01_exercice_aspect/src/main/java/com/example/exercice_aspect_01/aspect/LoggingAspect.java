@@ -16,6 +16,7 @@ public class LoggingAspect {
     @After("execution(* com.example.exercice_aspect_01.service.*.*(..))")
     public void LoggingBookMethods(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
+        System.out.println("Nom de la méthode: "+ joinPoint.getSignature().getName());
         System.out.println("Arguments méthodes: "+ Arrays.toString(args));
     }
 
