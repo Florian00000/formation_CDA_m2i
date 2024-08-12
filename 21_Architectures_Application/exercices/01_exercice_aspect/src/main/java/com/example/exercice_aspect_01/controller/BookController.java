@@ -1,5 +1,7 @@
 package com.example.exercice_aspect_01.controller;
 
+import com.example.exercice_aspect_01.annotation.Log;
+import com.example.exercice_aspect_01.annotation.Performance;
 import com.example.exercice_aspect_01.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,11 +19,15 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping("/{id}")
+    @Log
+    @Performance
     public ResponseEntity<String> getBook(@PathVariable int id) {
         return ResponseEntity.ok(bookService.getBook(id));
     }
 
     @PostMapping()
+    @Log
+    @Performance
     public ResponseEntity<String> addBook(@RequestBody String book) {
         if (bookService.addBook(book)) {
             return ResponseEntity.status(HttpStatus.CREATED).body(book);

@@ -3,13 +3,20 @@ package com.example.exercice_aspect_01.aspect;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
 public class PerformanceAspect {
 
-    @Around("execution(* com.example.exercice_aspect_01.service.*.*(..))")
+    @Pointcut("@annotation(com.example.exercice_aspect_01.annotation.Performance)")
+    public void performance(){
+
+    }
+
+//    @Around("execution(* com.example.exercice_aspect_01.service.*.*(..))")
+@Around("performance()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint)  {
         try {
             long startTime = System.nanoTime();
