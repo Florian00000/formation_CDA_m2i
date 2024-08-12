@@ -19,6 +19,7 @@ public class DemoController {
     public String get() {
         demoService.method();
         demoService.method2();
+        demoService.methodWithResult();
         return "Fin méthode";
     }
 }

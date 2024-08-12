@@ -16,4 +16,7 @@ public class DemoService {
         // Logique
     }
 
+    public String methodWithResult() {
+        return "result";
+    }
 }
