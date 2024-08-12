@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //Enregister un filtre dans le container de servlets
-@WebFilter(filterName = "responseFilter", urlPatterns = "/*")
+@WebFilter(filterName = "responseFilter")
 public class DemoResponseFilter implements Filter {
 
     @Override
@@ -19,9 +19,13 @@ public class DemoResponseFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.sendError(500, "Impossible de charger la page");
-        filterChain.doFilter(servletRequest, servletResponse);
+        System.out.println("Response filter");
+        try {
+            filterChain.doFilter(servletRequest, servletResponse);
+        } catch (Exception e) {
+            HttpServletResponse response = (HttpServletResponse) servletResponse;
+            response.sendError(500, "Impossible de charger la page");
+        }
     }
 
     @Override
