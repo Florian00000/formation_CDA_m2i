@@ -8,12 +8,17 @@ public class Event {
     private final int availablePlaces;
     private int reservedPlaces;
 
-    public Event(int id, String name, String type, int availablePlaces, int reservedPlaces) {
-        this.id = id;
+    public Event(String name, String type, int availablePlaces, int reservedPlaces) {
         this.name = name;
         this.type = type;
         this.availablePlaces = availablePlaces;
         this.reservedPlaces = reservedPlaces;
+    }
+
+    public Event(int id, String name, String type, int availablePlaces, int reservedPlaces) {
+        this(name, type, availablePlaces, reservedPlaces);
+        this.id = id;
+
     }
 
     public int getId() {

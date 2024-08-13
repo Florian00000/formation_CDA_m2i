@@ -1,9 +1,11 @@
 package com.example.tp_hexagonal_03.adapter.rest.controller;
 
 import com.example.tp_hexagonal_03.adapter.rest.dto.EventPatch;
+import com.example.tp_hexagonal_03.adapter.rest.dto.EventPost;
 import com.example.tp_hexagonal_03.domain.entity.Event;
 import com.example.tp_hexagonal_03.domain.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,11 @@ public class EventController {
     @GetMapping
     public ResponseEntity<List<Event>> getAvailableEventsEvents() {
         return ResponseEntity.ok(eventService.getAvailableEvents());
+    }
+
+    @PostMapping
+    public ResponseEntity<Event> addEvent(@RequestBody EventPost eventPost) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(eventService.createEvent(eventPost.toEvent()));
     }
 
     @PatchMapping("/reservation/{id}")

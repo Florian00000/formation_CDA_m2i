@@ -13,6 +13,10 @@ public class EventService {
         this.eventPort = eventPort;
     }
 
+    public Event createEvent(Event event) {
+        return eventPort.save(event);
+    }
+
     public Event getEvent(int id) {
         return eventPort.getEventById(id);
     }
