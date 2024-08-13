@@ -15,23 +15,21 @@ public class BookService {
         this.bookPort = bookPort;
     }
 
-    public Book save(String name, String author) {
+    public BookDTO save(String name, String author) {
         //Vérification sur la partie métier
         BookDTO book = new BookDTO(name, author);
         book =  bookPort.save(book);
-        return new Book(book.getId(), book.getName(), book.getAuthor());
+        return book;
     }
 
-    public List<Book> get() {
+    public List<BookDTO> get() {
         //Vérification sur la partie métier
 //        List<BookDTO> bookDTOS = bookPort.get();
 //        List<Book> books = new ArrayList<>();
 //        bookDTOS.forEach(b -> books.add(new Book(b.getId(), b.getName(), b.getAuthor())));
 //
 //        return books;
-        return bookPort.get()
-                .stream()
-                .map((b -> new Book(b.getId(), b.getName(), b.getAuthor())))
-                .toList();
+        return bookPort.get();
+
     }
 }
