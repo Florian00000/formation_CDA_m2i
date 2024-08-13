@@ -1,4 +1,4 @@
-package com.example.tp_hexagonal_03.infrastructure.springdata.entity;
+package com.example.tp_hexagonal_04.infrastructure.springdata.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

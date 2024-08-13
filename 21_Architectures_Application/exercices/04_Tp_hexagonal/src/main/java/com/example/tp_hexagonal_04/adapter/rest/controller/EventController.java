@@ -1,9 +1,9 @@
-package com.example.tp_hexagonal_03.adapter.rest.controller;
+package com.example.tp_hexagonal_04.adapter.rest.controller;
 
-import com.example.tp_hexagonal_03.adapter.rest.dto.EventPatch;
-import com.example.tp_hexagonal_03.adapter.rest.dto.EventPost;
-import com.example.tp_hexagonal_03.domain.entity.Event;
-import com.example.tp_hexagonal_03.domain.service.EventService;
+import com.example.tp_hexagonal_04.adapter.rest.dto.EventPatch;
+import com.example.tp_hexagonal_04.adapter.rest.dto.EventPost;
+import com.example.tp_hexagonal_04.domain.entity.Event;
+import com.example.tp_hexagonal_04.domain.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,9 +1,9 @@
-package com.example.tp_hexagonal_03.infrastructure.springdata.portimpl;
+package com.example.tp_hexagonal_04.infrastructure.springdata.portimpl;
 
-import com.example.tp_hexagonal_03.domain.entity.Event;
-import com.example.tp_hexagonal_03.infrastructure.springdata.entity.EventEntity;
-import com.example.tp_hexagonal_03.infrastructure.springdata.repository.EventRepository;
-import com.example.tp_hexagonal_03.shared.port.EventPort;
+import com.example.tp_hexagonal_04.domain.entity.Event;
+import com.example.tp_hexagonal_04.infrastructure.springdata.entity.EventEntity;
+import com.example.tp_hexagonal_04.infrastructure.springdata.repository.EventRepository;
+import com.example.tp_hexagonal_04.shared.port.EventPort;
 
 import java.util.List;
 

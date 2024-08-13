@@ -1,9 +1,9 @@
-package com.example.tp_hexagonal_03.adapter.rest.config;
+package com.example.tp_hexagonal_04.adapter.rest.config;
 
-import com.example.tp_hexagonal_03.domain.service.EventService;
-import com.example.tp_hexagonal_03.infrastructure.springdata.portimpl.EventPortImpl;
-import com.example.tp_hexagonal_03.infrastructure.springdata.repository.EventRepository;
-import com.example.tp_hexagonal_03.shared.port.EventPort;
+import com.example.tp_hexagonal_04.domain.service.EventService;
+import com.example.tp_hexagonal_04.infrastructure.springdata.portimpl.EventPortImpl;
+import com.example.tp_hexagonal_04.infrastructure.springdata.repository.EventRepository;
+import com.example.tp_hexagonal_04.shared.port.EventPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

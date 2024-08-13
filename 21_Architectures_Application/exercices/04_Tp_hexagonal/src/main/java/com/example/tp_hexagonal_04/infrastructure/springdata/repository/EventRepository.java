@@ -1,6 +1,6 @@
-package com.example.tp_hexagonal_03.infrastructure.springdata.repository;
+package com.example.tp_hexagonal_04.infrastructure.springdata.repository;
 
-import com.example.tp_hexagonal_03.infrastructure.springdata.entity.EventEntity;
+import com.example.tp_hexagonal_04.infrastructure.springdata.entity.EventEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

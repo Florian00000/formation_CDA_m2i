@@ -1,4 +1,4 @@
-package com.example.tp_hexagonal_03.adapter.rest.dto;
+package com.example.tp_hexagonal_04.adapter.rest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

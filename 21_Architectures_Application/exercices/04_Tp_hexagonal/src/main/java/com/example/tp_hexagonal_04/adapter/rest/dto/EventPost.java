@@ -1,6 +1,6 @@
-package com.example.tp_hexagonal_03.adapter.rest.dto;
+package com.example.tp_hexagonal_04.adapter.rest.dto;
 
-import com.example.tp_hexagonal_03.domain.entity.Event;
+import com.example.tp_hexagonal_04.domain.entity.Event;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.example.tp_hexagonal_03.domain.entity;
+package com.example.tp_hexagonal_04.domain.entity;
 
 public class Event {
 

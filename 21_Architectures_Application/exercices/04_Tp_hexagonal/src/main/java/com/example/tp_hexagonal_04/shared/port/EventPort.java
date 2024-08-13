@@ -1,6 +1,6 @@
-package com.example.tp_hexagonal_03.shared.port;
+package com.example.tp_hexagonal_04.shared.port;
 
-import com.example.tp_hexagonal_03.domain.entity.Event;
+import com.example.tp_hexagonal_04.domain.entity.Event;
 
 import java.util.List;
 
