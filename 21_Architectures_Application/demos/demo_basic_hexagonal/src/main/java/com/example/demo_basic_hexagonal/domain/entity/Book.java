@@ -1,9 +1,20 @@
 package com.example.demo_basic_hexagonal.domain.entity;
 
+import java.util.List;
+
 public class Book {
     private int id;
     private String name;
     private String author;
+    private List<Comment> comments;
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
 
     public Book(String name, String author) {
         this.name = name;
