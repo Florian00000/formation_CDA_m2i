@@ -23,13 +23,11 @@ public class DataSourceProducer {
     @MySQL
     @ApplicationScoped
     public DataSource createMySQLDatasource(){
-
         BasicDataSource dataSource = new BasicDataSource();
-
         dataSource.setUrl("jdbc:mysql://localhost:3307/mydb_mysql");
         dataSource.setUsername("mysqluser");
         dataSource.setPassword("mysqlpass");
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
         try {
             dataSource.getConnection().isValid(2);
@@ -53,7 +51,7 @@ public class DataSourceProducer {
         dataSource.setUrl("jdbc:postgresql://localhost:5432/mydb_postgres");
         dataSource.setUsername("postgresuser");
         dataSource.setPassword("postgrespass");
-        dataSource.setDriverClassName("org.postgresql.driver");
+        dataSource.setDriverClassName("org.postgresql.Driver");
 
         try {
             dataSource.getConnection().isValid(2);

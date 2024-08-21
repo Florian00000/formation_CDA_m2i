@@ -29,18 +29,33 @@ public class ProductService {
     @Postgres
     private DataSource postgresDataSource;
 
-
-
     public void printMysqlProducts(){
         String query = "SELECT id, name, price FROM products";
-
         try {
             Connection connection = mysqlDataSource.getConnection();
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
             logger.info("Liste des products : ");
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                double price = resultSet.getDouble("price");
+                logger.info("id : " + id + " name : " + name + " price : " + price);
+            }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void printPostGresProducts(){
+        String query = "SELECT id, name, price FROM products";
+        try {
+            Connection connection = postgresDataSource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            logger.info("Liste des products : ");
             while (resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
