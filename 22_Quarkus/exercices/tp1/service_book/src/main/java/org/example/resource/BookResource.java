@@ -60,4 +60,10 @@ public class BookResource {
         }else return Response.status(404).build();
     }
 
+    @GET
+    @Path("/author/{id}")
+    public List<Book> getBooksByAuthorId(@PathParam("id") long id) {
+        return bookService.getBooksByAuthorId(id);
+    }
+
 }

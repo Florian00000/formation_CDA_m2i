@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.dto.author;
 
 import lombok.Data;
 import org.example.entity.Author;

@@ -62,6 +62,10 @@ public class BookService {
         return true;
     }
 
+    public List<Book> getBooksByAuthorId(long authorId) {
+        return bookRepository.findByAuthorId(authorId);
+    }
+
     private Book enrichBook(Book book) {
         if (book.getAuthorId() != null) {
             AuthorDtoGet author = authorServiceClient.getAuthorById(book.getAuthorId());

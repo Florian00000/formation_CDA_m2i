@@ -1,9 +1,11 @@
-package org.example.dto;
+package org.example.dto.author;
 
 import lombok.Data;
+import org.example.dto.book.BookDto;
 import org.example.entity.Author;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Data
 
@@ -13,6 +15,7 @@ public class AuthorDtoGet {
     private String name;
     private String biography;
     private String birthDate;
+    private List<BookDto> books;
 
     public AuthorDtoGet(Author author) {
         this.id = author.getId();

@@ -4,12 +4,11 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.example.dto.AuthorDtoGet;
-import org.example.dto.AuthorDtoPost;
+import org.example.dto.author.AuthorDtoGet;
+import org.example.dto.author.AuthorDtoPost;
 import org.example.entity.Author;
 import org.example.service.AuthorService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,16 +23,17 @@ public class AuthorResource {
     @GET
     @Path("/{id}")
     public Response getAuthorById(@PathParam("id") long id) {
-        Optional<Author> author = authorService.getAuthorById(id);
-        if (author.isPresent()) {
-            return Response.ok(new AuthorDtoGet(author.get())).build();
+        AuthorDtoGet author = authorService.getAuthorById(id);
+        if (author != null) {
+            return Response.ok(author).build();
         }else return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
     public List<AuthorDtoGet> getAllAuthors() {
-        List<Author> authors = authorService.getAllAuthors();
-        return authors.stream().map(AuthorDtoGet::new).toList();
+//        List<Author> authors = authorService.getAllAuthors();
+//        return authors.stream().map(AuthorDtoGet::new).toList();
+        return authorService.getAllAuthors();
     }
 
     @POST
@@ -44,9 +44,9 @@ public class AuthorResource {
     @PUT
     @Path("{id}")
     public Response updateAuthor(@PathParam("id") long id, AuthorDtoPost authorDtoPost) {
-        Author author = authorService.updateAuthor(authorDtoPost, id);
+        AuthorDtoGet author = authorService.updateAuthor(authorDtoPost, id);
         if (author != null) {
-            return Response.ok(new AuthorDtoGet(author)).build();
+            return Response.ok(author).build();
         }else return Response.status(Response.Status.NOT_FOUND).build();
     }
 
