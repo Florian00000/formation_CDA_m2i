@@ -4,7 +4,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.example.dto.BookDtoPost;
+import org.example.dto.book.BookDtoPost;
 import org.example.entity.Book;
 import org.example.service.BookService;
 
@@ -59,4 +59,5 @@ public class BookResource {
             return Response.noContent().build();
         }else return Response.status(404).build();
     }
+
 }
