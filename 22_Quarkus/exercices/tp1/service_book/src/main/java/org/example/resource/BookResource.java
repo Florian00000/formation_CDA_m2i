@@ -13,13 +13,13 @@ import java.util.Optional;
 
 @Path("/api/books")
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class BookResource {
 
     @Inject
     BookService bookService;
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response createBook(BookDtoPost bookDtoPost) {
         return Response.status(201).entity(bookService.addBook(bookDtoPost)).build();
     }
