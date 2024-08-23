@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service_user" />
+        <module name="service_borrowing" />
         <module name="service_book" />
         <module name="service_author" />
-        <module name="service_user" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="service_author" options="-parameters" />
       <module name="service_book" options="-parameters" />
+      <module name="service_borrowing" options="-parameters" />
       <module name="service_user" options="-parameters" />
     </option>
   </component>
