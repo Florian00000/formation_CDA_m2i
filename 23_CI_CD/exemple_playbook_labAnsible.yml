@@ -1,0 +1,151 @@
+# - name: Test
+#   hosts: all
+#   become: true
+#   tasks:
+#   - name: check connection
+#     ping:
+    
+#   - name: Création du répertoire /tmp/moi
+#     ansible.builtin.file:
+#       path: /tmp/moi
+#       state: directory
+#       owner: root
+#     become: true
+
+#   - name: Mise à jour avec apt    
+#     apt: 
+#       update_cache: yes
+#       cache_valid_time: 3600
+
+#   - name: Variables et Boucle avec COPY    
+#     vars:
+#       mesfichiers:
+#             - { source: "envoi_textes/test1.txt", destination: "/tmp/test1.txt", mode: "0755", owner: "test"}
+#             - { source: "envoi_textes/test2.txt", destination: "/tmp/test2.txt", mode: "0644", owner: "test"}
+#             - { source: "envoi_textes/test3.txt", destination: "/tmp/test3.txt", mode: "0644", owner: "test"}
+#     copy:                                                                                                                                    
+#       src: "{{ item.source }}"                                                                                                               
+#       dest: "{{ item.destination }}"                                                                                                         
+#       mode: "{{ item.mode }}"                                                                                                          
+#       owner: "{{ item.owner }}"
+#     with_items:                                                                                                                              
+#       - "{{ mesfichiers }}"
+
+# # Playbooks Web servers créations d'users
+# - name: Play Web
+#   hosts: webserver
+#   become: yes
+#   tasks:
+#     - name: Create group
+#       group:
+#         name: users
+#         state: present
+
+#     - name: Create group
+#       group: 
+#         name: admin
+#         state: present
+
+#     - name: create username apacheadm
+#       user: 
+#         name: apacheadm
+#         groups: users, admin
+#         append: yes
+#         home: /home/apacheadm
+
+#     - name: install apache2
+#       apt:
+#         name: apache2
+#         state: latest 
+
+# # Playbooks dbserveur créations d'users
+# - name: Play group dbserveur - create users and directories in app servers
+#   hosts: dbserver
+#   become: yes
+#   tasks: 
+
+#     - name: Create a username for Utilisateur
+#       user:
+#         name: utilisateur
+#         group: users
+#         append: yes
+#         home: /home/tomcat
+
+#     - name: create a directory for apache tomcat 
+#       file:
+#         path: /opt/oracle
+#         owner: utilisateur
+#         group: users
+#         state: directory
+#         mode: 0755  
+
+# # Playbook de test Jinja3 (boucles, etc)
+# - name: Jinja3
+#   hosts: all
+
+#   # Déclarations de dictionnaires et copie dans des fichiers textes
+#   vars: 
+#     items:
+#       item1:
+#         name: Georges Abidbol
+#         job: cow-boy
+#       item2:
+#         name: René Coty
+#         job: President de la IVe
+
+#   tasks:
+#     - name: debug
+#       debug: 
+#         msg: |
+#           {% for item, datas in items.items() %}
+#           {{ item }} name: {{ datas.name }} job: {{ datas.job }}
+#           {% endfor %} 
+
+#     - name: copy
+#       copy:
+#         content: |
+#           {% for item in items %}
+#           name: {{ items[item].name }} - job: {{ items[item].job }}
+#           {% endfor %} 
+#         dest: /tmp/test_jinja.txt
+
+# Ansible handlers (démarrage de taches conditionnés par changements de configs sur le serveur)
+- name: test des handlers
+  hosts: all
+  become: yes
+  tasks:
+  - name: install nginx et curl
+    apt:
+      name: nginx,curl
+      state: present
+      cache_valid_time: 3600
+      update_cache: yes
+
+  - name: remove default file
+    file:
+      path: "{{ item }}"
+      state: absent
+    with_items:
+    - "/etc/nginx/sites-available/default"
+    - "/etc/nginx/sites-enabled/default"
+
+  - name: installvhost.conf
+    template:
+      src: vhost.conf.j2
+      dest: /etc/nginx/sites-available/vhost.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify: restart nginx
+
+  - name: création du lien symbolique du vhost
+    file: 
+      src: /etc/nginx/sites-available/vhost.conf
+      dest: /etc/nginx/sites-enabled/vhost.conf
+      state: link
+
+  handlers: 
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
