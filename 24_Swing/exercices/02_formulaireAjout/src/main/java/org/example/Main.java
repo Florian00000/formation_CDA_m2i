@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.layout.MainLayout;
+
 import javax.swing.*;
 
 public class Main {
@@ -8,6 +10,8 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 1200);
         frame.setLocationRelativeTo(null);
+
+        frame.add(new MainLayout().getPanel());
 
 
         frame.setVisible(true);
