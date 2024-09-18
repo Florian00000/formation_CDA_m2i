@@ -5,15 +5,20 @@ import io.smallrye.common.annotation.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.example.Product;
 import org.example.ProductRepository;
+import org.example.ProductService;
 
 @ApplicationScoped
 public class ProductKafkaConsumer {
 
     @Inject
     ProductRepository productRepository;
+
+    @Inject
+    ProductService productService;
 
     @Incoming("stock-increase")
     @Blocking
@@ -40,6 +45,15 @@ public class ProductKafkaConsumer {
         String[] parts = message.split(" ");
         return Integer.parseInt(parts[5]);
     }
+
+    @Incoming("available")
+    @Blocking
+    public void consume(ConsumerRecord<String, String> record){
+        Long productId = Long.valueOf(record.value());
+        productService.updateProductAvailability(productId);
+    }
+
+
 
 
 }

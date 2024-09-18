@@ -85,4 +85,23 @@ public class InventoryService {
         productInventoryRepository.persist(productInventory);
         return productInventory;
     }
+
+
+    @Transactional
+    public void decreaseQuantity(Long productId, int quantity){
+        ProductInventory productInventory = productInventoryRepository.findById(productId);
+        if(productInventory != null){
+            int newQuantity = productInventory.getQuantity() - quantity;
+            productInventory.setQuantity(newQuantity);
+            productInventoryRepository.persist(productInventory);
+            if(newQuantity <= 0){
+                inventoryKafkaProducer.publishProductAvailabilityEvent(productId);
+            }
+
+        }
+    }
+
+
+
+
 }

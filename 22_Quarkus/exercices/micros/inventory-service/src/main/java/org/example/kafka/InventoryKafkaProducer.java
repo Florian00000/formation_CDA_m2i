@@ -14,10 +14,20 @@ public class InventoryKafkaProducer {
     Emitter<String> stockIncreaseEmitter;
 
 
+    @Inject
+    @Channel("available")
+    Emitter<String> availableEmitter;
+
     public void publishStockIncreaseEvent(Long productId, int newQuantity){
         String message = "Product " + productId + " stock increased to " + newQuantity;
         stockIncreaseEmitter.send(message);
     }
+
+    public void publishProductAvailabilityEvent(Long productId){
+        String message = productId.toString();
+        availableEmitter.send(message);
+    }
+
 
 
 }

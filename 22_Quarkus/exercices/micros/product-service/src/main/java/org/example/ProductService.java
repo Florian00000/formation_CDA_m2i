@@ -38,6 +38,17 @@ public class ProductService {
         return entity;
     }
 
+
+    @Transactional
+    public void updateProductAvailability(Long productId){
+        Product product = productRepository.findById(productId);
+        if(product != null){
+            product.setAvailable(false);
+            productRepository.persist(product);
+        }
+    }
+
+
     @Transactional
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
