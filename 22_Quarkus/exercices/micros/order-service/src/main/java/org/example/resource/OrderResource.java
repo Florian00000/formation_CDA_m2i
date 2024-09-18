@@ -6,6 +6,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.example.entity.Order;
 import org.example.service.OrderService;
 
@@ -21,6 +22,7 @@ public class OrderResource {
 
     @GET
     public List<Order> getAllOrders() {
+
         return orderService.getAllOrders();
     }
 
@@ -31,7 +33,8 @@ public class OrderResource {
     }
 
     @POST
-    public Order createOrder(Order order) {
+    public Response createOrder(Order order) {
+
         return orderService.createOrder(order);
     }
 

@@ -5,12 +5,15 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.example.client.ClientServiceClient;
 import org.example.client.ProductServiceClient;
 import org.example.dto.ClientDto;
 import org.example.dto.ProductDto;
 import org.example.entity.Order;
+import org.example.kafka.OrderKafkaProducer;
 import org.example.repository.OrderRepository;
 
 import java.time.LocalDateTime;
@@ -20,6 +23,10 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class OrderService {
+
+
+    @Inject
+    OrderKafkaProducer orderProducer;
 
     @Inject
     OrderRepository orderRepository;
@@ -47,11 +54,28 @@ public class OrderService {
     }
 
     @Transactional
-    public Order createOrder(Order order) {
+    public Response createOrder(Order order) {
         validateOrder(order);
         order.setOrderDate(LocalDateTime.now());
-        orderRepository.isPersistent(order);
-        return enrichOrderWithDetails(order);
+        // Vérifier si le client est bloqué
+        ClientDto client = clientServiceClient.getClientById(order.getClientId());
+        if (client != null && client.getIsBlocked()) {
+            return Response.status(Response.Status.FORBIDDEN)
+                    .entity("Client is blocked and cannot place new orders.").build();
+        }
+
+        // Persister la commande dans la base de données
+        order.setStatus("PENDING");
+        orderRepository.persist(order);
+
+        // Utiliser OrderProducer pour envoyer un message à Kafka
+        orderProducer.sendOrder(order.getId(), order.getClientId(), order.getQuantity(), order.getPrice());
+
+        // La réponse est retournée avec le statut "PENDING". Le paiement sera traité de manière asynchrone.
+
+        Order order1 = enrichOrderWithDetails(order);
+        return Response.accepted(order1).build();
+
     }
 
     @Transactional

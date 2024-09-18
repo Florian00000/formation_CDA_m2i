@@ -59,19 +59,12 @@ public class InventoryResource {
         }
     }
 
+
     @GET
     @Path("/{productId}/increase")
     public Response increaseInventory(@PathParam("productId") Long productId, @QueryParam("quantity") int quantity) {
         inventoryService.increaseInventory(productId, quantity);
         return Response.ok().build();
     }
-
-    @GET
-    @Path("/decrease/{productId}/{quantity}")
-    public Response decreaseInventory(@PathParam("productId") Long productId, @PathParam("quantity") int quantity) {
-        inventoryService.decreaseQuantity(productId,quantity);
-        return Response.ok().build();
-    }
-
 }
 

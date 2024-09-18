@@ -28,6 +28,10 @@ public class Order {
     @Column(name= "client_id")
     private Long clientId;
 
+    private int price;
+
+    private String status;
+
     @Transient
     public ProductDto productDto;
 

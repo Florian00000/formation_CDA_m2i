@@ -28,3 +28,4 @@ services:
 
 # - docker exec -it micros-kafka-1 bash
 # - /bin/kafka-topics --create --topic stock-increase --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+# - kafka-topics.sh --bootstrap-server localhost:9092 --list
