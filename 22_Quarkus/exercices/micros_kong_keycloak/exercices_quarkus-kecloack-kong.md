@@ -118,3 +118,24 @@ lancer avec la commande
 ```bash 
 docker-compose -f docker-compose-kong.yml -up -d
 ``` 
+
+assigner les endpoints à kong  
+```bash
+CURL -i -X POST http://localhost:8001/services --data_name=order-service --data url=http://host.docker.internal:8080/orders
+```    
+ 
+`host.docker.internal` sert à spécifier qu'il s'agit du localhost de la machine et pas du conteneur  
+
+```bash
+CURL -i -X POST http://localhost:8001/services/order-service/routes --data 'paths[]=/orders' --data name=orders
+```    
+
+```bash
+CURL -i -X POST http://localhost:8001/services/order-service/routes --data 'paths[]=/orders' --data methods=POST --data name=order-create-route
+```  
+
+```bash
+CURL -i -X POST http://localhost:8001/services/order-service/routes --data 'paths[]=/orders/{id}' --data name=get-order-by-id
+```
+
+- Le port 8001 sert juste à administrer Kong. Ensuite si on veut faire des appels API on doit passer par le port 8000 (qui redirige par la suite sur les services en question)
