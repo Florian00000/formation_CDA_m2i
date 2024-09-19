@@ -59,14 +59,44 @@ services:
       POSTGRES_PASSWORD: kong
     networks:
       - kong-net
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "kong" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: on-failure
+    
+    
+  kong-migrations:
+    image: kong:latest
+    command: kong migrations bootstrap
+    container_name: kong-migrations
+    networks:
+      - kong-net
+    depends_on:
+      kong-database:
+        condition: service_healthy
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_DATABASE: kong
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong
+    restart: on-failure
+
 
   kong:
     image: kong:latest
+    restart: on-failure
+    depends_on:
+      kong-database:
+        condition: service_healthy
     environment:
       KONG_DATABASE: postgres
       KONG_PG_HOST: kong-database
       KONG_PG_USER: kong
       KONG_PG_PASSWORD: kong
+      KONG_PG_DATABASE: kong
       KONG_PROXY_ACCESS_LOG: /dev/stdout
       KONG_ADMIN_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
@@ -79,15 +109,12 @@ services:
       - "8444:8444"
     networks:
       - kong-net
-    depends_on:
-      - kong-database
-
 networks:
   kong-net:
 ```
 
 lancer avec la commande
 
-```bash
-docker-compose -f docker-compose-kong.yml -up 
-```
+```bash 
+docker-compose -f docker-compose-kong.yml -up -d
+``` 
