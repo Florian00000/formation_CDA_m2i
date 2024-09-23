@@ -1,0 +1,62 @@
+version: '3'
+services:
+  kong-database:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: kong
+      POSTGRES_DB: kong
+      POSTGRES_PASSWORD: kong
+    networks:
+      - kong-net
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "kong" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: on-failure
+
+
+  kong-migrations:
+    image: kong:latest
+    command: kong migrations bootstrap
+    container_name: kong-migrations
+    networks:
+      - kong-net
+    depends_on:
+      kong-database:
+        condition: service_healthy
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_DATABASE: kong
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong
+    restart: on-failure
+
+
+  kong:
+    image: kong:latest
+    restart: on-failure
+    depends_on:
+      kong-database:
+        condition: service_healthy
+    environment:
+      KONG_DATABASE: postgres
+      KONG_PG_HOST: kong-database
+      KONG_PG_USER: kong
+      KONG_PG_PASSWORD: kong
+      KONG_PG_DATABASE: kong
+      KONG_PROXY_ACCESS_LOG: /dev/stdout
+      KONG_ADMIN_ACCESS_LOG: /dev/stdout
+      KONG_PROXY_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_ERROR_LOG: /dev/stderr
+      KONG_ADMIN_LISTEN: 0.0.0.0:8001
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+    networks:
+      - kong-net
+networks:
+  kong-net:

@@ -18,18 +18,18 @@ import java.util.List;
 @Path("/orders")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Authenticated
+//@Authenticated
 public class OrderResource {
 
 
-    @Inject
-    JsonWebToken jsonWebToken;
+    //@Inject
+    //JsonWebToken jsonWebToken;
 
     @Inject
     OrderService orderService;
 
     @GET
-    @RolesAllowed("manager")
+   // @RolesAllowed("manager")
     public List<Order> getAllOrders() {
 
         return orderService.getAllOrders();

@@ -30,14 +30,14 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
+       <!-- <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-oidc</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-oidc-token-propagation-reactive</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-h2</artifactId>
